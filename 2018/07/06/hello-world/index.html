@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="机器学习机器学习正如其字面意思，就是计算机（严格说是计算机程序）能够通过自主学习而变得越来越聪明。简单的机器学习过程，就是通过喂给机器某一类现存大量初始条件和已知正确结果的数据（可以称为教材），外加一个数学模型 （带有一些参数的公式，也称算法），让程序通过反复运算，不断调整这些参数，直至得到一组“最佳”的参数。一旦有了这些“最佳”参数，机器可以近乎完美地算出对应的正确结果。如此这般，机器就“学会”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My personal website">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/hello-world/index.html">
+<meta property="og:site_name" content="My personal website">
+<meta property="og:description" content="机器学习机器学习正如其字面意思，就是计算机（严格说是计算机程序）能够通过自主学习而变得越来越聪明。简单的机器学习过程，就是通过喂给机器某一类现存大量初始条件和已知正确结果的数据（可以称为教材），外加一个数学模型 （带有一些参数的公式，也称算法），让程序通过反复运算，不断调整这些参数，直至得到一组“最佳”的参数。一旦有了这些“最佳”参数，机器可以近乎完美地算出对应的正确结果。如此这般，机器就“学会”">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload.xingkongmt.com/images/5085/20170807/3db251ec-afb8-42de-9e0c-52e562dc94ea.jpeg">
+<meta property="og:image" content="https://sg.fiverrcdn.com/photos/75648476/original/f303394129c0b6352c43235b6fae39b522b1dfb8.png?1485029457">
+<meta property="og:image" content="http://7xrrje.com1.z0.glb.clouddn.com/img_1.jpg?imageMogr/v2/thumbnail/!45p">
+<meta property="og:image" content="http://7xrrje.com1.z0.glb.clouddn.com/img_1022aa.jpg?imageMogr/v2/thumbnail/!45p">
+<meta property="og:image" content="http://7xrrje.com1.z0.glb.clouddn.com/screenshot_582.png?imageMogr/v2/thumbnail/!55p">
+<meta property="og:image" content="https://nowenlightenme.files.wordpress.com/2018/03/slide_2.jpg">
+<meta property="og:updated_time" content="2018-07-09T05:31:47.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My personal website">
+<meta name="twitter:description" content="机器学习机器学习正如其字面意思，就是计算机（严格说是计算机程序）能够通过自主学习而变得越来越聪明。简单的机器学习过程，就是通过喂给机器某一类现存大量初始条件和已知正确结果的数据（可以称为教材），外加一个数学模型 （带有一些参数的公式，也称算法），让程序通过反复运算，不断调整这些参数，直至得到一组“最佳”的参数。一旦有了这些“最佳”参数，机器可以近乎完美地算出对应的正确结果。如此这般，机器就“学会”">
+<meta name="twitter:image" content="http://upload.xingkongmt.com/images/5085/20170807/3db251ec-afb8-42de-9e0c-52e562dc94ea.jpeg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/hello-world/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | My personal website</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">My personal website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Subtitle</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tjianke">
+      <meta itemprop="description" content="It's my personal blog.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My personal website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-06 09:40:52" itemprop="dateCreated datePublished" datetime="2018-07-06T09:40:52+08:00">2018-07-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-09 13:31:47" itemprop="dateModified" datetime="2018-07-09T13:31:47+08:00">2018-07-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><p>机器学习正如其字面意思，就是计算机（严格说是计算机程序）能够通过自主学习而变得越来越聪明。简单的机器学习过程，就是通过喂给机器某一类现存大量初始条件和已知正确结果的数据（可以称为教材），外加一个数学模型 （带有一些参数的公式，也称算法），让程序通过反复运算，不断调整这些参数，直至得到一组“最佳”的参数。一旦有了这些“最佳”参数，机器可以近乎完美地算出对应的正确结果。如此这般，机器就“学会”处理这一类数据的本领，可以用来计算出比较可信的结果，例如诊断疾病，预测天气，识别图像，下棋，自动驾驶等等。</p>
+<h2 id="机器学习历史"><a href="#机器学习历史" class="headerlink" title="机器学习历史"></a>机器学习历史</h2><p>机器学习并不是一个新的理论。上世纪 50 年代就有人提出了一些机器学习算法。但因为这些传统的早期算法不够聪明，能解决的问题有限，处理不了复杂问题，这个分支一直没有大的进展。这些年机器学习的成功更多是归功于深度学习方面的进展。深度学习的理论也已经成型很久，但由于中间隐藏层的误差无法准确计算，所以很难实际应用。直到 1986 年有人提出了反向传播算法（Back Propagation， BP），深度学习才有长足进步和实际应用的可能。</p>
+<p><img src="http://upload.xingkongmt.com/images/5085/20170807/3db251ec-afb8-42de-9e0c-52e562dc94ea.jpeg" alt="Relationship between AI, ML and DL"></p>
+<p align="center">Relationship between AI, ML and DL</p>
+
+<p>人工智能(AI),机器学习(ML), 和深度学习(DL)并不是一回事。深度学习(DL)是机器学习(ML)的主要算法，而机器学习(ML)是人工智能(AI)的核心功能(图三)。深度学习的算法尽管已经比较成熟，但在实际应用中还会遇到各种挑战，比如要得到最佳参数需要喂给机器大量数据让机器自己学习。数据越多，机器就越聪明。而处理大量数据就会遇到大数据的问题，解决的办法主要是靠分布式存储和计算。 </p>
+<p>机器学习可以分为以下三大种类：<br><img src="https://sg.fiverrcdn.com/photos/75648476/original/f303394129c0b6352c43235b6fae39b522b1dfb8.png?1485029457" alt="Types of Machine Learning"></p>
+<h2 id="Supervised-Learning-监督学习-："><a href="#Supervised-Learning-监督学习-：" class="headerlink" title="Supervised Learning (监督学习)："></a>Supervised Learning (监督学习)：</h2><blockquote>
+<p>从给定输入和输出的数据中建立一个函数，并依此函数推测新的输出。</p>
+</blockquote>
+<p>简单来说，计量经济学中的模型都可以归类为监督学习。根据各种输入（X）预测与输出（Y）之间是否存在关联。</p>
+<p><img src="http://7xrrje.com1.z0.glb.clouddn.com/img_1.jpg?imageMogr/v2/thumbnail/!45p" alt="房价预测模型"></p>
+<p align="center">回归：根据房屋面积预测房价</p>
+
+<p><img src="http://7xrrje.com1.z0.glb.clouddn.com/img_1022aa.jpg?imageMogr/v2/thumbnail/!45p" alt="肿瘤预测为题"></p>
+<p align="center">分类：根据肿瘤大小预测恶心肿瘤</p>
+
+<p>监督学习和无监督学习的区别就在于监督学习的数据不仅仅有特征组成, 即每一个数据样本都包含一个准确的输出值（房价、肿瘤是否恶性）。</p>
+<h2 id="Unsupervised-Learning-非监督学习"><a href="#Unsupervised-Learning-非监督学习" class="headerlink" title="Unsupervised Learning (非监督学习)"></a>Unsupervised Learning (非监督学习)</h2><blockquote>
+<p>在无监督学习中, 我们的数据并没有给出特定的标签(如上例中的房价或肿瘤性质）。 我们目标也从预测输出变为寻找数据的结构特性。</p>
+</blockquote>
+<p>如下图所示, 我们可以直观的感受到监督学习和无监督学习在数据集上的区别。<br><img src="http://7xrrje.com1.z0.glb.clouddn.com/screenshot_582.png?imageMogr/v2/thumbnail/!55p" alt="Difference"></p>
+<p align="center">监督式学习和非监督式学习的差异</p>
+
+<p><img src="https://nowenlightenme.files.wordpress.com/2018/03/slide_2.jpg" alt="Unsupervised Learning"><br>当然图片上的分类算法仅仅包括两个维度的数据（x,y）。业界运用的非监督学习所涉及到的数据维度往往较大，但是聚类的方法仍然类似。<br>常用算法推荐：？</p>
+<h2 id="Reinforcement-Learning-（强化学习）"><a href="#Reinforcement-Learning-（强化学习）" class="headerlink" title="Reinforcement Learning （强化学习）"></a>Reinforcement Learning （强化学习）</h2><p>在强化学习（RL）中没有原始已知数据可以学习。强化学习面对的是一个不断变化的状态空间，要解决的是一个决策链问题。其目的是找到在当前环境（状态空间）下最佳决策是什么。这里的挑战是，当下的决策好坏当下无法立刻验证和评估，要根据多次决策以后才能知道。机器需要在变化的环境中通过大量的多次的试错学习，再根据某种规则找到产生最佳结果的最佳路径，从而做出最佳决策。常见的应用有<strong>下棋</strong>、<strong>自动驾驶</strong>等。</p>
+<p>让我们看看人类棋手的决策过程：</p>
+<blockquote>
+<p>人类棋手根据当下棋盘上情况找到他（她）认为是最佳的下一步棋的落点。高手一般能看到后面的几步棋，从而确定走哪一步对自己最有利。这个过程可以用计算机来模拟，我们把从现在开始所有可能的走法（也称之为路径）逐个试一遍，从而选出下一步棋的最佳方案。这种简单粗暴的方法穷尽了所有的可能路径，必定旗开得胜。</p>
+</blockquote>
+<p>AlphaGo利用大量高手(3000万)对弈棋谱，通过13层的深度卷积神经网络（Convolutional Neural Network， CNN）计算出这些高手们在某个棋盘状态时下一手在某个位置落子的概率（落子概率）。输入值是棋子的方格位置状态，输出值是在某一位置下棋的概率，所以这里应用了监督学习的算法。</p>
+<p>这样，阿尔法狗通过强化学习知道了每一个试过的走法的赢棋概率。但是还有大量的没有试过的走法，在这些走法里面有可能存在很多赢棋概率的走法。为了解决这个问题，阿尔法狗又使用了新的学习过程：本来每次落子蒙特卡罗方法都会算出最佳走法，但在左右互搏时加入一定的随机走法以不断扩展探索空间寻找更佳走法的棋谱。然后根据新的棋谱产生更好的赢棋概率分布。这个过程会不断地重复。通过这样的自我训练学习，阿尔法狗的能力不断提高。</p>
+<h4 id="阿法狗的局限"><a href="#阿法狗的局限" class="headerlink" title="阿法狗的局限"></a>阿法狗的局限</h4><p>阿尔法狗（AlphaGo）战胜人类是人工智能的一个巨大突破，也跌破了很多人的眼镜。特别是阿尔法狗能自我学习，让很多人以为它啥都能学会，一定会超过人类。这显然是对阿尔法狗的误解。到目前为止，机器学习多是找到喂给机器的数据里的特征或者模式，而且里面用到的模型也只适合那些数据，对其他种类的数据就无能为力。既是强化学习，也是根据已知规则来学习评估，这些规则和评估方式对另外一个环境就完全不适用了。换一句话说，当前的机器学习都是特定能力的学习。能够像人类一样，可以学习不同的东西、具有广泛学习能力的机器到现在还没有出现。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/09/Comparison/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Tjianke</p>
+              <p class="site-description motion-element" itemprop="description">It's my personal blog.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习"><span class="nav-number">1.</span> <span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习历史"><span class="nav-number">1.1.</span> <span class="nav-text">机器学习历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Learning-监督学习-："><span class="nav-number">1.2.</span> <span class="nav-text">Supervised Learning (监督学习)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-Learning-非监督学习"><span class="nav-number">1.3.</span> <span class="nav-text">Unsupervised Learning (非监督学习)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reinforcement-Learning-（强化学习）"><span class="nav-number">1.4.</span> <span class="nav-text">Reinforcement Learning （强化学习）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#阿法狗的局限"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">阿法狗的局限</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tjianke</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
