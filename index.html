@@ -232,6 +232,181 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tjianke">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My personal website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/29/mysql/" itemprop="url">Mysql</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T21:11:00+08:00">
+                2018-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Preface : some say installing Mysql trouble, luckily  it worked smoothly for me.</p>
+<h1 id="Connect-Mysql-with-Python"><a href="#Connect-Mysql-with-Python" class="headerlink" title="Connect Mysql with Python"></a>Connect Mysql with Python</h1><p>1.Install Mysql Connector with : <code>pip install mysql-connector-python</code> // Question : What’s the difference between binary and source distribution</p>
+<h1 id="Start-and-Shutdown-Mysql"><a href="#Start-and-Shutdown-Mysql" class="headerlink" title="Start and Shutdown Mysql"></a>Start and Shutdown Mysql</h1><p>1.To start, just enter <code>mysqld</code> </p>
+<p>2.General logging method for mysql : <code>mysql -uroot -p</code></p>
+<p>3.To shutdown, <code>mysqladmin -u root shutdown</code></p>
+<h1 id="Querying-Mysql"><a href="#Querying-Mysql" class="headerlink" title="Querying Mysql"></a>Querying Mysql</h1><ul>
+<li><code>select NAME|* from TABLE_NAME where CONDITIONAL;</code><ul>
+<li>Notice keywords may be entered in any lettercase</li>
+</ul>
+</li>
+</ul>
+<h1 id="Creating-and-Using-a-Table"><a href="#Creating-and-Using-a-Table" class="headerlink" title="Creating and Using a Table"></a>Creating and Using a Table</h1><ul>
+<li><code>show databases;</code>  to show all available DBs</li>
+<li><code>use db</code> to switch to certain dbs;</li>
+<li>Assume admin need to edit access for certain user <code>grant all on db.* to &#39;username@host&#39;</code> </li>
+<li><p><strong>Create: </strong> <code>create table TABLE_NAME (var data_type)</code></p>
+<ul>
+<li>VARCHAR : defines length, 4 byte room</li>
+<li>CHAR</li>
+<li>DATE </li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20),</span><br><span class="line">    -&gt; species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>describe</strong> show all detail of a table</p>
+</li>
+</ul>
+<h1 id="Loading-Data-into-a-table"><a href="#Loading-Data-into-a-table" class="headerlink" title="Loading Data into a table"></a>Loading Data into a table</h1><ul>
+<li>When you want to insert values into a table through txt file:<ul>
+<li>Just enter data line by line and set null to <code>\N</code></li>
+<li><code>load data local infile &#39;path/input.txt&#39; into table NAME</code></li>
+</ul>
+</li>
+<li>Or in the normal way : <ul>
+<li><code>insert into TABLE_NAME values(data data_type);</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="Retrieving-Data-from-Tables"><a href="#Retrieving-Data-from-Tables" class="headerlink" title="Retrieving Data from Tables"></a>Retrieving Data from Tables</h1><ul>
+<li><p>General retrieving pattern :</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    SELECT what_to_select</span><br><span class="line">FROM which_table</span><br><span class="line">WHERE conditions_to_satisfy;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Update : </strong> <code>update TABLE set tar_var = data where CONDITIONAL</code></p>
+</li>
+<li><strong>Select particular column</strong> :<ul>
+<li><code>select column_name from TABLE</code></li>
+</ul>
+</li>
+<li>To sort, use <code>Order</code> clause<ul>
+<li>param: <code>DESC</code> to descending</li>
+</ul>
+</li>
+</ul>
+<h1 id="Pattern-Matching-in-Mysql"><a href="#Pattern-Matching-in-Mysql" class="headerlink" title="Pattern Matching in Mysql"></a>Pattern Matching in Mysql</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/Hexo_startup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -314,6 +489,139 @@
 <li><strong>Generate: </strong> you can either <code>hexo generate</code> to publish your files into <code>public</code> directory or <code>hexo server</code> to start local host. (–debug for debugging mode)</li>
 <li><strong>Deploy: </strong> <code>hexo deploy</code>, make sure <code>_config.yml</code> configured <code>deploy repository</code></li>
 </ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/Markdown Retro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tjianke">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My personal website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/29/Markdown Retro/" itemprop="url">Markdown Retro</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T19:24:02+08:00">
+                2018-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Markdown-Retro"><a href="#Markdown-Retro" class="headerlink" title="Markdown Retro"></a>Markdown Retro</h1><h2 id="Headers"><a href="#Headers" class="headerlink" title="Headers"></a>Headers</h2><p>Headers are showed as 6 types, accroding to number of hash(#)</p>
+<h2 id="Emphasis"><a href="#Emphasis" class="headerlink" title="Emphasis"></a>Emphasis</h2><p>First type : <em>wrap with</em> *<br>Sencond type : <em>wrap with</em> _ underline<br>Third type : <strong>wrap with</strong> </p>
+<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><p>1.Ordered lists : *<br>2.Unordered lists : numerate</p>
+<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><p>In the form of :</p>
+<blockquote>
+<p><img src="Address" alt="Caption"></p>
+</blockquote>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p>Similar to that of images, except don’t require &gt;:</p>
+<blockquote>
+<p><a href="Adress">Caption</a></p>
+</blockquote>
+<h2 id="Inlinde-Code"><a href="#Inlinde-Code" class="headerlink" title="Inlinde Code"></a>Inlinde Code</h2><p><code>&lt;&gt;</code> small bracket wrapped with <code></code></p>
+<h2 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h2><p>Column seperated with |</p>
+<h2 id="Syntax-Highlight"><a href="#Syntax-Highlight" class="headerlink" title="Syntax Highlight"></a>Syntax Highlight</h2><p>Include codes with <code>`</code> [Name of language]</p>
 
           
         
@@ -466,139 +774,6 @@
 <p>AlphaGo利用大量高手(3000万)对弈棋谱，通过13层的深度卷积神经网络（Convolutional Neural Network， CNN）计算出这些高手们在某个棋盘状态时下一手在某个位置落子的概率（落子概率）。输入值是棋子的方格位置状态，输出值是在某一位置下棋的概率，所以这里应用了监督学习的算法。</p>
 <p>这样，阿尔法狗通过强化学习知道了每一个试过的走法的赢棋概率。但是还有大量的没有试过的走法，在这些走法里面有可能存在很多赢棋概率的走法。为了解决这个问题，阿尔法狗又使用了新的学习过程：本来每次落子蒙特卡罗方法都会算出最佳走法，但在左右互搏时加入一定的随机走法以不断扩展探索空间寻找更佳走法的棋谱。然后根据新的棋谱产生更好的赢棋概率分布。这个过程会不断地重复。通过这样的自我训练学习，阿尔法狗的能力不断提高。</p>
 <h4 id="阿法狗的局限"><a href="#阿法狗的局限" class="headerlink" title="阿法狗的局限"></a>阿法狗的局限</h4><p>阿尔法狗（AlphaGo）战胜人类是人工智能的一个巨大突破，也跌破了很多人的眼镜。特别是阿尔法狗能自我学习，让很多人以为它啥都能学会，一定会超过人类。这显然是对阿尔法狗的误解。到目前为止，机器学习多是找到喂给机器的数据里的特征或者模式，而且里面用到的模型也只适合那些数据，对其他种类的数据就无能为力。既是强化学习，也是根据已知规则来学习评估，这些规则和评估方式对另外一个环境就完全不适用了。换一句话说，当前的机器学习都是特定能力的学习。能够像人类一样，可以学习不同的东西、具有广泛学习能力的机器到现在还没有出现。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/try/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tjianke">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My personal website">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/29/try/" itemprop="url">Markdown Retro</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T19:24:02+08:00">
-                2018-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Markdown-Retro"><a href="#Markdown-Retro" class="headerlink" title="Markdown Retro"></a>Markdown Retro</h1><h2 id="Headers"><a href="#Headers" class="headerlink" title="Headers"></a>Headers</h2><p>Headers are showed as 6 types, accroding to number of hash(#)</p>
-<h2 id="Emphasis"><a href="#Emphasis" class="headerlink" title="Emphasis"></a>Emphasis</h2><p>First type : <em>wrap with</em> *<br>Sencond type : <em>wrap with</em> _ underline<br>Third type : <strong>wrap with</strong> </p>
-<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><p>1.Ordered lists : *<br>2.Unordered lists : numerate</p>
-<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><p>In the form of :</p>
-<blockquote>
-<p><img src="Address" alt="Caption"></p>
-</blockquote>
-<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p>Similar to that of images, except don’t require &gt;:</p>
-<blockquote>
-<p><a href="Adress">Caption</a></p>
-</blockquote>
-<h2 id="Inlinde-Code"><a href="#Inlinde-Code" class="headerlink" title="Inlinde Code"></a>Inlinde Code</h2><p>‘&lt;&gt;’ small bracket wrapped with ‘’</p>
-<h2 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h2><p>Column seperated with |</p>
-<h2 id="Syntax-Highlight"><a href="#Syntax-Highlight" class="headerlink" title="Syntax Highlight"></a>Syntax Highlight</h2><p>Include codes with <code>`</code> [Name of language]</p>
 
           
         
@@ -886,12 +1061,12 @@
 <h2 id="小米招股书分析"><a href="#小米招股书分析" class="headerlink" title="小米招股书分析"></a>小米招股书分析</h2><h2 id="小米是一家什么样的公司？"><a href="#小米是一家什么样的公司？" class="headerlink" title="小米是一家什么样的公司？"></a>小米是一家什么样的公司？</h2><p>在可预见的未来，这都将是一个困扰投资界的难题。小米的行业归属问题绝不仅仅是个案，随着整体经济和互联网程度的不断深化，中国必将涌现更多新兴的、跨产业的、没有海外对标公司的企业。</p>
 <p>正确理解一个公司的定位和行业属性有助于基本面研究和对估值中枢的判断。那么在目前这个阶段，我们该如何定义小米？</p>
 <h2 id="小米历轮融资情况（估值、调整后股数）"><a href="#小米历轮融资情况（估值、调整后股数）" class="headerlink" title="小米历轮融资情况（估值、调整后股数）"></a>小米历轮融资情况（估值、调整后股数）</h2><p>此处插入老虎证券分析图<br><img src="https://raw.githubusercontent.com/Tjianke/Blog_Images/master/%E5%B0%8F%E7%B1%B3%E8%9E%8D%E8%B5%84%E6%83%85%E5%86%B5.jpg" alt="小米上市前的九轮融资"><br>可以看到<br>注：招股书中未披露历轮融资的详细合同。</p>
-<div id="echarts472" style="width: 100%;height: 500px;margin: 0 auto"></div>
+<div id="echarts109" style="width: 100%;height: 500px;margin: 0 auto"></div>
 <script src="http://echarts.baidu.com/dist/echarts.common.min.js"></script>
 
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts472'));
+        var myChart = echarts.init(document.getElementById('echarts109'));
         // 指定图表的配置项和数据
         var option = {
 title: {
@@ -1128,7 +1303,7 @@ title: {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1141,7 +1316,7 @@ title: {
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

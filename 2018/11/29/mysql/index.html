@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo Frontend," />
+  <meta name="keywords" content="Database," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Prerequiste : Make sure you already have Git and Node Common steps for setting up Hexo in your computer:  npm install hexo-cli -gto install hexo from npm. Here parameter g means global installation an">
-<meta name="keywords" content="Hexo Frontend">
+<meta name="description" content="Preface : some say installing Mysql trouble, luckily  it worked smoothly for me. Connect Mysql with Python1.Install Mysql Connector with : pip install mysql-connector-python // Question : What’s the d">
+<meta name="keywords" content="Database">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo Startup">
-<meta property="og:url" content="http://yoursite.com/2018/11/29/Hexo_startup/index.html">
+<meta property="og:title" content="Mysql">
+<meta property="og:url" content="http://yoursite.com/2018/11/29/mysql/index.html">
 <meta property="og:site_name" content="My personal website">
-<meta property="og:description" content="Prerequiste : Make sure you already have Git and Node Common steps for setting up Hexo in your computer:  npm install hexo-cli -gto install hexo from npm. Here parameter g means global installation an">
+<meta property="og:description" content="Preface : some say installing Mysql trouble, luckily  it worked smoothly for me. Connect Mysql with Python1.Install Mysql Connector with : pip install mysql-connector-python // Question : What’s the d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T12:47:33.127Z">
+<meta property="og:updated_time" content="2018-11-29T14:49:54.519Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo Startup">
-<meta name="twitter:description" content="Prerequiste : Make sure you already have Git and Node Common steps for setting up Hexo in your computer:  npm install hexo-cli -gto install hexo from npm. Here parameter g means global installation an">
+<meta name="twitter:title" content="Mysql">
+<meta name="twitter:description" content="Preface : some say installing Mysql trouble, luckily  it worked smoothly for me. Connect Mysql with Python1.Install Mysql Connector with : pip install mysql-connector-python // Question : What’s the d">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/29/Hexo_startup/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/29/mysql/"/>
 
 
 
 
 
-  <title>Hexo Startup | My personal website</title>
+  <title>Mysql | My personal website</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/Hexo_startup/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tjianke">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo Startup</h1>
+          <h1 class="post-title" itemprop="name headline">Mysql</h1>
         
 
         <div class="post-meta">
@@ -262,7 +262,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T20:06:57+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T21:11:00+08:00">
                 2018-11-29
               </time>
             
@@ -300,18 +300,63 @@
       
 
       
-        <p>Prerequiste : Make sure you already have <code>Git</code> and <code>Node</code></p>
-<p>Common steps for setting up Hexo in your computer:</p>
-<ol>
-<li><p><code>npm install hexo-cli -g</code><br>to install hexo from npm. Here parameter g means global installation and back-tick is this symbol `</p>
+        <p>Preface : some say installing Mysql trouble, luckily  it worked smoothly for me.</p>
+<h1 id="Connect-Mysql-with-Python"><a href="#Connect-Mysql-with-Python" class="headerlink" title="Connect Mysql with Python"></a>Connect Mysql with Python</h1><p>1.Install Mysql Connector with : <code>pip install mysql-connector-python</code> // Question : What’s the difference between binary and source distribution</p>
+<h1 id="Start-and-Shutdown-Mysql"><a href="#Start-and-Shutdown-Mysql" class="headerlink" title="Start and Shutdown Mysql"></a>Start and Shutdown Mysql</h1><p>1.To start, just enter <code>mysqld</code> </p>
+<p>2.General logging method for mysql : <code>mysql -uroot -p</code></p>
+<p>3.To shutdown, <code>mysqladmin -u root shutdown</code></p>
+<h1 id="Querying-Mysql"><a href="#Querying-Mysql" class="headerlink" title="Querying Mysql"></a>Querying Mysql</h1><ul>
+<li><code>select NAME|* from TABLE_NAME where CONDITIONAL;</code><ul>
+<li>Notice keywords may be entered in any lettercase</li>
+</ul>
 </li>
-<li><p>Fire up your first Hexo directory with <code>Hexo init</code>, default workplace being CWD.</p>
+</ul>
+<h1 id="Creating-and-Using-a-Table"><a href="#Creating-and-Using-a-Table" class="headerlink" title="Creating and Using a Table"></a>Creating and Using a Table</h1><ul>
+<li><code>show databases;</code>  to show all available DBs</li>
+<li><code>use db</code> to switch to certain dbs;</li>
+<li>Assume admin need to edit access for certain user <code>grant all on db.* to &#39;username@host&#39;</code> </li>
+<li><p><strong>Create: </strong> <code>create table TABLE_NAME (var data_type)</code></p>
+<ul>
+<li>VARCHAR : defines length, 4 byte room</li>
+<li>CHAR</li>
+<li>DATE </li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20),</span><br><span class="line">    -&gt; species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);</span><br></pre></td></tr></table></figure>
 </li>
-<li>Then edit your <code>source/_post</code> and <code>_config.yml</code></li>
-<li><strong>Generate: </strong> you can either <code>hexo generate</code> to publish your files into <code>public</code> directory or <code>hexo server</code> to start local host. (–debug for debugging mode)</li>
-<li><strong>Deploy: </strong> <code>hexo deploy</code>, make sure <code>_config.yml</code> configured <code>deploy repository</code></li>
-</ol>
-
+</ul>
+</li>
+<li><p><strong>describe</strong> show all detail of a table</p>
+</li>
+</ul>
+<h1 id="Loading-Data-into-a-table"><a href="#Loading-Data-into-a-table" class="headerlink" title="Loading Data into a table"></a>Loading Data into a table</h1><ul>
+<li>When you want to insert values into a table through txt file:<ul>
+<li>Just enter data line by line and set null to <code>\N</code></li>
+<li><code>load data local infile &#39;path/input.txt&#39; into table NAME</code></li>
+</ul>
+</li>
+<li>Or in the normal way : <ul>
+<li><code>insert into TABLE_NAME values(data data_type);</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="Retrieving-Data-from-Tables"><a href="#Retrieving-Data-from-Tables" class="headerlink" title="Retrieving Data from Tables"></a>Retrieving Data from Tables</h1><ul>
+<li><p>General retrieving pattern :</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    SELECT what_to_select</span><br><span class="line">FROM which_table</span><br><span class="line">WHERE conditions_to_satisfy;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Update : </strong> <code>update TABLE set tar_var = data where CONDITIONAL</code></p>
+</li>
+<li><strong>Select particular column</strong> :<ul>
+<li><code>select column_name from TABLE</code></li>
+</ul>
+</li>
+<li>To sort, use <code>Order</code> clause<ul>
+<li>param: <code>DESC</code> to descending</li>
+</ul>
+</li>
+</ul>
+<h1 id="Pattern-Matching-in-Mysql"><a href="#Pattern-Matching-in-Mysql" class="headerlink" title="Pattern Matching in Mysql"></a>Pattern Matching in Mysql</h1>
       
     </div>
     
@@ -328,7 +373,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo-Frontend/" rel="tag"># Hexo Frontend</a>
+            <a href="/tags/Database/" rel="tag"># Database</a>
           
         </div>
       
@@ -341,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/29/Markdown Retro/" rel="next" title="Markdown Retro">
-                <i class="fa fa-chevron-left"></i> Markdown Retro
+              <a href="/2018/11/29/Hexo_startup/" rel="next" title="Hexo Startup">
+                <i class="fa fa-chevron-left"></i> Hexo Startup
               </a>
             
           </div>
@@ -350,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/29/mysql/" rel="prev" title="Mysql">
-                Mysql <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -405,8 +446,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -457,6 +507,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Connect-Mysql-with-Python"><span class="nav-number">1.</span> <span class="nav-text">Connect Mysql with Python</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Start-and-Shutdown-Mysql"><span class="nav-number">2.</span> <span class="nav-text">Start and Shutdown Mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Querying-Mysql"><span class="nav-number">3.</span> <span class="nav-text">Querying Mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Creating-and-Using-a-Table"><span class="nav-number">4.</span> <span class="nav-text">Creating and Using a Table</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Loading-Data-into-a-table"><span class="nav-number">5.</span> <span class="nav-text">Loading Data into a table</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Retrieving-Data-from-Tables"><span class="nav-number">6.</span> <span class="nav-text">Retrieving Data from Tables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pattern-Matching-in-Mysql"><span class="nav-number">7.</span> <span class="nav-text">Pattern Matching in Mysql</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
