@@ -232,6 +232,139 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/06/Leetcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tjianke">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My personal website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/06/Leetcode/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-06T21:03:52+08:00">
+                2018-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Leetcode-Conquest"><a href="#Leetcode-Conquest" class="headerlink" title="Leetcode Conquest"></a>Leetcode Conquest</h1><p>This post mainly hosts all my code problems solved on Leetcode.</p>
+<h2 id="Question-0-100"><a href="#Question-0-100" class="headerlink" title="Question 0-100"></a>Question 0-100</h2><h3 id="Q105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal"><a href="#Q105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal" class="headerlink" title="Q105 Construct Binary Tree from Preorder and Inorder Traversal"></a><strong>Q105 Construct Binary Tree from Preorder and Inorder Traversal</strong></h3><p>Description: Given preorder and inorder traversal of  a tree, try to construct the binary tree.</p>
+<p>It might seem intimatidating at the first hand, but we can soon figure out following invariants:</p>
+<ul>
+<li>For inorder traversal, given certain elment, elements to its left are to its leftside. Same for right side.</li>
+<li>For preorder traversal, root and root.left(if exist) are always contiguous.</li>
+</ul>
+<p>Exploiting previous invariants, we can define any mini trees(root and its subs) easily.</p>
+<p>Process goes in this way:</p>
+<p>1.Select root and split entire array into two parts(Left and Right)</p>
+<p>2.Find root.lefe right after root in preorder array</p>
+<p>3.Utilizing invariants, root.right is located by offseting root X (X = num of left side elements + 1) units.</p>
+<p>4.Recursively repeat previous steps.</p>
+<p>We can utilize the algo by introducing HashMap to store key-value of input array.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] preOrder;</span><br><span class="line">    <span class="keyword">int</span>[] inOrder;</span><br><span class="line">    HashMap map;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.preOrder = preorder;</span><br><span class="line">        <span class="keyword">this</span>.inOrder = inorder;</span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map2 = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;=preorder.length-<span class="number">1</span>; i++)&#123;</span><br><span class="line">            map2.put(inorder[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.map = map2;</span><br><span class="line">        <span class="keyword">if</span>(preorder.length == <span class="number">0</span> || inorder.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        TreeNode root2 = <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>]);</span><br><span class="line">        finder(root2,<span class="number">0</span>,<span class="number">0</span>,preorder.length-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root2;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//find the treeNode</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">finder</span><span class="params">(TreeNode root, <span class="keyword">int</span> pos, <span class="keyword">int</span> begin, <span class="keyword">int</span> end)</span></span>&#123;<span class="comment">//pos : root index in preOrder</span></span><br><span class="line">        <span class="keyword">if</span>(begin&gt;=end) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> rootInOrder = (<span class="keyword">int</span>)(map.get(root.val));<span class="comment">//seperate InOrder list</span></span><br><span class="line">        <span class="keyword">if</span>(rootInOrder-<span class="number">1</span> &gt;= begin)&#123;</span><br><span class="line">            root.left = <span class="keyword">new</span> TreeNode(preOrder[pos+<span class="number">1</span>]);<span class="comment">// restrict pos+1&lt;=    </span></span><br><span class="line">            finder(root.left,pos+<span class="number">1</span>, begin, rootInOrder-<span class="number">1</span>);</span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">//if(rootInOrder &gt;= end) root.right = null;</span></span><br><span class="line">        <span class="keyword">if</span>(rootInOrder+<span class="number">1</span> &lt;= end)&#123;</span><br><span class="line">            <span class="keyword">int</span> rightIndex = pos+rootInOrder-begin+<span class="number">1</span>;</span><br><span class="line">            root.right = <span class="keyword">new</span> TreeNode(preOrder[rightIndex]);</span><br><span class="line">            finder(root.right,rightIndex, rootInOrder+<span class="number">1</span>, end);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/Java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1582,12 +1715,12 @@
 <h2 id="小米招股书分析"><a href="#小米招股书分析" class="headerlink" title="小米招股书分析"></a>小米招股书分析</h2><h2 id="小米是一家什么样的公司？"><a href="#小米是一家什么样的公司？" class="headerlink" title="小米是一家什么样的公司？"></a>小米是一家什么样的公司？</h2><p>在可预见的未来，这都将是一个困扰投资界的难题。小米的行业归属问题绝不仅仅是个案，随着整体经济和互联网程度的不断深化，中国必将涌现更多新兴的、跨产业的、没有海外对标公司的企业。</p>
 <p>正确理解一个公司的定位和行业属性有助于基本面研究和对估值中枢的判断。那么在目前这个阶段，我们该如何定义小米？</p>
 <h2 id="小米历轮融资情况（估值、调整后股数）"><a href="#小米历轮融资情况（估值、调整后股数）" class="headerlink" title="小米历轮融资情况（估值、调整后股数）"></a>小米历轮融资情况（估值、调整后股数）</h2><p>此处插入老虎证券分析图<br><img src="https://raw.githubusercontent.com/Tjianke/Blog_Images/master/%E5%B0%8F%E7%B1%B3%E8%9E%8D%E8%B5%84%E6%83%85%E5%86%B5.jpg" alt="小米上市前的九轮融资"><br>可以看到<br>注：招股书中未披露历轮融资的详细合同。</p>
-<div id="echarts1191" style="width: 100%;height: 500px;margin: 0 auto"></div>
+<div id="echarts3812" style="width: 100%;height: 500px;margin: 0 auto"></div>
 <script src="http://echarts.baidu.com/dist/echarts.common.min.js"></script>
 
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts1191'));
+        var myChart = echarts.init(document.getElementById('echarts3812'));
         // 指定图表的配置项和数据
         var option = {
 title: {
@@ -1824,7 +1957,7 @@ title: {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
