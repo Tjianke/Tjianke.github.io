@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="My personal website">
 <meta property="og:description" content="Short intro to C:Warm up1234#include &amp;lt; studio.h&amp;gt;                // C way of importinglong unsigned sizeof(a)             //returns the num of byteint main(int argc, char** argv)     // argc for">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T15:05:46.118Z">
+<meta property="og:updated_time" content="2018-12-17T16:30:32.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="csapp">
 <meta name="twitter:description" content="Short intro to C:Warm up1234#include &amp;lt; studio.h&amp;gt;                // C way of importinglong unsigned sizeof(a)             //returns the num of byteint main(int argc, char** argv)     // argc for">
@@ -420,7 +420,23 @@
 <p>(-1)^s <em> 2^e </em> M<br>E = exp - bias</p>
 <p>1.Denoramlized<br>2.Normalized</p>
 <p>Default rounding : find the closest one</p>
-
+<h1 id="Bit-Bytes-and-Integers"><a href="#Bit-Bytes-and-Integers" class="headerlink" title="Bit ,Bytes and Integers"></a>Bit ,Bytes and Integers</h1><ol>
+<li>1 Byte = 8 bits = 2 hex digits</li>
+<li>Common data type presentation</li>
+<li>Boolean Algebra: And Or XOR Not</li>
+<li>Contrast Logical ops (with Termination) (p&amp;&amp;*p avoids null pointer access)</li>
+<li>shift ops,(logical &amp; algo)(Undefined for illegal shift)</li>
+<li>#include&lt;limits.h&gt; : ULONG_MAX,LONG_MAX</li>
+<li>Default:signed, Append U for Unsigned</li>
+<li>If there be mix of U and S, S is casted implicitly to U</li>
+<li>Little endian : refers to byte ordering </li>
+</ol>
+<h1 id="Floating-points"><a href="#Floating-points" class="headerlink" title="Floating points"></a>Floating points</h1><h2 id="1-Fractional-Binary-numbers"><a href="#1-Fractional-Binary-numbers" class="headerlink" title="1.Fractional Binary numbers:"></a>1.Fractional Binary numbers:</h2><p>limit: Only lists number that are very large or extremely samll</p>
+<h2 id="2-IEEE-Floating-Point"><a href="#2-IEEE-Floating-Point" class="headerlink" title="2. IEEE Floating Point"></a>2. IEEE Floating Point</h2><p>1.Chem way of rounding, when exact half round to even, no bias theoretically<br>2.Bias = 2^(k - 1) - 1 , k is the exp bit<br>3.Single precison, sign : 1, E : 8, frac : 23<br>4.Noramalized Number<br>5.Denormalized<br>6.Special cases:  exp = 111…1, frac = 000..0 represents infinity(overflow<br>NaN exp = 111…11, frac != 000.000<br>7.FP multiplication, (-1)^(s1)<em> M1</em> 2^(E1)</p>
+<pre><code>shift M to right, if more than 2, till overflow
+</code></pre><p>8.Casting</p>
+<pre><code>Float/double -&gt; int: truncate frac
+</code></pre>
       
     </div>
     
@@ -454,8 +470,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/29/Backend/" rel="prev" title="Backend">
-                Backend <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/29/15123 System programming in C & Unix/" rel="prev" title="15123 System programming in C & Unix">
+                15123 System programming in C & Unix <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -533,7 +549,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -579,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Short-intro-to-C"><span class="nav-number">1.</span> <span class="nav-text">Short intro to C:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Warm-up"><span class="nav-number">1.1.</span> <span class="nav-text">Warm up</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Noisy-pointer"><span class="nav-number">1.2.</span> <span class="nav-text">Noisy pointer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-representation"><span class="nav-number">1.3.</span> <span class="nav-text">String representation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shift-operation-in-C"><span class="nav-number">1.4.</span> <span class="nav-text">Shift operation in C:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Short-intro-to-C"><span class="nav-number">1.</span> <span class="nav-text">Short intro to C:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Warm-up"><span class="nav-number">1.1.</span> <span class="nav-text">Warm up</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Noisy-pointer"><span class="nav-number">1.2.</span> <span class="nav-text">Noisy pointer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-representation"><span class="nav-number">1.3.</span> <span class="nav-text">String representation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shift-operation-in-C"><span class="nav-number">1.4.</span> <span class="nav-text">Shift operation in C:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bit-Bytes-and-Integers"><span class="nav-number"></span> <span class="nav-text">Bit ,Bytes and Integers</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Floating-points"><span class="nav-number"></span> <span class="nav-text">Floating points</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Fractional-Binary-numbers"><span class="nav-number"></span> <span class="nav-text">1.Fractional Binary numbers:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-IEEE-Floating-Point"><span class="nav-number"></span> <span class="nav-text">2. IEEE Floating Point</span></a></div>
             
 
           </div>
@@ -599,7 +615,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="My personal website">
 <meta property="og:description" content="Leetcode ConquestThis post mainly hosts all my code problems solved on Leetcode. Question 0-100Q105 Construct Binary Tree from Preorder and Inorder TraversalDescription: Given preorder and inorder tra">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-06T13:45:22.574Z">
+<meta property="og:updated_time" content="2018-12-06T15:32:48.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My personal website">
 <meta name="twitter:description" content="Leetcode ConquestThis post mainly hosts all my code problems solved on Leetcode. Question 0-100Q105 Construct Binary Tree from Preorder and Inorder TraversalDescription: Given preorder and inorder tra">
@@ -314,6 +314,12 @@
 <p>4.Recursively repeat previous steps.</p>
 <p>We can utilize the algo by introducing HashMap to store key-value of input array.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] preOrder;</span><br><span class="line">    <span class="keyword">int</span>[] inOrder;</span><br><span class="line">    HashMap map;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.preOrder = preorder;</span><br><span class="line">        <span class="keyword">this</span>.inOrder = inorder;</span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map2 = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;=preorder.length-<span class="number">1</span>; i++)&#123;</span><br><span class="line">            map2.put(inorder[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.map = map2;</span><br><span class="line">        <span class="keyword">if</span>(preorder.length == <span class="number">0</span> || inorder.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        TreeNode root2 = <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>]);</span><br><span class="line">        finder(root2,<span class="number">0</span>,<span class="number">0</span>,preorder.length-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root2;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//find the treeNode</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">finder</span><span class="params">(TreeNode root, <span class="keyword">int</span> pos, <span class="keyword">int</span> begin, <span class="keyword">int</span> end)</span></span>&#123;<span class="comment">//pos : root index in preOrder</span></span><br><span class="line">        <span class="keyword">if</span>(begin&gt;=end) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> rootInOrder = (<span class="keyword">int</span>)(map.get(root.val));<span class="comment">//seperate InOrder list</span></span><br><span class="line">        <span class="keyword">if</span>(rootInOrder-<span class="number">1</span> &gt;= begin)&#123;</span><br><span class="line">            root.left = <span class="keyword">new</span> TreeNode(preOrder[pos+<span class="number">1</span>]);<span class="comment">// restrict pos+1&lt;=    </span></span><br><span class="line">            finder(root.left,pos+<span class="number">1</span>, begin, rootInOrder-<span class="number">1</span>);</span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">//if(rootInOrder &gt;= end) root.right = null;</span></span><br><span class="line">        <span class="keyword">if</span>(rootInOrder+<span class="number">1</span> &lt;= end)&#123;</span><br><span class="line">            <span class="keyword">int</span> rightIndex = pos+rootInOrder-begin+<span class="number">1</span>;</span><br><span class="line">            root.right = <span class="keyword">new</span> TreeNode(preOrder[rightIndex]);</span><br><span class="line">            finder(root.right,rightIndex, rootInOrder+<span class="number">1</span>, end);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Parts to improve:</p>
+<p>1.HashTable, HashMap and HashSet : put and get method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">map.get(<span class="number">1</span>); <span class="comment">// returns an object</span></span><br></pre></td></tr></table></figure>
+<p>2.Time complexity, review of master method :</p>
+<p>check with this proof <a href="http://www.cs.cornell.edu/courses/cs3110/2012fa/recitations/mm-proof.pdf" target="_blank" rel="noopener">link</a></p>
+
       
     </div>
     
@@ -346,6 +352,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/12/Crawler/" rel="prev" title="Crawler">
+                Crawler <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -422,7 +432,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -488,7 +498,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
