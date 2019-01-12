@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Flask Mega-TutorialPart I: Hello world!In this first chapter, we are going to learn how to set up a Flask project. By the end of this chapter you are going to have a simple Flask web application runni">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask_tutorial">
+<meta property="og:url" content="http://yoursite.com/2019/01/10/Flask-tutorial - 副本/index.html">
+<meta property="og:site_name" content="My personal website">
+<meta property="og:description" content="Flask Mega-TutorialPart I: Hello world!In this first chapter, we are going to learn how to set up a Flask project. By the end of this chapter you are going to have a simple Flask web application runni">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https:///#blog.miguelgrinberg.com/static/images/mega-tutorial/ch04-users-posts.png">
+<meta property="og:updated_time" content="2019-01-12T07:09:38.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flask_tutorial">
+<meta name="twitter:description" content="Flask Mega-TutorialPart I: Hello world!In this first chapter, we are going to learn how to set up a Flask project. By the end of this chapter you are going to have a simple Flask web application runni">
+<meta name="twitter:image" content="https:///#blog.miguelgrinberg.com/static/images/mega-tutorial/ch04-users-posts.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/10/Flask-tutorial - 副本/"/>
+
+
+
+
+
+  <title>Flask_tutorial | My personal website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">My personal website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/10/Flask-tutorial - 副本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tjianke">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My personal website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Flask_tutorial</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T22:40:34+08:00">
+                2019-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Flask-Mega-Tutorial"><a href="#Flask-Mega-Tutorial" class="headerlink" title="Flask Mega-Tutorial"></a>Flask Mega-Tutorial</h1><h2 id="Part-I-Hello-world"><a href="#Part-I-Hello-world" class="headerlink" title="Part I: Hello world!"></a>Part I: Hello world!</h2><p>In this first chapter, we are going to learn how to set up a Flask project. By the end of this chapter you are going to have a simple Flask web application running on your computer!</p>
+<p>I assume Python, Pip and Flask are already installed on your laptop.</p>
+<p>Another helpful fact: if you want to set up isolated virtual environment for your project, use Venv.</p>
+<p>Small tips :</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python3 -m venv Name</span><br><span class="line">source /venv/bin/activate <span class="comment">#to activate</span></span><br></pre></td></tr></table></figure>
+<p>In Python, <code>-</code> parameter m for module</p>
+<p>In Python, a sub-directory that contains a <em>init</em> file is considered a <em>package</em>. When importing a package, init executes and tells which to exposes to outside world.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__) <span class="comment">#instantialize with module name</span></span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> routes</span><br></pre></td></tr></table></figure>
+<p>Flask need <em>name</em> to tell where to find all the associated files, working like a dir_path variable.</p>
+<p>Peculiar things happen, we have two <em>app</em> instances. And routes package import took place at the end unusally to avoid circular reference. Inside routes modules, different URLS are defined and implemented. In Python, handlers for the application routes are written as functions called <em>view functions</em>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> app</span><br><span class="line"><span class="meta">@app.route('/') # decorators</span></span><br><span class="line"><span class="meta">@app.route('/index')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello world"</span></span><br></pre></td></tr></table></figure>
+<p>Decorators register current function as callback for certain events. Here we get to see two <em>app</em> variables happening together. First one is for module, and the second for variable instance.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set FLASK_APP=microblog.py  <span class="comment"># environment variable</span></span><br></pre></td></tr></table></figure>
+<h2 id="Part-II-Templates"><a href="#Part-II-Templates" class="headerlink" title="Part II: Templates"></a>Part II: Templates</h2><p>View function return a simple string, we can use the render template function to </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="meta">@app.route('/index')</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    user = &#123;<span class="string">'username'</span>: <span class="string">'TJK'</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;html&gt;</span></span><br><span class="line"><span class="string">    &lt;head&gt;</span></span><br><span class="line"><span class="string">        &lt;title&gt;Home Page - Microblog&lt;/title&gt;</span></span><br><span class="line"><span class="string">    &lt;/head&gt;</span></span><br><span class="line"><span class="string">    &lt;body&gt;</span></span><br><span class="line"><span class="string">        &lt;h1&gt;Hello, '''</span> + user[<span class="string">'username'</span>] + <span class="string">'''!&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;'''</span></span><br></pre></td></tr></table></figure>
+<p>A better solution for passing data inside the web page is Jinja. First we need to introduce the idea of templates.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir app/templates <span class="comment">#copy the web page to template file as 'index.html'</span></span><br></pre></td></tr></table></figure>
+<p>Use render_template to render index.html and pass in parameter.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template</span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="meta">@app.route('/index')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    user = &#123;<span class="string">'username'</span>: <span class="string">'TJK'</span>&#125;</span><br><span class="line">    posts = [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">'author'</span>: &#123;<span class="string">'username'</span>: <span class="string">'John'</span>&#125;,</span><br><span class="line">            <span class="string">'body'</span>: <span class="string">'Beautiful day in Portland!'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">'author'</span>: &#123;<span class="string">'username'</span>: <span class="string">'Susan'</span>&#125;,</span><br><span class="line">            <span class="string">'body'</span>: <span class="string">'The Avengers movie was so cool!'</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index.html'</span>, title=<span class="string">'Home'</span>, user=user, post = post) <span class="comment"># title, user as passing var</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Jinja-template-engine"><a href="#Jinja-template-engine" class="headerlink" title="Jinja template engine:"></a>Jinja template engine:</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        &#123;%  if title %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123; &#123; title &#125; &#125; - Microblog<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        &#123;% else %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Welcome to Microblog<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        &#123;% endif %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        &#123;% for post in posts %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123; &#123; post.author.username &#125; &#125; says: <span class="tag">&lt;<span class="name">b</span>&gt;</span>&#123; &#123; post.body &#125; &#125;<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        &#123;% endfor %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Template-Inheritance"><a href="#Template-Inheritance" class="headerlink" title="Template Inheritance"></a>Template Inheritance</h3><p>Real scenario, most web pages have a navbar at top. Inheritance perfectly solves such issue when scaling quickly.</p>
+<p>Jinja2 has a template inheritance feature that specifically addresses this problem. In essence, what you can do is move the parts of the page layout that are common to all templates to a base template, from which all other templates are derived.</p>
+<p>So what I’m going to do now is define a base template called base.html that includes a simple navigation bar and also the title logic I implemented earlier. You need to write the following template in file app/templates/base.html:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">      `&#123;% <span class="keyword">if</span> title %&#125;`</span><br><span class="line">      &lt;title&gt;&#123; &#123; title &#125; &#125; - Microblog&lt;/title&gt;</span><br><span class="line">      `&#123;% <span class="keyword">else</span> %&#125;`</span><br><span class="line">      &lt;title&gt;Welcome to Microblog&lt;/title&gt;</span><br><span class="line">      `&#123;% endif %&#125;`</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div&gt;Microblog: &lt;a href="/index"&gt;Home&lt;/a&gt;&lt;/div&gt;</span><br><span class="line">        &lt;hr&gt;</span><br><span class="line">        `&#123;% block Name %&#125;``&#123;% endblock %&#125;`</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>block content for derived web pages to insert self-defined content.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">`&#123;% extends <span class="string">"base.html"</span> %&#125;` <span class="comment">#establishes inheritance link</span></span><br><span class="line"></span><br><span class="line">`&#123;% block Name %&#125;`</span><br><span class="line">    &lt;h1&gt;Hi, &#123; &#123; user.username &#125; &#125;!&lt;/h1&gt;</span><br><span class="line">    `&#123;% <span class="keyword">for</span> post <span class="keyword">in</span> posts %&#125;`</span><br><span class="line">    &lt;div&gt;&lt;p&gt;&#123; &#123; post.author.username &#125; &#125; says: &lt;b&gt;&#123; &#123; post.body &#125; &#125;&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;</span><br><span class="line">    `&#123;% endfor %&#125;`</span><br><span class="line">`&#123;% endblock %&#125;`</span><br></pre></td></tr></table></figure>
+<h2 id="Part-III-Web-Forms"><a href="#Part-III-Web-Forms" class="headerlink" title="Part III: Web Forms"></a>Part III: Web Forms</h2><p>Web forms are one of the most basic func in web applications. Forms will be used to allow users to submit blog posts, and also for logging in to the application.</p>
+<h3 id="Intro-to-flask-WTF"><a href="#Intro-to-flask-WTF" class="headerlink" title="Intro to flask-WTF"></a>Intro to flask-WTF</h3><p>To handle the web forms in this application I’m going to use the Flask-WTF extension, which is a thin wrapper around the WTForms package that nicely integrates it with Flask. This is the first Flask extension that I’m presenting to you, but it is not going to be the last. Extensions are a very important part of the Flask ecosystem, as they provide solutions to problems that Flask is intentionally not opinionated about.</p>
+<p>Seperation of concern:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app = Flask(_name_)</span><br><span class="line">app.config[<span class="string">'SECRET_KEY'</span>] = <span class="string">'you-will-never-guess'</span></span><br><span class="line"><span class="comment"># ... add more variables here as needed</span></span><br></pre></td></tr></table></figure></p>
+<p>Style like this is not accepted. A format that I really like because it is very extensible, is to use a class to store configuration variables. To keep things nicely organized, I’m going to create the configuration class in a separate Python module. Below you can see the new configuration class for this application, stored in a config.py module in the top-level directory.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span><span class="params">(object)</span>:</span></span><br><span class="line">    SECRET_KEY = os.environ.get(<span class="string">'SECRET_KEY'</span>) <span class="keyword">or</span> <span class="string">'you-will-never-guess'</span></span><br></pre></td></tr></table></figure></p>
+<p>The SECRET_KEY configuration variable that I added as the only configuration item is an important part in most Flask applications. Flask and some of its extensions use the value of the secret key as a cryptographic key, useful to generate signatures or tokens. The Flask-WTF extension uses it to protect web forms against a nasty attack called Cross-Site Request Forgery or CSRF (pronounced “seasurf”). As its name implies, the secret key is supposed to be secret, as the strength of the tokens and signatures generated with it depends on no person outside of the trusted maintainers of the application knowing it.</p>
+<p>The value of the secret key is set as an expression with two terms, joined by the or operator. The first term looks for the value of an environment variable, also called SECRET_KEY. The second term, is just a hardcoded string. This is a pattern that you will see me repeat often for configuration variables. The idea is that a value sourced from an environment variable is preferred, but if the environment does not define the variable, then the hardcoded string is used instead. When you are developing this application, the security requirements are low, so you can just ignore this setting and let the hardcoded string be used. But when this application is deployed on a production server, I will be setting a unique and difficult to guess value in the environment, so that the server has a secure key that nobody else knows.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> Config</span><br><span class="line"></span><br><span class="line">app = Flask(_name_)</span><br><span class="line">app.config.from_object(Config)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> routes</span><br></pre></td></tr></table></figure>
+<p>The way I’m importing the Config class may seem confusing at first, but if you look at how the Flask class (uppercase “F”) is imported from the flask package (lowercase “f”) you’ll notice that I’m doing the same with the configuration. The lowercase “config” is the name of the Python module config.py, and obviously the one with the uppercase “C” is the actual class.</p>
+<p>As I mentioned above, the configuration items can be accessed with a dictionary syntax from app.config. Here you can see a quick session with the Python interpreter where I check what is the value of the secret key:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">from</span> microblog <span class="keyword">import</span> app</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>app.config[<span class="string">'SECRET_KEY'</span>]</span><br><span class="line"><span class="string">'you-will-never-guess'</span></span><br></pre></td></tr></table></figure>
+<h3 id="User-login-form"><a href="#User-login-form" class="headerlink" title="User-login form"></a>User-login form</h3><p>The Flask-WTF extension uses Python classes to represent web forms. A form class simply defines the fields of the form as class variables.</p>
+<p>Once again having separation of concerns in mind, I’m going to use a new app/forms.py module to store my web form classes. To begin, let’s define a user login form, which asks the user to enter a username and a password. The form will also include a “remember me” check box, and a submit button:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_wtf <span class="keyword">import</span> FlaskForm</span><br><span class="line"><span class="keyword">from</span> wtforms <span class="keyword">import</span> StringField, PasswordField, BooleanField, SubmitField</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> DataRequired</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginForm</span><span class="params">(FlaskForm)</span>:</span></span><br><span class="line">    username = StringField(<span class="string">'Username'</span>, validators=[DataRequired()])</span><br><span class="line">    password = PasswordField(<span class="string">'Password'</span>, validators=[DataRequired()])</span><br><span class="line">    remember_me = BooleanField(<span class="string">'Remember Me'</span>)</span><br><span class="line">    submit = SubmitField(<span class="string">'Sign In'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Form-Templates"><a href="#Form-Templates" class="headerlink" title="Form Templates"></a>Form Templates</h3><p>The next step is to add the form to an HTML template so that it can be rendered on a web page. The good news is that the fields that are defined in the LoginForm class know how to render themselves as HTML, so this task is fairly simple. Below you can see the login template, which I’m going to store in file app/templates/login.html:</p>
+<p>app/templates/Login.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">`&#123;% extends "base.html" %&#125;`</span><br><span class="line"></span><br><span class="line">`&#123;% block content %&#125;`</span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign In<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">novalidate</span>&gt;</span></span><br><span class="line">        &#123; &#123; form.hidden_tag() &#125; &#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            &#123; &#123; form.username.label &#125; &#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            &#123; &#123; form.username(size=32) &#125; &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            &#123; &#123; form.password.label &#125; &#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            &#123; &#123; form.password(size=32) &#125; &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123; &#123; form.remember_me() &#125; &#125; &#123; &#123; form.remember_me.label &#125; &#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123; &#123; form.submit() &#125; &#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">`&#123;% endblock %&#125;`</span><br></pre></td></tr></table></figure></p>
+<p>This template expects a form object instantiated from the LoginForm class to be given as an argument, which you can see referenced as form. This argument will be sent by the login view function, which I still haven’t written.</p>
+<p>The HTML <form> element is used as a container for the web form. The action attribute of the form is used to tell the browser the URL that should be used when submitting the information the user entered in the form. When the action is set to an empty string the form is submitted to the URL that is currently in the address bar, which is the URL that rendered the form on the page. The method attribute specifies the HTTP request method that should be used when submitting the form to the server. The default is to send it with a GET request, but in almost all cases, using a POST request makes for a better user experience because requests of this type can submit the form data in the body of the request, while GET requests add the form fields to the URL, cluttering the browser address bar. The novalidate attribute is used to tell the web browser to not apply validation to the fields in this form, which effectively leaves this task to the Flask application running in the server. Using novalidate is entirely optional, but for this first form it is important that you set it because this will allow you to test server-side validation later in this chapter.</form></p>
+<p>The form.hidden_tag() template argument generates a hidden field that includes a token that is used to protect the form against CSRF attacks. All you need to do to have the form protected is include this hidden field and have the SECRET_KEY variable defined in the Flask configuration. If you take care of these two things, Flask-WTF does the rest for you.</p>
+<p>If you’ve written HTML web forms in the past, you may have found it odd that there are no HTML fields in this template. This is because the fields from the form object know how to render themselves as HTML. All I needed to do was to include { { form.&lt;field_name&gt;.label } } where I wanted the field label, and { { form.&lt;field_name&gt;() } } where I wanted the field. For fields that require additional HTML attributes, those can be passed as arguments. The username and password fields in this template take the size as an argument that will be added to the /input/ HTML element as an attribute. This is how you can also attach CSS classes or IDs to form fields.</p>
+<h3 id="Form-views"><a href="#Form-views" class="headerlink" title="Form views"></a>Form views</h3><p>The final step before you can see this form in the browser is to code a new view function in the application that renders the template from the previous section.</p>
+<p>So let’s write a new view function mapped to the /login URL that creates a form, and passes it to the template for rendering. This view function can also go in the app/routes.py module with the previous one:</p>
+<p>routes.py:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template</span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> app</span><br><span class="line"><span class="keyword">from</span> app.forms <span class="keyword">import</span> LoginForm</span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/login')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">()</span>:</span></span><br><span class="line">    form = LoginForm()</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'login.html'</span>, title=<span class="string">'Sign In'</span>, form=form)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Receiving-Form-Data"><a href="#Receiving-Form-Data" class="headerlink" title="Receiving Form Data"></a>Receiving Form Data</h3><p>Still we need to validate for the submitted data first,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template, flash, redirect</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/login', methods = ['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">()</span>:</span></span><br><span class="line">    form = LoginForm()</span><br><span class="line">    <span class="keyword">if</span> form.validate_on_submit():</span><br><span class="line">        flash(<span class="string">'Login requested for user &#123;&#125;, remember_me=&#123;&#125;'</span>.format(</span><br><span class="line">            form.username.data, form.remember_me.data))</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">'/index'</span>)</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'login.html'</span>, title=<span class="string">'Sign In'</span>, form=form)</span><br></pre></td></tr></table></figure>
+<p>Updated base.html for extending base:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        `&#123;% if title %&#125;`</span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123; &#123; title &#125; &#125; - microblog<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        `&#123;% else %&#125;`</span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>microblog<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        `&#123;% endif %&#125;`</span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            Microblog:</span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/index"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/login"</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">        `&#123;% with messages = get_flashed_messages() %&#125;`</span><br><span class="line">        `&#123;% if messages %&#125;`</span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            `&#123;% for message in messages %&#125;`</span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123; &#123; message &#125; &#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            `&#123;% endfor %&#125;`</span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        `&#123;% endif %&#125;`</span><br><span class="line">        `&#123;% endwith %&#125;`</span><br><span class="line">        `&#123;% block content %&#125;``&#123;% endblock %&#125;`</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Improving-Field-Validation"><a href="#Improving-Field-Validation" class="headerlink" title="Improving Field Validation"></a>Improving Field Validation</h3><p>Providing error message by iterating form.data_field.errors<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">`&#123;% extends "base.html" %&#125;`</span><br><span class="line"></span><br><span class="line">`&#123;% block content %&#125;`</span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sign In<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">novalidate</span>&gt;</span></span><br><span class="line">        &#123; &#123; form.hidden_tag() &#125; &#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            &#123; &#123; form.username.label &#125; &#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            &#123; &#123; form.username(size=32) &#125; &#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            `&#123;% for error in form.username.errors %&#125;`</span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color: red;"</span>&gt;</span>[&#123; &#123; error &#125; &#125;]<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            `&#123;% endfor %&#125;`</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            &#123; &#123; form.password.label &#125; &#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            &#123; &#123; form.password(size=32) &#125; &#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            `&#123;% for error in form.password.errors %&#125;`</span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color: red;"</span>&gt;</span>[&#123; &#123; error &#125; &#125;]<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            `&#123;% endfor %&#125;`</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123; &#123; form.remember_me() &#125; &#125; &#123; &#123; form.remember_me.label &#125; &#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123; &#123; form.submit() &#125; &#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">`&#123;% endblock %&#125;`</span><br></pre></td></tr></table></figure></p>
+<h3 id="Generating-Links"><a href="#Generating-Links" class="headerlink" title="Generating Links"></a>Generating Links</h3><p>Modulized thinking, use Flask func called url_for(), which generate url using its internal mapping of URLs to views function.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    Microblog:</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123; &#123; url_for('index') &#125; &#125;"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123; &#123; url_for('login') &#125; &#125;"</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Part-IV-Database"><a href="#Part-IV-Database" class="headerlink" title="Part IV: Database"></a>Part IV: Database</h2><p>Flask is known for its unopinoinated style. Therefore, it does not have any native databases. The databases can be separated into two big groups, those that follow the relational model, and those that do not. The latter group is often called NoSQL, indicating that they do not implement the popular relational query language SQL. While there are great database products in both groups, my opinion is that relational databases are a better match for applications that have structured data such as lists of users, blog posts, etc., while NoSQL databases tend to be better for data that has a less defined structure.</p>
+<p>I’ll use Flask-SQLAlchemy, an extension that writes Flask friendly wrapper to popular SQLAlchemy package, which is an Object Relational Mapper. ORMs allow applications to manage a database using high-level entities such as classes, objects and methods instead of tables and SQL. The job of the ORM is to translate the high-level operations into database commands.</p>
+<p>The nice thing about SQLAlchemy is that it is an ORM not for one, but for many relational databases. SQLAlchemy supports a long list of database engines, including the popular MySQL, PostgreSQL and SQLite. This is extremely powerful, because you can do your development using a simple SQLite database that does not require a server, and then when the time comes to deploy the application on a production server you can choose a more robust MySQL or PostgreSQL server, without having to change your application.</p>
+<p>To install,<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(venv) pip install flask-sqlalchemy</span><br></pre></td></tr></table></figure></p>
+<h3 id="Database-Migrations"><a href="#Database-Migrations" class="headerlink" title="Database Migrations"></a>Database Migrations</h3><p>Relational databases are centered around structured data, so when the structure changes the data that is already in the database needs to be migrated to the modified structure. The second extension that I’m going to present in this chapter is Flask-Migrate, which is actually one created by yours truly. This extension is a Flask wrapper for Alembic, a database migration framework for SQLAlchemy. Working with database migrations adds a bit of work to get a database started, but that is a small price to pay for a robust way to make changes to your database in the future.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ pip install flask-migrate</span><br></pre></td></tr></table></figure>
+<h3 id="Flask-SQLAlchemy-Configuration"><a href="#Flask-SQLAlchemy-Configuration" class="headerlink" title="Flask-SQLAlchemy Configuration"></a>Flask-SQLAlchemy Configuration</h3><p>During development, I’m going to use a SQLite database. SQLite databases are the most convenient choice for developing small applications as each database is stored in <strong>a single file</strong> on disk and there is no need to run a database server like MySQL and PostgreSQL.</p>
+<p>We now need to configure our config.py to accomodate the two extensions.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">basedir = os.path.abspath(os.path.dirname(_file_))</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    SQLALCHEMY_DATABASE_URI = os.environ.get(<span class="string">'DATABASE_URL'</span>) <span class="keyword">or</span> \</span><br><span class="line">        <span class="string">'sqlite:#/'</span> + os.path.join(basedir, <span class="string">'app.db'</span>)</span><br><span class="line">    SQLALCHEMY_TRACK_MODIFICATIONS = <span class="keyword">False</span></span><br></pre></td></tr></table></figure></p>
+<p>Now we need to add extensions inside the init.py file:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> Config</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"><span class="keyword">from</span> flask_migrate <span class="keyword">import</span> Migrate</span><br><span class="line"></span><br><span class="line">app = Flask(_name_)</span><br><span class="line">app.config.from_object(Config)</span><br><span class="line">db = SQLAlchemy(app)</span><br><span class="line">migrate = Migrate(app)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> routes, models <span class="comment"># models definde structure of a database</span></span><br></pre></td></tr></table></figure></p>
+<p>I have made three changes to the init script. First, I have added a db object that represents the database. Then I have added another object that represents the migration engine. Hopefully you see a pattern in how to work with Flask extensions. Most extensions are initialized as these two. Finally, I’m importing a new module called models at the bottom. This module will define the structure of the database.</p>
+<h3 id="Database-models"><a href="#Database-models" class="headerlink" title="Database models"></a>Database models</h3><p>The data that will be stored in the database will be represented by a collection of classes, usually called database models. The ORM layer within SQLAlchemy will do the translations required to map objects created from these classes into rows in the proper database tables.</p>
+<p>Let’s start by creating a model that represents users. Using the <a href="http:#ondras.zarovi.cz/sql/demo" target="_blank" rel="noopener">WWW SQL Designer</a> tool, I have made the following diagram to represent the data that we want to use in the users table:</p>
+<p>The id field is usually in all models, and is used as the primary key. Each user in the database will be assigned a unique id value, stored in this field. Primary keys are, in most cases, automatically assigned by the database, so I just need to provide the id field marked as a primary key.</p>
+<p>The username, email and password_hash fields are defined as strings (or VARCHAR in database jargon), and their maximum lengths are specified so that the database can optimize space usage. While the username and email fields are self-explanatory, the password_hash fields deserves some attention. I want to make sure the application that I’m building adopts security best practices, and for that reason I will not be storing user passwords in the database. The problem with storing passwords is that if the database ever becomes compromised, the attackers will have access to the passwords, and that could be devastating for users. Instead of writing the passwords directly, I’m going to write <em>password hashes</em>, which greatly improve security. This is going to be the topic of another chapter, so don’t worry about it too much for now.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> db</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    id = db.Column(db.Integer, primary_key=<span class="keyword">True</span>)</span><br><span class="line">    username = db.Column(db.String(<span class="number">64</span>), index=<span class="keyword">True</span>, unique=<span class="keyword">True</span>)</span><br><span class="line">    email = db.Column(db.String(<span class="number">120</span>), index=<span class="keyword">True</span>, unique=<span class="keyword">True</span>)</span><br><span class="line">    password_hash = db.Column(db.String(<span class="number">128</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_repr_</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;User &#123;&#125;&gt;'</span>.format(self.username)</span><br></pre></td></tr></table></figure>
+<p>User class above inherits from db.Model, a base class for all models from Flask- SQLAlchemy. This class defines several fields as class variables instantialized by db.Column methods, along with optional arguments that, for example, indicates which  fields are unique and indexed.</p>
+<p>Tips: the <em>repr</em> method tells Python how to print objects of this class, which is going to be helpful for debugging.</p>
+<h3 id="Creating-the-migration-repository"><a href="#Creating-the-migration-repository" class="headerlink" title="Creating the migration repository"></a>Creating the migration repository</h3><p>The model class created in the previous section initial database structure(or <strong>Schema</strong> as well). But it is common as the application continues to grow, there is a need to change the structure. Alembic helps to change the database without doing it from scratch.</p>
+<p>To accomplish this seemingly difficult task, Alembic maintains a migration repository, which is a directory in which it stores its migration scripts.Each time a change is made to the database schema, a migration script is added to the repository with the details of the change. To apply the migrations to a database, these migration scripts are executed in the sequence they were created.</p>
+<p>Create migration directory for microblog by running <strong>flask db init</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ flask db init</span><br><span class="line">  Creating directory /home/miguel/microblog/migrations ... done</span><br><span class="line">  Creating directory /home/miguel/microblog/migrations/versions ... done</span><br><span class="line">  Generating /home/miguel/microblog/migrations/alembic.ini ... done</span><br><span class="line">  Generating /home/miguel/microblog/migrations/env.py ... done</span><br><span class="line">  Generating /home/miguel/microblog/migrations/README ... done</span><br><span class="line">  Generating /home/miguel/microblog/migrations/script.py.mako ... done</span><br><span class="line">  Please edit configuration/connection/logging settings <span class="keyword">in</span></span><br><span class="line">  <span class="string">'/home/miguel/microblog/migrations/alembic.ini'</span> before proceeding.</span><br></pre></td></tr></table></figure>
+<p>Remember that the flask command relies on the FLASK_APP environment var to know where the Flask application lives.</p>
+<h3 id="The-First-Database-Migration"><a href="#The-First-Database-Migration" class="headerlink" title="The First Database Migration"></a>The First Database Migration</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ flask db migrate -m <span class="string">"users table"</span></span><br><span class="line">INFO  [alembic.runtime.migration] Context impl SQLiteImpl.</span><br><span class="line">INFO  [alembic.runtime.migration] Will assume non-transactional DDL.</span><br><span class="line">INFO  [alembic.autogenerate.compare] Detected added table <span class="string">'user'</span></span><br><span class="line">INFO  [alembic.autogenerate.compare] Detected added index <span class="string">'ix_user_email'</span> on <span class="string">'['</span>email<span class="string">']'</span></span><br><span class="line">INFO  [alembic.autogenerate.compare] Detected added index <span class="string">'ix_user_username'</span> on <span class="string">'['</span>username<span class="string">']'</span></span><br><span class="line">  Generating /home/miguel/microblog/migrations/versions/e517276bb1c2_users_table.py ... done</span><br></pre></td></tr></table></figure>
+<p>Check the migration script if you want, they are actually made of two functions, upgrade and downgrade. The comment -m is optional to make some descriptive text. </p>
+<p>flask db migrate only generates the script we need, to run it: flask db upgrade</p>
+<p>When working with database servers such as MySQL and PostgreSQL, you have to create the database in the database server before running upgrade.</p>
+<h3 id="Database-Upgrade-and-Downgrade-Workflow"><a href="#Database-Upgrade-and-Downgrade-Workflow" class="headerlink" title="Database Upgrade and Downgrade Workflow"></a>Database Upgrade and Downgrade Workflow</h3><p>Imagine that you have your Flask application set up both in working environment and development. Say you want to increase a new table in the working environ. Doing it manually might take a lot of work.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flask db migrate <span class="comment">#first to generate script</span></span><br><span class="line">flask db upgrade <span class="comment">#implement</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Database-Relationships"><a href="#Database-Relationships" class="headerlink" title="Database Relationships"></a>Database Relationships</h3><p>Relational database has been known as  good at storing relations. Consider the case of a user writing a blog post. The user will have a record in the users table, and the post will have a record in the posts table. The most efficient way to record who wrote a given post is to link the two related records.</p>
+<p>Once a link between a user and a post is established, the database can answer queries about this link. The most trivial one is when you have a blog post and need to know what user wrote it. A more complex query is the reverse of this one. If you have a user, you may want to know all the posts that this user wrote. Flask-SQLAlchemy will help with both types of queries.</p>
+<p>Let’s expand the database to store blog posts to see relationships in action. Here is the schema for a new posts table:<br><img src="https:#blog.miguelgrinberg.com/static/images/mega-tutorial/ch04-users-posts.png" alt="Database relationship"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> db</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    id = db.Column(db.Integer, primary_key=<span class="keyword">True</span>)</span><br><span class="line">    username = db.Column(db.String(<span class="number">64</span>), index=<span class="keyword">True</span>, unique=<span class="keyword">True</span>)</span><br><span class="line">    email = db.Column(db.String(<span class="number">120</span>), index=<span class="keyword">True</span>, unique=<span class="keyword">True</span>)</span><br><span class="line">    password_hash = db.Column(db.String(<span class="number">128</span>))</span><br><span class="line">    posts = db.relationship(<span class="string">'Post'</span>, backref=<span class="string">'author'</span>, lazy=<span class="string">'dynamic'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_repr_</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;User &#123;&#125;&gt;'</span>.format(self.username)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Post</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    id = db.Column(db.Integer, primary_key=<span class="keyword">True</span>)</span><br><span class="line">    body = db.Column(db.String(<span class="number">140</span>))</span><br><span class="line">    timestamp = db.Column(db.DateTime, index=<span class="keyword">True</span>, default=datetime.utcnow) <span class="comment"># assign as a func, better used for utc time </span></span><br><span class="line">    user_id = db.Column(db.Integer, db.ForeignKey(<span class="string">'user.id'</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_repr_</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;Post &#123;&#125;&gt;'</span>.format(self.body)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/07/Vim-tutorial/" rel="next" title="Vim_tutorial">
+                <i class="fa fa-chevron-left"></i> Vim_tutorial
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Tjianke</p>
+              <p class="site-description motion-element" itemprop="description">It's my personal blog.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flask-Mega-Tutorial"><span class="nav-number">1.</span> <span class="nav-text">Flask Mega-Tutorial</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-I-Hello-world"><span class="nav-number">1.1.</span> <span class="nav-text">Part I: Hello world!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-II-Templates"><span class="nav-number">1.2.</span> <span class="nav-text">Part II: Templates</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Jinja-template-engine"><span class="nav-number">1.2.1.</span> <span class="nav-text">Jinja template engine:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Template-Inheritance"><span class="nav-number">1.2.2.</span> <span class="nav-text">Template Inheritance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-III-Web-Forms"><span class="nav-number">1.3.</span> <span class="nav-text">Part III: Web Forms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intro-to-flask-WTF"><span class="nav-number">1.3.1.</span> <span class="nav-text">Intro to flask-WTF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#User-login-form"><span class="nav-number">1.3.2.</span> <span class="nav-text">User-login form</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Form-Templates"><span class="nav-number">1.3.3.</span> <span class="nav-text">Form Templates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Form-views"><span class="nav-number">1.3.4.</span> <span class="nav-text">Form views</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Receiving-Form-Data"><span class="nav-number">1.3.5.</span> <span class="nav-text">Receiving Form Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Improving-Field-Validation"><span class="nav-number">1.3.6.</span> <span class="nav-text">Improving Field Validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generating-Links"><span class="nav-number">1.3.7.</span> <span class="nav-text">Generating Links</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-IV-Database"><span class="nav-number">1.4.</span> <span class="nav-text">Part IV: Database</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Database-Migrations"><span class="nav-number">1.4.1.</span> <span class="nav-text">Database Migrations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flask-SQLAlchemy-Configuration"><span class="nav-number">1.4.2.</span> <span class="nav-text">Flask-SQLAlchemy Configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database-models"><span class="nav-number">1.4.3.</span> <span class="nav-text">Database models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creating-the-migration-repository"><span class="nav-number">1.4.4.</span> <span class="nav-text">Creating the migration repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-First-Database-Migration"><span class="nav-number">1.4.5.</span> <span class="nav-text">The First Database Migration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database-Upgrade-and-Downgrade-Workflow"><span class="nav-number">1.4.6.</span> <span class="nav-text">Database Upgrade and Downgrade Workflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database-Relationships"><span class="nav-number">1.4.7.</span> <span class="nav-text">Database Relationships</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tjianke</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
