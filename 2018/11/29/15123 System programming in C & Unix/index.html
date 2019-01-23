@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Header Notation:1.Chapter2.In-chapter knowledge Lecture 1 Intro(Passed) Lecture 2 Data types and representationscovered in 15213 Lecture 3 Functions, Arrays and Strings Functions, input arguments, ret">
+<meta name="description" content="Header Notation:1.Chapter2.In-chapter knowledge Lecture 1 Intro(Passed) Some defs:  Imperative programming, a programming paradigm that describes computation in terms of statments that change the stat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="15123 System programming in C &amp; Unix">
 <meta property="og:url" content="http://yoursite.com/2018/11/29/15123 System programming in C & Unix/index.html">
 <meta property="og:site_name" content="My personal website">
-<meta property="og:description" content="Header Notation:1.Chapter2.In-chapter knowledge Lecture 1 Intro(Passed) Lecture 2 Data types and representationscovered in 15213 Lecture 3 Functions, Arrays and Strings Functions, input arguments, ret">
+<meta property="og:description" content="Header Notation:1.Chapter2.In-chapter knowledge Lecture 1 Intro(Passed) Some defs:  Imperative programming, a programming paradigm that describes computation in terms of statments that change the stat">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.tutorialspoint.com/unix_sockets/images/socket_client_server.gif">
-<meta property="og:updated_time" content="2018-12-22T10:37:36.595Z">
+<meta property="og:updated_time" content="2019-01-19T03:15:24.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="15123 System programming in C &amp; Unix">
-<meta name="twitter:description" content="Header Notation:1.Chapter2.In-chapter knowledge Lecture 1 Intro(Passed) Lecture 2 Data types and representationscovered in 15213 Lecture 3 Functions, Arrays and Strings Functions, input arguments, ret">
+<meta name="twitter:description" content="Header Notation:1.Chapter2.In-chapter knowledge Lecture 1 Intro(Passed) Some defs:  Imperative programming, a programming paradigm that describes computation in terms of statments that change the stat">
 <meta name="twitter:image" content="https://www.tutorialspoint.com/unix_sockets/images/socket_client_server.gif">
 
 
@@ -303,6 +303,15 @@
       
         <p>Header Notation:<br>1.Chapter<br>2.In-chapter knowledge</p>
 <h1 id="Lecture-1-Intro"><a href="#Lecture-1-Intro" class="headerlink" title="Lecture 1 Intro"></a>Lecture 1 Intro</h1><p>(Passed)</p>
+<p>Some defs:</p>
+<ol>
+<li><p>Imperative programming, a programming paradigm that describes computation in terms of statments that change the state of the machine.</p>
+</li>
+<li><p>3 steps in developing C: Edit, Compile, Link</p>
+</li>
+<li><p>Must CLI argument, ANSI(define first), -pedantic -W -Wall</p>
+</li>
+</ol>
 <h1 id="Lecture-2-Data-types-and-representations"><a href="#Lecture-2-Data-types-and-representations" class="headerlink" title="Lecture 2 Data types and representations"></a>Lecture 2 Data types and representations</h1><p>covered in 15213</p>
 <h1 id="Lecture-3-Functions-Arrays-and-Strings"><a href="#Lecture-3-Functions-Arrays-and-Strings" class="headerlink" title="Lecture 3 Functions, Arrays and Strings"></a>Lecture 3 Functions, Arrays and Strings</h1><ul>
 <li>Functions, input arguments, return values</li>
@@ -311,10 +320,20 @@
 <li>Command line arguments<h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2></li>
 </ul>
 <p>1.Formatting statement “10.2f” means 10 spot in total and 2 decimal spot</p>
-<p>2.Address is 32 bit</p>
+<p>2.Address is 32 bit, use <code>printf(&quot;%x&quot;, &amp;x)</code></p>
 <p>3.C I/O open mode : “w”,”r”,”a(appebd)”,”b”</p>
-<p>4.fscanf,fprintf,fopen</p>
-<h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name[<span class="number">4</span>]; <span class="comment">//name serves as address in printf</span></span><br></pre></td></tr></table></figure>
+<p>4.fscanf,fprintf,fopen:</p>
+<pre><code>fprintf(fp, &quot;format %s&quot;, char *) 
+scanf(&quot;%d&quot;, &amp;num) // pass in address
+sscanf() // read word by word, kindof stupid
+getchar() &lt;----&gt; putchar()
+gets() &lt;-----&gt; puts()
+fread() //for binary file
+fscanf()
+char * fgets(char *s, int size, FILE *stream)
+</code></pre><h2 id="File-IO"><a href="#File-IO" class="headerlink" title="File IO"></a>File IO</h2><p>Any file is treated as a stream of bytes ended with EOF character. Yet distinction exists between text file and binary file.</p>
+<p>EOF = -1 </p>
+<figure class="highlight plain"><figcaption><span>(fscanf(fp,"%c", &ch) !</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Arrays</span><br><span class="line">``` C</span><br><span class="line">char name[4]; //name serves as address in printf</span><br></pre></td></tr></table></figure>
 <p>1.Unlike java, in C strings are made of char array and must end with /0;</p>
 <h1 id="Lecture-4-Intro-to-pointer"><a href="#Lecture-4-Intro-to-pointer" class="headerlink" title="Lecture 4 Intro to pointer"></a>Lecture 4 Intro to pointer</h1><p>1.Defining : int <em> ptr, </em> could be anywhere</p>
 <p>2.Dereferencing : assign an adress to pointer</p>
@@ -322,15 +341,15 @@
 <ul>
 <li>Unlike C++ and Java, no keyword “new”</li>
 <li>use void* malloc(size_t size);</li>
+<li></li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> *A = (*<span class="keyword">int</span>) <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(<span class="keyword">int</span>)); <span class="comment">// assign A[100]</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">// Traversal</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100</span>; i++)&#123;</span><br><span class="line">    A[i] = random();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Alternate</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100</span>; i++)&#123;</span><br><span class="line">    *(A+i) = random();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="4">
-<li>Array of pointers<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* A[<span class="number">50</span>];</span><br><span class="line"><span class="keyword">for</span>(itn i = <span class="number">0</span> ; i&lt; <span class="number">50</span>; i++)&#123;</span><br><span class="line">    A[i] = <span class="literal">NULL</span>; <span class="comment">// initialize</span></span><br><span class="line">    A[i] = <span class="built_in">malloc</span>(length_of_string+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Array of pointers</li>
 </ol>
-<p>5.Functions that take pointers<br>A very good way to pass adresses(reference) instead of copy variables<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>* ptrA, <span class="keyword">int</span>* ptrB)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = *ptrA;</span><br><span class="line">    *ptrA = *ptrB;</span><br><span class="line">    *ptrB = temp;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>It may as well be a bad idea to give direct access to actual data, so const int* ptr is better.</p>
-<p>6.Strings and pointers<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* s = <span class="string">"guna\0"</span>; <span class="comment">// assign a string,</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* A[<span class="number">50</span>];</span><br><span class="line"><span class="keyword">for</span>(itn i = <span class="number">0</span> ; i&lt; <span class="number">50</span>; i++)&#123;</span><br><span class="line">    A[i] = <span class="literal">NULL</span>; <span class="comment">// initialize</span></span><br><span class="line">    A[i] = <span class="built_in">malloc</span>(length_of_string+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.Functions that take pointers<br>A very good way to pass adresses(reference) instead of copy variables<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>* ptrA, <span class="keyword">int</span>* ptrB)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = *ptrA;</span><br><span class="line">    *ptrA = *ptrB;</span><br><span class="line">    *ptrB = temp;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> A =<span class="number">56</span>, B = <span class="number">40</span>;</span><br><span class="line">swap(&amp;A, &amp;B);</span><br></pre></td></tr></table></figure></p>
+<p>It may as well be a bad idea to give direct access to actual data, so <figure class="highlight plain"><figcaption><span>int* ptr``` is better.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6.Strings and pointers</span><br><span class="line">```C</span><br><span class="line">char* s = &quot;guna\0&quot;; // assign a string,</span><br></pre></td></tr></table></figure></p>
 <p>problem arises, no extra room assigned for s, segement error when added    </p>
 <ul>
 <li>segfault happens when fscanf exceeds current limit;<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">fgets</span><span class="params">( <span class="keyword">char</span> *s, <span class="keyword">int</span> size, FILE *stream)</span></span></span><br></pre></td></tr></table></figure>
@@ -414,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/29/csapp/" rel="next" title="csapp">
-                <i class="fa fa-chevron-left"></i> csapp
+              <a href="/2018/11/29/mysql/" rel="next" title="Mysql">
+                <i class="fa fa-chevron-left"></i> Mysql
               </a>
             
           </div>
@@ -424,8 +443,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/29/Backend/" rel="prev" title="Backend">
-                Backend <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/29/csapp/" rel="prev" title="csapp">
+                csapp <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -549,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-1-Intro"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1 Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-2-Data-types-and-representations"><span class="nav-number">2.</span> <span class="nav-text">Lecture 2 Data types and representations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-3-Functions-Arrays-and-Strings"><span class="nav-number">3.</span> <span class="nav-text">Lecture 3 Functions, Arrays and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IO"><span class="nav-number">3.1.</span> <span class="nav-text">IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arrays"><span class="nav-number">3.2.</span> <span class="nav-text">Arrays</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-4-Intro-to-pointer"><span class="nav-number">4.</span> <span class="nav-text">Lecture 4 Intro to pointer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-06-07-Debugging-problems-with-GDB-and-memory-leaks"><span class="nav-number">5.</span> <span class="nav-text">Lecture 06-07 Debugging problems with GDB and memory leaks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-08-Dynamic-Memory-Managment"><span class="nav-number">6.</span> <span class="nav-text">Lecture 08 Dynamic Memory Managment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-09"><span class="nav-number">7.</span> <span class="nav-text">lecture 09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Supplement-Lecture-Socket"><span class="nav-number">8.</span> <span class="nav-text">Supplement Lecture Socket</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-1-Intro"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1 Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-2-Data-types-and-representations"><span class="nav-number">2.</span> <span class="nav-text">Lecture 2 Data types and representations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-3-Functions-Arrays-and-Strings"><span class="nav-number">3.</span> <span class="nav-text">Lecture 3 Functions, Arrays and Strings</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IO"><span class="nav-number">3.1.</span> <span class="nav-text">IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File-IO"><span class="nav-number">3.2.</span> <span class="nav-text">File IO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-4-Intro-to-pointer"><span class="nav-number">4.</span> <span class="nav-text">Lecture 4 Intro to pointer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-06-07-Debugging-problems-with-GDB-and-memory-leaks"><span class="nav-number">5.</span> <span class="nav-text">Lecture 06-07 Debugging problems with GDB and memory leaks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-08-Dynamic-Memory-Managment"><span class="nav-number">6.</span> <span class="nav-text">Lecture 08 Dynamic Memory Managment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-09"><span class="nav-number">7.</span> <span class="nav-text">lecture 09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Supplement-Lecture-Socket"><span class="nav-number">8.</span> <span class="nav-text">Supplement Lecture Socket</span></a></li></ol></div>
             
 
           </div>

@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="查询指定单词词根接口1. 查询指定单词词根接口功能 给定单词，返回其所有词根  URL 47.101.167.9/query?word=Blahblah  支持格式 JSON  HTTP请求方式 GET  请求参数   参数 必选 类型 说明     word ture string 查询的单词    返回字段   返回字段 字段类型 说明     status int 返回结果状态。0：精准匹配">
+<meta name="description" content="1. 查询指定单词词根接口功能 给定单词，返回其所有词根  URL 47.101.167.9:5050/search?word=Blahblah  支持格式 JSON  HTTP请求方式 GET  请求参数   参数 必选 类型 说明 默认     word ture string 查询的单词 NA   related_words false list 关联单词，默认参数0，不返回 0   et">
 <meta property="og:type" content="article">
 <meta property="og:title" content="API Doc">
 <meta property="og:url" content="http://yoursite.com/2018/11/29/API doc/index.html">
 <meta property="og:site_name" content="My personal website">
-<meta property="og:description" content="查询指定单词词根接口1. 查询指定单词词根接口功能 给定单词，返回其所有词根  URL 47.101.167.9/query?word=Blahblah  支持格式 JSON  HTTP请求方式 GET  请求参数   参数 必选 类型 说明     word ture string 查询的单词    返回字段   返回字段 字段类型 说明     status int 返回结果状态。0：精准匹配">
+<meta property="og:description" content="1. 查询指定单词词根接口功能 给定单词，返回其所有词根  URL 47.101.167.9:5050/search?word=Blahblah  支持格式 JSON  HTTP请求方式 GET  请求参数   参数 必选 类型 说明 默认     word ture string 查询的单词 NA   related_words false list 关联单词，默认参数0，不返回 0   et">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-16T15:29:19.071Z">
+<meta property="og:updated_time" content="2019-01-23T10:04:41.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="API Doc">
-<meta name="twitter:description" content="查询指定单词词根接口1. 查询指定单词词根接口功能 给定单词，返回其所有词根  URL 47.101.167.9/query?word=Blahblah  支持格式 JSON  HTTP请求方式 GET  请求参数   参数 必选 类型 说明     word ture string 查询的单词    返回字段   返回字段 字段类型 说明     status int 返回结果状态。0：精准匹配">
+<meta name="twitter:description" content="1. 查询指定单词词根接口功能 给定单词，返回其所有词根  URL 47.101.167.9:5050/search?word=Blahblah  支持格式 JSON  HTTP请求方式 GET  请求参数   参数 必选 类型 说明 默认     word ture string 查询的单词 NA   related_words false list 关联单词，默认参数0，不返回 0   et">
 
 
 
@@ -299,11 +299,12 @@
       
 
       
-        <h2 id="查询指定单词词根接口"><a href="#查询指定单词词根接口" class="headerlink" title="查询指定单词词根接口"></a>查询指定单词词根接口</h2><h3 id="1-查询指定单词词根"><a href="#1-查询指定单词词根" class="headerlink" title="1. 查询指定单词词根"></a>1. 查询指定单词词根</h3><h4 id="接口功能"><a href="#接口功能" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
+        <hr>
+<h3 id="1-查询指定单词词根"><a href="#1-查询指定单词词根" class="headerlink" title="1. 查询指定单词词根"></a>1. 查询指定单词词根</h3><h4 id="接口功能"><a href="#接口功能" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
 <p>给定单词，返回其所有词根</p>
 </blockquote>
 <h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><blockquote>
-<p><a href="47.101.167.9/query?word=Blahblah">47.101.167.9/query?word=Blahblah</a></p>
+<p><a href="47.101.167.9:5050/search?word=Blahblah" target="_blank" rel="noopener">47.101.167.9:5050/search?word=Blahblah</a></p>
 </blockquote>
 <h4 id="支持格式"><a href="#支持格式" class="headerlink" title="支持格式"></a>支持格式</h4><blockquote>
 <p>JSON</p>
@@ -317,7 +318,8 @@
 <th style="text-align:left">参数</th>
 <th style="text-align:left">必选</th>
 <th style="text-align:left">类型</th>
-<th>说明</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">默认</th>
 </tr>
 </thead>
 <tbody>
@@ -325,7 +327,36 @@
 <td style="text-align:left">word</td>
 <td style="text-align:left">ture</td>
 <td style="text-align:left">string</td>
-<td>查询的单词</td>
+<td style="text-align:left">查询的单词</td>
+<td style="text-align:left">NA</td>
+</tr>
+<tr>
+<td style="text-align:left">related_words</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">list</td>
+<td style="text-align:left">关联单词，默认参数0，不返回</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">etym_meaning</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">list</td>
+<td style="text-align:left">词根解释，默认参数0，不返回</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">word_meaning</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">单词意思解释，默认参数0，不返回</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">word_pic</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">单词图片，默认参数0，不返回</td>
+<td style="text-align:left">0</td>
 </tr>
 </tbody>
 </table>
@@ -341,34 +372,45 @@
 <tr>
 <td style="text-align:left">status</td>
 <td style="text-align:left">int</td>
-<td style="text-align:left">返回结果状态。0：精准匹配；1：无准确结果；2 ： 错误</td>
+<td style="text-align:left">返回结果状态。1：精准匹配；-1 ： 错误</td>
 </tr>
 <tr>
-<td style="text-align:left">etymology_breakdown</td>
+<td style="text-align:left">etym_breakdown</td>
 <td style="text-align:left">list</td>
 <td style="text-align:left">单词词根</td>
 </tr>
 <tr>
-<td style="text-align:left">similar_words</td>
+<td style="text-align:left">related_words</td>
 <td style="text-align:left">list</td>
-<td style="text-align:left">相似单词</td>
+<td style="text-align:left">关联单词</td>
 </tr>
 <tr>
-<td style="text-align:left">meaning</td>
+<td style="text-align:left">etym_meaning</td>
+<td style="text-align:left">list of string</td>
+<td style="text-align:left">解释(解释来源有2种，’Oxford’,’Etymology’均为词根的解释，可能存在缺失)</td>
+</tr>
+<tr>
+<td style="text-align:left">word_meaning</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">解释</td>
+<td style="text-align:left">单词意思解释</td>
+</tr>
+<tr>
+<td style="text-align:left">word_pic</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">单词图片</td>
 </tr>
 </tbody>
 </table>
 <h4 id="接口示例"><a href="#接口示例" class="headerlink" title="接口示例"></a>接口示例</h4><blockquote>
-<p>地址：<a href="47.101.167.9/query?search=algorithm">47.101.167.9/query?search=Blahblah</a></p>
+<p>地址：<a href="47.101.167.9:5050/search?word=distribute" target="_blank" rel="noopener">47.101.167.9:5050/search?word=distribute</a></p>
 </blockquote>
-<p>{<br>“status_code”: 0,<br>“etymology_breakdown”: [discutere, dis, quatere],<br>“similar_words”: [“talk”, “communicate”]<br>“meaning”: “blah blah blah”<br>}</p>
-<h2 id="查询指定单词词根接口-1"><a href="#查询指定单词词根接口-1" class="headerlink" title="查询指定单词词根接口"></a>查询指定单词词根接口</h2><h3 id="1-模糊查询指定单词"><a href="#1-模糊查询指定单词" class="headerlink" title="1. 模糊查询指定单词"></a>1. 模糊查询指定单词</h3><h4 id="接口功能-1"><a href="#接口功能-1" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;status&quot;: 1,</span><br><span class="line">    &quot;data&quot;:</span><br><span class="line">           &#123;&quot;etym_breakdown&quot;:</span><br><span class="line">                       [&#123;</span><br><span class="line">                        &quot;depth&quot;:1,</span><br><span class="line">                        &quot;etym&quot;:&quot;XXX&quot;,</span><br><span class="line">                        &quot;meaning&quot;:&quot;xxx&quot;,</span><br><span class="line">                        &quot;lang&quot;:&quot;Latin&quot;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        &#123;&apos;depth&apos;: 2,</span><br><span class="line">                        &apos;etym&apos;: &apos;distribut-&apos;,</span><br><span class="line">                        &apos;meaning&apos;: &apos;divided up&apos;,</span><br><span class="line">                        &apos;lang&apos;: &apos;Latin&apos;</span><br><span class="line">                        &#125;</span><br><span class="line">                        ...</span><br><span class="line">                        ]</span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;&quot;related_words&quot;:</span><br><span class="line">                       [</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，                       </span><br><span class="line">                       ]</span><br><span class="line">           </span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;&quot;etym_meaning&quot;:</span><br><span class="line">                      &#123;&quot;Oxford_Dictionary&quot;:&quot;XXXX&quot;&#125;, </span><br><span class="line">                      &#123;&quot;Etymology_Online&quot;:&quot;XXXX&quot;&#125;,</span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;&quot;word_meaning&quot;:&quot;XXXXXX&quot;&#125;,</span><br><span class="line">           &#123;&quot;word_pic&quot;:b&quot;0xFF AC 6C....&quot;&#125;,           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-模糊查询指定单词"><a href="#2-模糊查询指定单词" class="headerlink" title="2. 模糊查询指定单词"></a>2. 模糊查询指定单词</h3><h4 id="接口功能-1"><a href="#接口功能-1" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
 <p>给定单词，返回其相关词根至多十个</p>
 </blockquote>
 <h4 id="URL-1"><a href="#URL-1" class="headerlink" title="URL"></a>URL</h4><blockquote>
-<p><a href="47.101.167.9/dictionary?word=Blahblah">47.101.167.9/dictionary?word=Blahblah</a></p>
+<p><a href="47.101.167.9:5050/dictionary?word=Blahblah" target="_blank" rel="noopener">47.101.167.9:5050/dictionary?word=Blahblah</a></p>
 </blockquote>
 <h4 id="支持格式-1"><a href="#支持格式-1" class="headerlink" title="支持格式"></a>支持格式</h4><blockquote>
 <p>JSON</p>
@@ -390,7 +432,7 @@
 <td style="text-align:left">word</td>
 <td style="text-align:left">ture</td>
 <td style="text-align:left">string</td>
-<td>查询的单词</td>
+<td>模糊查询的单词</td>
 </tr>
 </tbody>
 </table>
@@ -406,12 +448,82 @@
 <tr>
 <td style="text-align:left">status</td>
 <td style="text-align:left">int</td>
-<td style="text-align:left">返回结果状态。0：精准匹配；1：无准确结果；2 ： 错误</td>
+<td style="text-align:left">返回结果状态。1：无准确结果；-1 ： 错误</td>
 </tr>
 <tr>
-<td style="text-align:left">similar_words</td>
+<td style="text-align:left">match</td>
 <td style="text-align:left">list</td>
 <td style="text-align:left">相似单词按照相关度排列</td>
+</tr>
+</tbody>
+</table>
+<h4 id="接口示例-1"><a href="#接口示例-1" class="headerlink" title="接口示例"></a>接口示例</h4><blockquote>
+<p>地址：<a href="47.101.167.9:5050/dictionary?word=distribute" target="_blank" rel="noopener">47.101.167.9:5050/dictionary?word=distribute</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;status&quot;: 1,</span><br><span class="line">    &quot;data&quot;:</span><br><span class="line">           &#123;&quot;query&quot;:</span><br><span class="line">                       [&#123;&quot;match&quot;:&quot;XXX&quot;&#125;,</span><br><span class="line">                        &#123;&quot;match&quot;:&quot;XXX&quot;&#125;,</span><br><span class="line">                        ...</span><br><span class="line">                        ]</span><br><span class="line">           &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-查找指定单词发音相关文件"><a href="#3-查找指定单词发音相关文件" class="headerlink" title="3. 查找指定单词发音相关文件"></a>3. 查找指定单词发音相关文件</h3><h4 id="接口功能-2"><a href="#接口功能-2" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
+<p>给定单词，返回单词发音，例句发音</p>
+</blockquote>
+<h4 id="URL-2"><a href="#URL-2" class="headerlink" title="URL"></a>URL</h4><blockquote>
+<p><a href="47.101.167.9:5050/audio?word=Blahblah" target="_blank" rel="noopener">47.101.167.9:5050/audio?word=Blahblah</a></p>
+</blockquote>
+<h4 id="支持格式-2"><a href="#支持格式-2" class="headerlink" title="支持格式"></a>支持格式</h4><blockquote>
+<p>JSON</p>
+</blockquote>
+<h4 id="HTTP请求方式-2"><a href="#HTTP请求方式-2" class="headerlink" title="HTTP请求方式"></a>HTTP请求方式</h4><blockquote>
+<p>GET</p>
+</blockquote>
+<h4 id="请求参数-2"><a href="#请求参数-2" class="headerlink" title="请求参数"></a>请求参数</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">必选</th>
+<th style="text-align:left">类型</th>
+<th>说明</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">word_pronunciation</td>
+<td style="text-align:left">ture</td>
+<td style="text-align:left">string</td>
+<td>单词发音</td>
+<td>1：返回单词发音 ，（0：不返回）</td>
+</tr>
+<tr>
+<td style="text-align:left">sentence_pronunciation</td>
+<td style="text-align:left">ture</td>
+<td style="text-align:left">string</td>
+<td>例句发音</td>
+<td>1：返回例句发音， （0：不返回）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回字段-2"><a href="#返回字段-2" class="headerlink" title="返回字段"></a>返回字段</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">返回字段</th>
+<th style="text-align:left">字段类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">返回结果状态。1：精准匹配；-1 ： 错误</td>
+</tr>
+<tr>
+<td style="text-align:left">word_pronunciation</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">单词发音</td>
+</tr>
+<tr>
+<td style="text-align:left">sentence_pronunciation</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">例句发音</td>
 </tr>
 </tbody>
 </table>
@@ -574,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查询指定单词词根接口"><span class="nav-number">1.</span> <span class="nav-text">查询指定单词词根接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-查询指定单词词根"><span class="nav-number">1.1.</span> <span class="nav-text">1. 查询指定单词词根</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口功能"><span class="nav-number">1.1.1.</span> <span class="nav-text">接口功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL"><span class="nav-number">1.1.2.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持格式"><span class="nav-number">1.1.3.</span> <span class="nav-text">支持格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求方式"><span class="nav-number">1.1.4.</span> <span class="nav-text">HTTP请求方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求参数"><span class="nav-number">1.1.5.</span> <span class="nav-text">请求参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回字段"><span class="nav-number">1.1.6.</span> <span class="nav-text">返回字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口示例"><span class="nav-number">1.1.7.</span> <span class="nav-text">接口示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询指定单词词根接口-1"><span class="nav-number">2.</span> <span class="nav-text">查询指定单词词根接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-模糊查询指定单词"><span class="nav-number">2.1.</span> <span class="nav-text">1. 模糊查询指定单词</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口功能-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">接口功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持格式-1"><span class="nav-number">2.1.3.</span> <span class="nav-text">支持格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求方式-1"><span class="nav-number">2.1.4.</span> <span class="nav-text">HTTP请求方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求参数-1"><span class="nav-number">2.1.5.</span> <span class="nav-text">请求参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回字段-1"><span class="nav-number">2.1.6.</span> <span class="nav-text">返回字段</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-查询指定单词词根"><span class="nav-number">1.</span> <span class="nav-text">1. 查询指定单词词根</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口功能"><span class="nav-number">1.1.</span> <span class="nav-text">接口功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL"><span class="nav-number">1.2.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持格式"><span class="nav-number">1.3.</span> <span class="nav-text">支持格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求方式"><span class="nav-number">1.4.</span> <span class="nav-text">HTTP请求方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求参数"><span class="nav-number">1.5.</span> <span class="nav-text">请求参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回字段"><span class="nav-number">1.6.</span> <span class="nav-text">返回字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口示例"><span class="nav-number">1.7.</span> <span class="nav-text">接口示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-模糊查询指定单词"><span class="nav-number">2.</span> <span class="nav-text">2. 模糊查询指定单词</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口功能-1"><span class="nav-number">2.1.</span> <span class="nav-text">接口功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-1"><span class="nav-number">2.2.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持格式-1"><span class="nav-number">2.3.</span> <span class="nav-text">支持格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求方式-1"><span class="nav-number">2.4.</span> <span class="nav-text">HTTP请求方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求参数-1"><span class="nav-number">2.5.</span> <span class="nav-text">请求参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回字段-1"><span class="nav-number">2.6.</span> <span class="nav-text">返回字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口示例-1"><span class="nav-number">2.7.</span> <span class="nav-text">接口示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-查找指定单词发音相关文件"><span class="nav-number">3.</span> <span class="nav-text">3. 查找指定单词发音相关文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口功能-2"><span class="nav-number">3.1.</span> <span class="nav-text">接口功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-2"><span class="nav-number">3.2.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持格式-2"><span class="nav-number">3.3.</span> <span class="nav-text">支持格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求方式-2"><span class="nav-number">3.4.</span> <span class="nav-text">HTTP请求方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求参数-2"><span class="nav-number">3.5.</span> <span class="nav-text">请求参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回字段-2"><span class="nav-number">3.6.</span> <span class="nav-text">返回字段</span></a></li></ol></li></ol></div>
             
 
           </div>

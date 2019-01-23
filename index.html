@@ -762,7 +762,8 @@
       
         
           
-            <h1 id="Leetcode-Conquest"><a href="#Leetcode-Conquest" class="headerlink" title="Leetcode Conquest"></a>Leetcode Conquest</h1><p>This post mainly hosts all my code problems solved on Leetcode.</p>
+            <hr>
+<p>title: Leetcode date: 2018-10-29 21:11:00<br>tags: Algorithms—# Leetcode Conquest<br>This post mainly hosts all my code problems solved on Leetcode.</p>
 <h2 id="Question-0-100"><a href="#Question-0-100" class="headerlink" title="Question 0-100"></a>Question 0-100</h2><h3 id="Q105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal"><a href="#Q105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal" class="headerlink" title="Q105 Construct Binary Tree from Preorder and Inorder Traversal"></a><strong>Q105 Construct Binary Tree from Preorder and Inorder Traversal</strong></h3><p>Description: Given preorder and inorder traversal of  a tree, try to construct the binary tree.</p>
 <p>It might seem intimatidating at the first hand, but we can soon figure out following invariants:</p>
 <ul>
@@ -1020,11 +1021,12 @@
       
         
           
-            <h2 id="查询指定单词词根接口"><a href="#查询指定单词词根接口" class="headerlink" title="查询指定单词词根接口"></a>查询指定单词词根接口</h2><h3 id="1-查询指定单词词根"><a href="#1-查询指定单词词根" class="headerlink" title="1. 查询指定单词词根"></a>1. 查询指定单词词根</h3><h4 id="接口功能"><a href="#接口功能" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
+            <hr>
+<h3 id="1-查询指定单词词根"><a href="#1-查询指定单词词根" class="headerlink" title="1. 查询指定单词词根"></a>1. 查询指定单词词根</h3><h4 id="接口功能"><a href="#接口功能" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
 <p>给定单词，返回其所有词根</p>
 </blockquote>
 <h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><blockquote>
-<p><a href="47.101.167.9/query?word=Blahblah">47.101.167.9/query?word=Blahblah</a></p>
+<p><a href="47.101.167.9:5050/search?word=Blahblah" target="_blank" rel="noopener">47.101.167.9:5050/search?word=Blahblah</a></p>
 </blockquote>
 <h4 id="支持格式"><a href="#支持格式" class="headerlink" title="支持格式"></a>支持格式</h4><blockquote>
 <p>JSON</p>
@@ -1038,7 +1040,8 @@
 <th style="text-align:left">参数</th>
 <th style="text-align:left">必选</th>
 <th style="text-align:left">类型</th>
-<th>说明</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">默认</th>
 </tr>
 </thead>
 <tbody>
@@ -1046,7 +1049,36 @@
 <td style="text-align:left">word</td>
 <td style="text-align:left">ture</td>
 <td style="text-align:left">string</td>
-<td>查询的单词</td>
+<td style="text-align:left">查询的单词</td>
+<td style="text-align:left">NA</td>
+</tr>
+<tr>
+<td style="text-align:left">related_words</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">list</td>
+<td style="text-align:left">关联单词，默认参数0，不返回</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">etym_meaning</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">list</td>
+<td style="text-align:left">词根解释，默认参数0，不返回</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">word_meaning</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">单词意思解释，默认参数0，不返回</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">word_pic</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">单词图片，默认参数0，不返回</td>
+<td style="text-align:left">0</td>
 </tr>
 </tbody>
 </table>
@@ -1062,34 +1094,45 @@
 <tr>
 <td style="text-align:left">status</td>
 <td style="text-align:left">int</td>
-<td style="text-align:left">返回结果状态。0：精准匹配；1：无准确结果；2 ： 错误</td>
+<td style="text-align:left">返回结果状态。1：精准匹配；-1 ： 错误</td>
 </tr>
 <tr>
-<td style="text-align:left">etymology_breakdown</td>
+<td style="text-align:left">etym_breakdown</td>
 <td style="text-align:left">list</td>
 <td style="text-align:left">单词词根</td>
 </tr>
 <tr>
-<td style="text-align:left">similar_words</td>
+<td style="text-align:left">related_words</td>
 <td style="text-align:left">list</td>
-<td style="text-align:left">相似单词</td>
+<td style="text-align:left">关联单词</td>
 </tr>
 <tr>
-<td style="text-align:left">meaning</td>
+<td style="text-align:left">etym_meaning</td>
+<td style="text-align:left">list of string</td>
+<td style="text-align:left">解释(解释来源有2种，’Oxford’,’Etymology’均为词根的解释，可能存在缺失)</td>
+</tr>
+<tr>
+<td style="text-align:left">word_meaning</td>
 <td style="text-align:left">string</td>
-<td style="text-align:left">解释</td>
+<td style="text-align:left">单词意思解释</td>
+</tr>
+<tr>
+<td style="text-align:left">word_pic</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">单词图片</td>
 </tr>
 </tbody>
 </table>
 <h4 id="接口示例"><a href="#接口示例" class="headerlink" title="接口示例"></a>接口示例</h4><blockquote>
-<p>地址：<a href="47.101.167.9/query?search=algorithm">47.101.167.9/query?search=Blahblah</a></p>
+<p>地址：<a href="47.101.167.9:5050/search?word=distribute" target="_blank" rel="noopener">47.101.167.9:5050/search?word=distribute</a></p>
 </blockquote>
-<p>{<br>“status_code”: 0,<br>“etymology_breakdown”: [discutere, dis, quatere],<br>“similar_words”: [“talk”, “communicate”]<br>“meaning”: “blah blah blah”<br>}</p>
-<h2 id="查询指定单词词根接口-1"><a href="#查询指定单词词根接口-1" class="headerlink" title="查询指定单词词根接口"></a>查询指定单词词根接口</h2><h3 id="1-模糊查询指定单词"><a href="#1-模糊查询指定单词" class="headerlink" title="1. 模糊查询指定单词"></a>1. 模糊查询指定单词</h3><h4 id="接口功能-1"><a href="#接口功能-1" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;status&quot;: 1,</span><br><span class="line">    &quot;data&quot;:</span><br><span class="line">           &#123;&quot;etym_breakdown&quot;:</span><br><span class="line">                       [&#123;</span><br><span class="line">                        &quot;depth&quot;:1,</span><br><span class="line">                        &quot;etym&quot;:&quot;XXX&quot;,</span><br><span class="line">                        &quot;meaning&quot;:&quot;xxx&quot;,</span><br><span class="line">                        &quot;lang&quot;:&quot;Latin&quot;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        &#123;&apos;depth&apos;: 2,</span><br><span class="line">                        &apos;etym&apos;: &apos;distribut-&apos;,</span><br><span class="line">                        &apos;meaning&apos;: &apos;divided up&apos;,</span><br><span class="line">                        &apos;lang&apos;: &apos;Latin&apos;</span><br><span class="line">                        &#125;</span><br><span class="line">                        ...</span><br><span class="line">                        ]</span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;&quot;related_words&quot;:</span><br><span class="line">                       [</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，                       </span><br><span class="line">                       ]</span><br><span class="line">           </span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;&quot;etym_meaning&quot;:</span><br><span class="line">                      &#123;&quot;Oxford_Dictionary&quot;:&quot;XXXX&quot;&#125;, </span><br><span class="line">                      &#123;&quot;Etymology_Online&quot;:&quot;XXXX&quot;&#125;,</span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;&quot;word_meaning&quot;:&quot;XXXXXX&quot;&#125;,</span><br><span class="line">           &#123;&quot;word_pic&quot;:b&quot;0xFF AC 6C....&quot;&#125;,           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-模糊查询指定单词"><a href="#2-模糊查询指定单词" class="headerlink" title="2. 模糊查询指定单词"></a>2. 模糊查询指定单词</h3><h4 id="接口功能-1"><a href="#接口功能-1" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
 <p>给定单词，返回其相关词根至多十个</p>
 </blockquote>
 <h4 id="URL-1"><a href="#URL-1" class="headerlink" title="URL"></a>URL</h4><blockquote>
-<p><a href="47.101.167.9/dictionary?word=Blahblah">47.101.167.9/dictionary?word=Blahblah</a></p>
+<p><a href="47.101.167.9:5050/dictionary?word=Blahblah" target="_blank" rel="noopener">47.101.167.9:5050/dictionary?word=Blahblah</a></p>
 </blockquote>
 <h4 id="支持格式-1"><a href="#支持格式-1" class="headerlink" title="支持格式"></a>支持格式</h4><blockquote>
 <p>JSON</p>
@@ -1111,7 +1154,7 @@
 <td style="text-align:left">word</td>
 <td style="text-align:left">ture</td>
 <td style="text-align:left">string</td>
-<td>查询的单词</td>
+<td>模糊查询的单词</td>
 </tr>
 </tbody>
 </table>
@@ -1127,12 +1170,82 @@
 <tr>
 <td style="text-align:left">status</td>
 <td style="text-align:left">int</td>
-<td style="text-align:left">返回结果状态。0：精准匹配；1：无准确结果；2 ： 错误</td>
+<td style="text-align:left">返回结果状态。1：无准确结果；-1 ： 错误</td>
 </tr>
 <tr>
-<td style="text-align:left">similar_words</td>
+<td style="text-align:left">match</td>
 <td style="text-align:left">list</td>
 <td style="text-align:left">相似单词按照相关度排列</td>
+</tr>
+</tbody>
+</table>
+<h4 id="接口示例-1"><a href="#接口示例-1" class="headerlink" title="接口示例"></a>接口示例</h4><blockquote>
+<p>地址：<a href="47.101.167.9:5050/dictionary?word=distribute" target="_blank" rel="noopener">47.101.167.9:5050/dictionary?word=distribute</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;status&quot;: 1,</span><br><span class="line">    &quot;data&quot;:</span><br><span class="line">           &#123;&quot;query&quot;:</span><br><span class="line">                       [&#123;&quot;match&quot;:&quot;XXX&quot;&#125;,</span><br><span class="line">                        &#123;&quot;match&quot;:&quot;XXX&quot;&#125;,</span><br><span class="line">                        ...</span><br><span class="line">                        ]</span><br><span class="line">           &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-查找指定单词发音相关文件"><a href="#3-查找指定单词发音相关文件" class="headerlink" title="3. 查找指定单词发音相关文件"></a>3. 查找指定单词发音相关文件</h3><h4 id="接口功能-2"><a href="#接口功能-2" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
+<p>给定单词，返回单词发音，例句发音</p>
+</blockquote>
+<h4 id="URL-2"><a href="#URL-2" class="headerlink" title="URL"></a>URL</h4><blockquote>
+<p><a href="47.101.167.9:5050/audio?word=Blahblah" target="_blank" rel="noopener">47.101.167.9:5050/audio?word=Blahblah</a></p>
+</blockquote>
+<h4 id="支持格式-2"><a href="#支持格式-2" class="headerlink" title="支持格式"></a>支持格式</h4><blockquote>
+<p>JSON</p>
+</blockquote>
+<h4 id="HTTP请求方式-2"><a href="#HTTP请求方式-2" class="headerlink" title="HTTP请求方式"></a>HTTP请求方式</h4><blockquote>
+<p>GET</p>
+</blockquote>
+<h4 id="请求参数-2"><a href="#请求参数-2" class="headerlink" title="请求参数"></a>请求参数</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">必选</th>
+<th style="text-align:left">类型</th>
+<th>说明</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">word_pronunciation</td>
+<td style="text-align:left">ture</td>
+<td style="text-align:left">string</td>
+<td>单词发音</td>
+<td>1：返回单词发音 ，（0：不返回）</td>
+</tr>
+<tr>
+<td style="text-align:left">sentence_pronunciation</td>
+<td style="text-align:left">ture</td>
+<td style="text-align:left">string</td>
+<td>例句发音</td>
+<td>1：返回例句发音， （0：不返回）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回字段-2"><a href="#返回字段-2" class="headerlink" title="返回字段"></a>返回字段</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">返回字段</th>
+<th style="text-align:left">字段类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">返回结果状态。1：精准匹配；-1 ： 错误</td>
+</tr>
+<tr>
+<td style="text-align:left">word_pronunciation</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">单词发音</td>
+</tr>
+<tr>
+<td style="text-align:left">sentence_pronunciation</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">例句发音</td>
 </tr>
 </tbody>
 </table>
@@ -1299,214 +1412,6 @@
 <p>1.Type selectors (e.g., h1) and pseudo-elements (e.g., ::before).<br>2.Class selectors (e.g., .example), attributes selectors (e.g., [type=”radio”]) and pseudo-classes (e.g., :hover).<br>3.ID selectors (e.g., #example).</p>
 <p>input.value: for pre-filling</p>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/15123 System programming in C & Unix/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tjianke">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My personal website">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/29/15123 System programming in C & Unix/" itemprop="url">15123 System programming in C & Unix</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T23:05:17+08:00">
-                2018-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Header Notation:<br>1.Chapter<br>2.In-chapter knowledge</p>
-<h1 id="Lecture-1-Intro"><a href="#Lecture-1-Intro" class="headerlink" title="Lecture 1 Intro"></a>Lecture 1 Intro</h1><p>(Passed)</p>
-<h1 id="Lecture-2-Data-types-and-representations"><a href="#Lecture-2-Data-types-and-representations" class="headerlink" title="Lecture 2 Data types and representations"></a>Lecture 2 Data types and representations</h1><p>covered in 15213</p>
-<h1 id="Lecture-3-Functions-Arrays-and-Strings"><a href="#Lecture-3-Functions-Arrays-and-Strings" class="headerlink" title="Lecture 3 Functions, Arrays and Strings"></a>Lecture 3 Functions, Arrays and Strings</h1><ul>
-<li>Functions, input arguments, return values</li>
-<li>Array fundamentals</li>
-<li>String as char*’s</li>
-<li>Command line arguments<h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2></li>
-</ul>
-<p>1.Formatting statement “10.2f” means 10 spot in total and 2 decimal spot</p>
-<p>2.Address is 32 bit</p>
-<p>3.C I/O open mode : “w”,”r”,”a(appebd)”,”b”</p>
-<p>4.fscanf,fprintf,fopen</p>
-<h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name[<span class="number">4</span>]; <span class="comment">//name serves as address in printf</span></span><br></pre></td></tr></table></figure>
-<p>1.Unlike java, in C strings are made of char array and must end with /0;</p>
-<h1 id="Lecture-4-Intro-to-pointer"><a href="#Lecture-4-Intro-to-pointer" class="headerlink" title="Lecture 4 Intro to pointer"></a>Lecture 4 Intro to pointer</h1><p>1.Defining : int <em> ptr, </em> could be anywhere</p>
-<p>2.Dereferencing : assign an adress to pointer</p>
-<p>3.Memory allocation in C:</p>
-<ul>
-<li>Unlike C++ and Java, no keyword “new”</li>
-<li>use void* malloc(size_t size);</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> *A = (*<span class="keyword">int</span>) <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(<span class="keyword">int</span>)); <span class="comment">// assign A[100]</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">// Traversal</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100</span>; i++)&#123;</span><br><span class="line">    A[i] = random();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Alternate</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100</span>; i++)&#123;</span><br><span class="line">    *(A+i) = random();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>Array of pointers<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* A[<span class="number">50</span>];</span><br><span class="line"><span class="keyword">for</span>(itn i = <span class="number">0</span> ; i&lt; <span class="number">50</span>; i++)&#123;</span><br><span class="line">    A[i] = <span class="literal">NULL</span>; <span class="comment">// initialize</span></span><br><span class="line">    A[i] = <span class="built_in">malloc</span>(length_of_string+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>5.Functions that take pointers<br>A very good way to pass adresses(reference) instead of copy variables<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>* ptrA, <span class="keyword">int</span>* ptrB)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = *ptrA;</span><br><span class="line">    *ptrA = *ptrB;</span><br><span class="line">    *ptrB = temp;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>It may as well be a bad idea to give direct access to actual data, so const int* ptr is better.</p>
-<p>6.Strings and pointers<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* s = <span class="string">"guna\0"</span>; <span class="comment">// assign a string,</span></span><br></pre></td></tr></table></figure></p>
-<p>problem arises, no extra room assigned for s, segement error when added    </p>
-<ul>
-<li>segfault happens when fscanf exceeds current limit;<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">fgets</span><span class="params">( <span class="keyword">char</span> *s, <span class="keyword">int</span> size, FILE *stream)</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>fgets uses at most size -1 </p>
-<h1 id="Lecture-06-07-Debugging-problems-with-GDB-and-memory-leaks"><a href="#Lecture-06-07-Debugging-problems-with-GDB-and-memory-leaks" class="headerlink" title="Lecture 06-07 Debugging problems with GDB and memory leaks"></a>Lecture 06-07 Debugging problems with GDB and memory leaks</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -ansi -Wall -pedantic main.c -o exec</span><br><span class="line">gcc -c -Wall -pedantic main.c </span><br><span class="line">gcc main.o -o exec</span><br></pre></td></tr></table></figure>
-<p>1.Common mistakes using pointers:</p>
-<ul>
-<li>dereferenc of uninitialized pointers</li>
-<li>insufficient allocated memorage</li>
-<li>storage used after free</li>
-<li>allocation freed repeatedly</li>
-</ul>
-<ol start="2">
-<li><em>/<strong>/</strong></em> what’s the difference?</li>
-</ol>
-<h1 id="Lecture-08-Dynamic-Memory-Managment"><a href="#Lecture-08-Dynamic-Memory-Managment" class="headerlink" title="Lecture 08 Dynamic Memory Managment"></a>Lecture 08 Dynamic Memory Managment</h1><p>1.Inclued by &lt;stdlib.h&gt; (malloc free realloc calloc)</p>
-<ul>
-<li>void* malloc(size_t size) always remember to check <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span>* p;</span><br><span class="line"><span class="keyword">if</span>((p = <span class="built_in">malloc</span>(n)) == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;<span class="comment">// memory is allocated&#125;;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>2.frees any memo allocated by previous malloc call<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">free</span>(A);</span><br></pre></td></tr></table></figure></p>
-<p>3.calloc(n,sizeof(int)) equals to malloc(n*sizeof(int))</p>
-<p>4.realloc(void *ptr, size_t size)</p>
-<p>5.Memory leaks, memory that has been allocated by an application, but not released later.</p>
-<ul>
-<li>Memory leak Example:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> A[n],i=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line"> A[i] = random();</span><br><span class="line"><span class="keyword">int</span>* B = <span class="built_in">malloc</span>(<span class="number">2</span>*n);</span><br><span class="line">B = A; <span class="comment">//A=B, illegal</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>6.Automatic VS Dynamic variables</p>
-<ul>
-<li>int x, x is assigned by stack and pop when out of stack</li>
-<li>int *A = malloc(100); provided in heap</li>
-</ul>
-<h1 id="lecture-09"><a href="#lecture-09" class="headerlink" title="lecture 09"></a>lecture 09</h1><h1 id="Supplement-Lecture-Socket"><a href="#Supplement-Lecture-Socket" class="headerlink" title="Supplement Lecture Socket"></a>Supplement Lecture Socket</h1><p>1.IP address, 32 bit address divided into 5 types</p>
-<ul>
-<li>In Unix, each I/O is related with file descriptors. An integer associated with an open file and it can be network connection etc</li>
-</ul>
-<p>2.Map IP to names, DNS</p>
-<ul>
-<li>The process of finding out dotted IP address based on the given alphanumeric host name is known as hostname resolution.</li>
-<li>Correspondence of hosts and IP are kept in HOST(/etc/hosts)</li>
-</ul>
-<p>3.Client-server model<br>4.Architecture:</p>
-<ul>
-<li>2 tier web browser</li>
-<li>3 tier middleware</li>
-</ul>
-<p>5.concurrent / iterative server<br><img src="https://www.tutorialspoint.com/unix_sockets/images/socket_client_server.gif" alt="TCP Client-Server"></p>
-<p>Check this <a href="https://www.tutorialspoint.com/unix_sockets/socket_summary.htm" target="_blank" rel="noopener">website</a> for full info</p>
-<p>Well, even more detailed by <a href="http://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html" target="_blank" rel="noopener">RPI</a></p>
-<ul>
-<li>Server.C </li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netdb.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[] )</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> sockfd, newsockfd, portno, clilen;</span><br><span class="line">   <span class="keyword">char</span> buffer[<span class="number">256</span>];</span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">serv_addr</span>, <span class="title">cli_addr</span>;</span></span><br><span class="line">   <span class="keyword">int</span>  n;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* First call to socket() function to establish a socket*/</span></span><br><span class="line">   sockfd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>); <span class="comment">//AF_INET for ipv4</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (sockfd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR opening socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Initialize socket structure */</span></span><br><span class="line">   bzero((<span class="keyword">char</span> *) &amp;serv_addr, <span class="keyword">sizeof</span>(serv_addr));</span><br><span class="line">   portno = <span class="number">5001</span>;</span><br><span class="line">   </span><br><span class="line">   serv_addr.sin_family = AF_INET;</span><br><span class="line">   serv_addr.sin_addr.s_addr = INADDR_ANY;</span><br><span class="line">   serv_addr.sin_port = htons(portno);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Now bind the host address using bind() call.*/</span></span><br><span class="line">   <span class="keyword">if</span> (bind(sockfd, (struct sockaddr *) &amp;serv_addr, <span class="keyword">sizeof</span>(serv_addr)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR on binding"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">      </span><br><span class="line">   <span class="comment">/* Now start listening for the clients, here process will</span></span><br><span class="line"><span class="comment">      * go in sleep mode and will wait for the incoming connection</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">   </span><br><span class="line">   listen(sockfd,<span class="number">5</span>);</span><br><span class="line">   clilen = <span class="keyword">sizeof</span>(cli_addr);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Accept actual connection from the client */</span></span><br><span class="line">   newsockfd = accept(sockfd, (struct sockaddr *)&amp;cli_addr, &amp;clilen);</span><br><span class="line">	</span><br><span class="line">   <span class="keyword">if</span> (newsockfd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR on accept"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* If connection is established then start communicating */</span></span><br><span class="line">   bzero(buffer,<span class="number">256</span>);</span><br><span class="line">   n = read( newsockfd,buffer,<span class="number">255</span> ); <span class="comment">//file descriptor</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR reading from socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"Here is the message: %s\n"</span>,buffer);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Write a response to the client */</span></span><br><span class="line">   n = write(newsockfd,<span class="string">"I got your message"</span>,<span class="number">18</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR writing to socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">      </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>client.c ./client localhost port_number</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netdb.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> sockfd, portno, n;</span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">serv_addr</span>;</span></span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">hostent</span> *<span class="title">server</span>;</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">char</span> buffer[<span class="number">256</span>];</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (argc &lt; <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage %s hostname port\n"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   portno = atoi(argv[<span class="number">2</span>]);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Create a socket point */</span></span><br><span class="line">   sockfd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (sockfd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR opening socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   server = gethostbyname(argv[<span class="number">1</span>]);<span class="comment">// returns hostent</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (server == <span class="literal">NULL</span>) &#123;</span><br><span class="line">      <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"ERROR, no such host\n"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   bzero((<span class="keyword">char</span> *) &amp;serv_addr, <span class="keyword">sizeof</span>(serv_addr));</span><br><span class="line">   serv_addr.sin_family = AF_INET;</span><br><span class="line">   bcopy((<span class="keyword">char</span> *)server-&gt;h_addr, (<span class="keyword">char</span> *)&amp;serv_addr.sin_addr.s_addr, server-&gt;h_length);</span><br><span class="line">   serv_addr.sin_port = htons(portno);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Now connect to the server */</span></span><br><span class="line">   <span class="keyword">if</span> (connect(sockfd, (struct sockaddr*)&amp;serv_addr, <span class="keyword">sizeof</span>(serv_addr)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR connecting"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Now ask for a message from the user, this message</span></span><br><span class="line"><span class="comment">      * will be read by server</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">	</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"Please enter the message: "</span>);</span><br><span class="line">   bzero(buffer,<span class="number">256</span>);</span><br><span class="line">   fgets(buffer,<span class="number">255</span>,<span class="built_in">stdin</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Send message to the server */</span></span><br><span class="line">   n = write(sockfd, buffer, <span class="built_in">strlen</span>(buffer));</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR writing to socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Now read server response */</span></span><br><span class="line">   bzero(buffer,<span class="number">256</span>);</span><br><span class="line">   n = read(sockfd, buffer, <span class="number">255</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR reading from socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buffer);</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1763,6 +1668,233 @@
 </code></pre><p>8.Casting</p>
 <pre><code>Float/double -&gt; int: truncate frac
 </code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/15123 System programming in C & Unix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tjianke">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My personal website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/29/15123 System programming in C & Unix/" itemprop="url">15123 System programming in C & Unix</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T23:05:17+08:00">
+                2018-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Header Notation:<br>1.Chapter<br>2.In-chapter knowledge</p>
+<h1 id="Lecture-1-Intro"><a href="#Lecture-1-Intro" class="headerlink" title="Lecture 1 Intro"></a>Lecture 1 Intro</h1><p>(Passed)</p>
+<p>Some defs:</p>
+<ol>
+<li><p>Imperative programming, a programming paradigm that describes computation in terms of statments that change the state of the machine.</p>
+</li>
+<li><p>3 steps in developing C: Edit, Compile, Link</p>
+</li>
+<li><p>Must CLI argument, ANSI(define first), -pedantic -W -Wall</p>
+</li>
+</ol>
+<h1 id="Lecture-2-Data-types-and-representations"><a href="#Lecture-2-Data-types-and-representations" class="headerlink" title="Lecture 2 Data types and representations"></a>Lecture 2 Data types and representations</h1><p>covered in 15213</p>
+<h1 id="Lecture-3-Functions-Arrays-and-Strings"><a href="#Lecture-3-Functions-Arrays-and-Strings" class="headerlink" title="Lecture 3 Functions, Arrays and Strings"></a>Lecture 3 Functions, Arrays and Strings</h1><ul>
+<li>Functions, input arguments, return values</li>
+<li>Array fundamentals</li>
+<li>String as char*’s</li>
+<li>Command line arguments<h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2></li>
+</ul>
+<p>1.Formatting statement “10.2f” means 10 spot in total and 2 decimal spot</p>
+<p>2.Address is 32 bit, use <code>printf(&quot;%x&quot;, &amp;x)</code></p>
+<p>3.C I/O open mode : “w”,”r”,”a(appebd)”,”b”</p>
+<p>4.fscanf,fprintf,fopen:</p>
+<pre><code>fprintf(fp, &quot;format %s&quot;, char *) 
+scanf(&quot;%d&quot;, &amp;num) // pass in address
+sscanf() // read word by word, kindof stupid
+getchar() &lt;----&gt; putchar()
+gets() &lt;-----&gt; puts()
+fread() //for binary file
+fscanf()
+char * fgets(char *s, int size, FILE *stream)
+</code></pre><h2 id="File-IO"><a href="#File-IO" class="headerlink" title="File IO"></a>File IO</h2><p>Any file is treated as a stream of bytes ended with EOF character. Yet distinction exists between text file and binary file.</p>
+<p>EOF = -1 </p>
+<figure class="highlight plain"><figcaption><span>(fscanf(fp,"%c", &ch) !</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Arrays</span><br><span class="line">``` C</span><br><span class="line">char name[4]; //name serves as address in printf</span><br></pre></td></tr></table></figure>
+<p>1.Unlike java, in C strings are made of char array and must end with /0;</p>
+<h1 id="Lecture-4-Intro-to-pointer"><a href="#Lecture-4-Intro-to-pointer" class="headerlink" title="Lecture 4 Intro to pointer"></a>Lecture 4 Intro to pointer</h1><p>1.Defining : int <em> ptr, </em> could be anywhere</p>
+<p>2.Dereferencing : assign an adress to pointer</p>
+<p>3.Memory allocation in C:</p>
+<ul>
+<li>Unlike C++ and Java, no keyword “new”</li>
+<li>use void* malloc(size_t size);</li>
+<li></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> *A = (*<span class="keyword">int</span>) <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(<span class="keyword">int</span>)); <span class="comment">// assign A[100]</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">// Traversal</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100</span>; i++)&#123;</span><br><span class="line">    A[i] = random();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Alternate</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100</span>; i++)&#123;</span><br><span class="line">    *(A+i) = random();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>Array of pointers</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* A[<span class="number">50</span>];</span><br><span class="line"><span class="keyword">for</span>(itn i = <span class="number">0</span> ; i&lt; <span class="number">50</span>; i++)&#123;</span><br><span class="line">    A[i] = <span class="literal">NULL</span>; <span class="comment">// initialize</span></span><br><span class="line">    A[i] = <span class="built_in">malloc</span>(length_of_string+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.Functions that take pointers<br>A very good way to pass adresses(reference) instead of copy variables<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>* ptrA, <span class="keyword">int</span>* ptrB)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = *ptrA;</span><br><span class="line">    *ptrA = *ptrB;</span><br><span class="line">    *ptrB = temp;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> A =<span class="number">56</span>, B = <span class="number">40</span>;</span><br><span class="line">swap(&amp;A, &amp;B);</span><br></pre></td></tr></table></figure></p>
+<p>It may as well be a bad idea to give direct access to actual data, so <figure class="highlight plain"><figcaption><span>int* ptr``` is better.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6.Strings and pointers</span><br><span class="line">```C</span><br><span class="line">char* s = &quot;guna\0&quot;; // assign a string,</span><br></pre></td></tr></table></figure></p>
+<p>problem arises, no extra room assigned for s, segement error when added    </p>
+<ul>
+<li>segfault happens when fscanf exceeds current limit;<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">fgets</span><span class="params">( <span class="keyword">char</span> *s, <span class="keyword">int</span> size, FILE *stream)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>fgets uses at most size -1 </p>
+<h1 id="Lecture-06-07-Debugging-problems-with-GDB-and-memory-leaks"><a href="#Lecture-06-07-Debugging-problems-with-GDB-and-memory-leaks" class="headerlink" title="Lecture 06-07 Debugging problems with GDB and memory leaks"></a>Lecture 06-07 Debugging problems with GDB and memory leaks</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -ansi -Wall -pedantic main.c -o exec</span><br><span class="line">gcc -c -Wall -pedantic main.c </span><br><span class="line">gcc main.o -o exec</span><br></pre></td></tr></table></figure>
+<p>1.Common mistakes using pointers:</p>
+<ul>
+<li>dereferenc of uninitialized pointers</li>
+<li>insufficient allocated memorage</li>
+<li>storage used after free</li>
+<li>allocation freed repeatedly</li>
+</ul>
+<ol start="2">
+<li><em>/<strong>/</strong></em> what’s the difference?</li>
+</ol>
+<h1 id="Lecture-08-Dynamic-Memory-Managment"><a href="#Lecture-08-Dynamic-Memory-Managment" class="headerlink" title="Lecture 08 Dynamic Memory Managment"></a>Lecture 08 Dynamic Memory Managment</h1><p>1.Inclued by &lt;stdlib.h&gt; (malloc free realloc calloc)</p>
+<ul>
+<li>void* malloc(size_t size) always remember to check <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span>* p;</span><br><span class="line"><span class="keyword">if</span>((p = <span class="built_in">malloc</span>(n)) == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;<span class="comment">// memory is allocated&#125;;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2.frees any memo allocated by previous malloc call<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">free</span>(A);</span><br></pre></td></tr></table></figure></p>
+<p>3.calloc(n,sizeof(int)) equals to malloc(n*sizeof(int))</p>
+<p>4.realloc(void *ptr, size_t size)</p>
+<p>5.Memory leaks, memory that has been allocated by an application, but not released later.</p>
+<ul>
+<li>Memory leak Example:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> A[n],i=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line"> A[i] = random();</span><br><span class="line"><span class="keyword">int</span>* B = <span class="built_in">malloc</span>(<span class="number">2</span>*n);</span><br><span class="line">B = A; <span class="comment">//A=B, illegal</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>6.Automatic VS Dynamic variables</p>
+<ul>
+<li>int x, x is assigned by stack and pop when out of stack</li>
+<li>int *A = malloc(100); provided in heap</li>
+</ul>
+<h1 id="lecture-09"><a href="#lecture-09" class="headerlink" title="lecture 09"></a>lecture 09</h1><h1 id="Supplement-Lecture-Socket"><a href="#Supplement-Lecture-Socket" class="headerlink" title="Supplement Lecture Socket"></a>Supplement Lecture Socket</h1><p>1.IP address, 32 bit address divided into 5 types</p>
+<ul>
+<li>In Unix, each I/O is related with file descriptors. An integer associated with an open file and it can be network connection etc</li>
+</ul>
+<p>2.Map IP to names, DNS</p>
+<ul>
+<li>The process of finding out dotted IP address based on the given alphanumeric host name is known as hostname resolution.</li>
+<li>Correspondence of hosts and IP are kept in HOST(/etc/hosts)</li>
+</ul>
+<p>3.Client-server model<br>4.Architecture:</p>
+<ul>
+<li>2 tier web browser</li>
+<li>3 tier middleware</li>
+</ul>
+<p>5.concurrent / iterative server<br><img src="https://www.tutorialspoint.com/unix_sockets/images/socket_client_server.gif" alt="TCP Client-Server"></p>
+<p>Check this <a href="https://www.tutorialspoint.com/unix_sockets/socket_summary.htm" target="_blank" rel="noopener">website</a> for full info</p>
+<p>Well, even more detailed by <a href="http://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html" target="_blank" rel="noopener">RPI</a></p>
+<ul>
+<li>Server.C </li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netdb.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[] )</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> sockfd, newsockfd, portno, clilen;</span><br><span class="line">   <span class="keyword">char</span> buffer[<span class="number">256</span>];</span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">serv_addr</span>, <span class="title">cli_addr</span>;</span></span><br><span class="line">   <span class="keyword">int</span>  n;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* First call to socket() function to establish a socket*/</span></span><br><span class="line">   sockfd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>); <span class="comment">//AF_INET for ipv4</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (sockfd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR opening socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Initialize socket structure */</span></span><br><span class="line">   bzero((<span class="keyword">char</span> *) &amp;serv_addr, <span class="keyword">sizeof</span>(serv_addr));</span><br><span class="line">   portno = <span class="number">5001</span>;</span><br><span class="line">   </span><br><span class="line">   serv_addr.sin_family = AF_INET;</span><br><span class="line">   serv_addr.sin_addr.s_addr = INADDR_ANY;</span><br><span class="line">   serv_addr.sin_port = htons(portno);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Now bind the host address using bind() call.*/</span></span><br><span class="line">   <span class="keyword">if</span> (bind(sockfd, (struct sockaddr *) &amp;serv_addr, <span class="keyword">sizeof</span>(serv_addr)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR on binding"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">      </span><br><span class="line">   <span class="comment">/* Now start listening for the clients, here process will</span></span><br><span class="line"><span class="comment">      * go in sleep mode and will wait for the incoming connection</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">   </span><br><span class="line">   listen(sockfd,<span class="number">5</span>);</span><br><span class="line">   clilen = <span class="keyword">sizeof</span>(cli_addr);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Accept actual connection from the client */</span></span><br><span class="line">   newsockfd = accept(sockfd, (struct sockaddr *)&amp;cli_addr, &amp;clilen);</span><br><span class="line">	</span><br><span class="line">   <span class="keyword">if</span> (newsockfd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR on accept"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* If connection is established then start communicating */</span></span><br><span class="line">   bzero(buffer,<span class="number">256</span>);</span><br><span class="line">   n = read( newsockfd,buffer,<span class="number">255</span> ); <span class="comment">//file descriptor</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR reading from socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"Here is the message: %s\n"</span>,buffer);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Write a response to the client */</span></span><br><span class="line">   n = write(newsockfd,<span class="string">"I got your message"</span>,<span class="number">18</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR writing to socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">      </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>client.c ./client localhost port_number</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netdb.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> sockfd, portno, n;</span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">serv_addr</span>;</span></span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">hostent</span> *<span class="title">server</span>;</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">char</span> buffer[<span class="number">256</span>];</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (argc &lt; <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"usage %s hostname port\n"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   portno = atoi(argv[<span class="number">2</span>]);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Create a socket point */</span></span><br><span class="line">   sockfd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (sockfd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR opening socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   server = gethostbyname(argv[<span class="number">1</span>]);<span class="comment">// returns hostent</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (server == <span class="literal">NULL</span>) &#123;</span><br><span class="line">      <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"ERROR, no such host\n"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   bzero((<span class="keyword">char</span> *) &amp;serv_addr, <span class="keyword">sizeof</span>(serv_addr));</span><br><span class="line">   serv_addr.sin_family = AF_INET;</span><br><span class="line">   bcopy((<span class="keyword">char</span> *)server-&gt;h_addr, (<span class="keyword">char</span> *)&amp;serv_addr.sin_addr.s_addr, server-&gt;h_length);</span><br><span class="line">   serv_addr.sin_port = htons(portno);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Now connect to the server */</span></span><br><span class="line">   <span class="keyword">if</span> (connect(sockfd, (struct sockaddr*)&amp;serv_addr, <span class="keyword">sizeof</span>(serv_addr)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR connecting"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Now ask for a message from the user, this message</span></span><br><span class="line"><span class="comment">      * will be read by server</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">	</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"Please enter the message: "</span>);</span><br><span class="line">   bzero(buffer,<span class="number">256</span>);</span><br><span class="line">   fgets(buffer,<span class="number">255</span>,<span class="built_in">stdin</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Send message to the server */</span></span><br><span class="line">   n = write(sockfd, buffer, <span class="built_in">strlen</span>(buffer));</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR writing to socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/* Now read server response */</span></span><br><span class="line">   bzero(buffer,<span class="number">256</span>);</span><br><span class="line">   n = read(sockfd, buffer, <span class="number">255</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      perror(<span class="string">"ERROR reading from socket"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buffer);</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
