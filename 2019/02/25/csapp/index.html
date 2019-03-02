@@ -99,7 +99,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/25/csapp/Address%20Translation.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/25/csapp/Page%20hit%20and%20fault.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/25/csapp/TLB%20hit%20and%20miss.png">
-<meta property="og:updated_time" content="2019-03-02T12:10:25.740Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/25/csapp/multi-level%20table.png">
+<meta property="og:updated_time" content="2019-03-02T12:26:56.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="csapp">
 <meta name="twitter:description" content="Short intro to C:Warm up1234#include &amp;lt; studio.h&amp;gt;                // C way of importinglong unsigned sizeof(a)             //returns the num of byteint main(int argc, char** argv)     // argc for">
@@ -809,7 +810,16 @@
 </ol>
 </li>
 </ol>
-<h5 id="6-1-Multi-level-page"><a href="#6-1-Multi-level-page" class="headerlink" title="6.1 Multi-level page"></a>6.1 Multi-level page</h5>
+<h5 id="6-1-Multi-level-page"><a href="#6-1-Multi-level-page" class="headerlink" title="6.1 Multi-level page"></a>6.1 Multi-level page</h5><ol>
+<li><img src="/2019/02/25/csapp/multi-level table.png" alt="multi-level table"></li>
+<li>Basic info:<ol>
+<li>32-bit virtual address space, partitioned into 4 KB pages, with page table entries that are 4 bytes each.</li>
+<li>Virtual address space has the following form: The first 2K pages of memory are allocated for code and data, the next 6K pages are unallocated, the next 1023 pages are also unallocated, and the next page is allocated for the user stack.</li>
+<li>Each PTE in the level-1 table is responsible for mapping a 4 MB (4KB * 1024 page ) chunk of the virtual address space, where each chunk consists of 1024 contiguous pages. For example, PTE 0 maps the first chunk, PTE 1 the next chunk, and so on. Given that the address space is 4 GB, 1024 PTEs are sufficient to cover the entire space.</li>
+</ol>
+</li>
+</ol>
+
       
     </div>
     
