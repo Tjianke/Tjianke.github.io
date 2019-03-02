@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans,en,default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -218,6 +218,621 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/csapp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tjianke">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My personal website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/25/csapp/" itemprop="url">csapp</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T23:05:17+08:00">
+                2019-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Short-intro-to-C"><a href="#Short-intro-to-C" class="headerlink" title="Short intro to C:"></a>Short intro to C:</h3><h4 id="Warm-up"><a href="#Warm-up" class="headerlink" title="Warm up"></a>Warm up</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt; studio.h&gt;                // C way of importing</span></span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">unsigned</span> <span class="title">sizeof</span><span class="params">(a)</span>             <span class="comment">//returns the num of byte</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span>     <span class="comment">// argc for num of param, argv is the array(0:function name)</span></span></span><br><span class="line">int* ptr_a, ptr_b;                  // bzzt! Fails</span><br></pre></td></tr></table></figure>
+<p>The smallest unit in computer world is bit, two status (0 or 1)</p>
+<p>8 bits = 1 byte </p>
+<p>Hexadecimals begin with 0x</p>
+<p>delimiter : \n \t</p>
+<p><strong>Directives :</strong><br>|Symbol |Meaning      |   |<br>|——-|————-|—|<br>|d      |digital      |   |<br>|lu     |long unsiged |   |<br>|p      |pointer      |   |<br>|%c| char |single character.|<br>|%d| (%i) |int signed integer.|<br>|%e |(%E) |float or double exponential format.|<br>|%f |float| or double signed decimal.|<br>|%g |(%G) |float or double use %f or %e as required.|<br>|%o |int |unsigned octal value.|<br>|%p| pointer |address stored in pointer.|</p>
+<p>8 C numeric type</p>
+<table>
+<thead>
+<tr>
+<th>C declaration</th>
+<th>32-bit</th>
+<th>64-bit</th>
+<th>range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>1</td>
+<td>1</td>
+<td>2^8</td>
+</tr>
+<tr>
+<td>short int</td>
+<td>2</td>
+<td>2</td>
+<td>2^16</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4</td>
+<td>4</td>
+<td>2^32</td>
+</tr>
+<tr>
+<td>long int</td>
+<td>4</td>
+<td>8</td>
+<td>2^64</td>
+</tr>
+<tr>
+<td>long long int</td>
+<td>8</td>
+<td>8</td>
+<td>2^64</td>
+</tr>
+<tr>
+<td>char*(regardless of type)</td>
+<td>4</td>
+<td>8</td>
+<td>2^64</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4</td>
+<td>8</td>
+<td>2^64</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8</td>
+<td>8</td>
+<td>2^64</td>
+</tr>
+</tbody>
+</table>
+<p>Big endian vs Small endian argurs the order in which bit arranged</p>
+<p>Typedef helps to define certain type for brevity</p>
+<h4 id="Noisy-pointer"><a href="#Noisy-pointer" class="headerlink" title="Noisy pointer"></a>Noisy pointer</h4><p><a href="https://boredzo.org/pointers/" target="_blank" rel="noopener">An article i highly recommend to read about pointer</a></p>
+<p>Pointer points to the address of certain variable.</p>
+<p><strong>Addition in pointer</strong> : </p>
+<p><strong>Dereference </strong> : pointer with * on, assigns value</p>
+<p><strong>Pointing </strong> : pointer without *, points and only accepts an adress</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *array_ptr = <span class="built_in">array</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">" first element: %i\n"</span>, *(array_ptr++));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"second element: %i\n"</span>, *(array_ptr++));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">" third element: %i\n"</span>, *array_ptr);</span><br></pre></td></tr></table></figure>
+<p>Hex to bin : XXXX - HH</p>
+<h4 id="String-representation"><a href="#String-representation" class="headerlink" title="String representation"></a>String representation</h4><p>Each string in C is ended with 00s, and the most famous ones are ASCII character code.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show_bytes(<span class="string">"12345"</span>, <span class="number">6</span>);         <span class="comment">//output: 31 32 33 34 35 00(terminal)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *s = <span class="string">"abcdef"</span>;</span><br><span class="line">show_bytes((byte_pointer) s, <span class="built_in">strlen</span>(s));  <span class="comment">// output :61 62 63 64 65 66</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man ASCII // for ascii character code</span><br></pre></td></tr></table></figure>
+<caption text-align="center"> Operations of Boolean algebra</caption>
+
+<table>
+<thead>
+<tr>
+<th>~</th>
+<th>^</th>
+<th>&amp;</th>
+<th>slash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NOT</td>
+<td>XOR</td>
+<td>AND</td>
+<td>OR</td>
+</tr>
+</tbody>
+</table>
+<p>Fancy stuff here: swap two values without useing the third extra variable</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123; <span class="comment">// a = 12 10010 b = 32 = 110010</span></span><br><span class="line">    a = a ^ b;                 <span class="comment">// a^b = 10000</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The output is %d \n"</span>,a);</span><br><span class="line">    b = a ^ b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The output is %d \n"</span>,b);</span><br><span class="line">    a = a ^ b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The output is %d \n"</span>,a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Follow up:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse_array</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> cnt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> first, last;</span><br><span class="line">    <span class="keyword">for</span> (first = <span class="number">0</span>, last = cnt<span class="number">-1</span>;</span><br><span class="line">    first &lt;= last;</span><br><span class="line">    first++,last--)</span><br><span class="line">    inplace_swap(&amp;a[first], &amp;a[last]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Masking operation </strong>: </p>
+<h4 id="Shift-operation-in-C"><a href="#Shift-operation-in-C" class="headerlink" title="Shift operation in C:"></a>Shift operation in C:</h4><p>Logic : unsigned<br>Algorithmetic : signed one</p>
+<p>Casting is actually based on bit level operation</p>
+<p>explicit casting is possible as well:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">int</span> tx, ty;</span><br><span class="line"><span class="number">2</span> <span class="keyword">unsigned</span> ux, uy;</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span> tx = ux; <span class="comment">/* Cast to signed */</span></span><br><span class="line"><span class="number">5</span> uy = ty; <span class="comment">/* Cast to unsigned */</span></span><br></pre></td></tr></table></figure></p>
+<p>Operand tend perform implicit casting to unsigned.</p>
+<p>Extension</p>
+<p>Truncating</p>
+<p>Division in bit-level : first increment then right shift</p>
+<p>A quick way to negate a number : 1.complement 2.increment</p>
+<p>Common mistake with unsigned: sizeof() actually returns unsigned words</p>
+<p>C retro time :</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span></span></span><br><span class="line"><span class="keyword">typedef</span></span><br></pre></td></tr></table></figure>
+<p>word size: 32 bit / 64 bit</p>
+<p>Floating point:</p>
+<p>Discard the fractional binary representation.</p>
+<p>IEEE 744 standard :</p>
+<p>(-1)^s <em> 2^e </em> M<br>E = exp - bias</p>
+<p>1.Denoramlized<br>2.Normalized</p>
+<p>Default rounding : find the closest one</p>
+<h1 id="Bit-Bytes-and-Integers"><a href="#Bit-Bytes-and-Integers" class="headerlink" title="Bit ,Bytes and Integers"></a>Bit ,Bytes and Integers</h1><ol>
+<li>1 Byte = 8 bits = 2 hex digits</li>
+<li>Common data type presentation</li>
+<li>Boolean Algebra: And Or XOR Not</li>
+<li>Contrast Logical ops (with Termination) (p&amp;&amp;*p avoids null pointer access)</li>
+<li>shift ops,(logical &amp; algo)(Undefined for illegal shift)</li>
+<li>#include&lt;limits.h&gt; : ULONG_MAX,LONG_MAX</li>
+<li>Default:signed, Append U for Unsigned</li>
+<li>If there be mix of U and S, S is casted implicitly to U</li>
+<li>Little endian : refers to byte ordering </li>
+</ol>
+<h1 id="Floating-points"><a href="#Floating-points" class="headerlink" title="Floating points"></a>Floating points</h1><h2 id="1-Fractional-Binary-numbers"><a href="#1-Fractional-Binary-numbers" class="headerlink" title="1.Fractional Binary numbers:"></a>1.Fractional Binary numbers:</h2><p>limit: Only lists number that are very large or extremely samll</p>
+<h2 id="2-IEEE-Floating-Point"><a href="#2-IEEE-Floating-Point" class="headerlink" title="2. IEEE Floating Point"></a>2. IEEE Floating Point</h2><p>1.Chem way of rounding, when exact half round to even, no bias theoretically<br>2.Bias = 2^(k - 1) - 1 , k is the exp bit<br>3.Single precison, sign : 1, E : 8, frac : 23<br>4.Noramalized Number<br>5.Denormalized<br>6.Special cases:  exp = 111…1, frac = 000..0 represents infinity(overflow<br>NaN exp = 111…11, frac != 000.000<br>7.FP multiplication, (-1)^(s1)<em> M1</em> 2^(E1)</p>
+<pre><code>shift M to right, if more than 2, till overflow
+</code></pre><p>8.Casting</p>
+<pre><code>Float/double -&gt; int: truncate frac
+</code></pre><h3 id="Week-2-Machine-Programming"><a href="#Week-2-Machine-Programming" class="headerlink" title="Week 2 Machine Programming"></a>Week 2 Machine Programming</h3><ol>
+<li><figure class="highlight plain"><figcaption><span>command invokes a sequence of programs to turn source code to executables. ```preprocessor``` expands src code to include any files specified with ```#include``` or other macros.```compiler``` generates assembly code p1.s, p2.s. ```assembler``` turns assembly code to ```object code``` files p1.o, p2.o. ```linker``` merges two object file and generate final file.(More details in CSAPP chap 7)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">2. ```Object code``` are a form of machine code, with instruction trans to binary, but address still readable.</span><br><span class="line">3. Machine code follows Instruct Set Architecture(ISA).</span><br><span class="line">4. ```GCC command```:</span><br><span class="line">    5. option S for assembly code</span><br><span class="line">    6. option c for compilation</span><br><span class="line">    7. objdump -d disassemble machine code to assembly</span><br><span class="line">5. IAS instructions can range in length from 1 to 15 bytes. Given starting position, each instruct has only one decodings.</span><br><span class="line"></span><br><span class="line">#### Week 2.2 Machine Prog ------ Data Formats</span><br><span class="line">1. statement like ```movl```, here l means int data type in ISA.</span><br><span class="line"></span><br><span class="line">Here are the table for ISA C data types:</span><br><span class="line"></span><br><span class="line">| C declaration | Intel data type |  Assembly code suffix | Size(in bytes) |</span><br><span class="line">|---|:---|:---|:---|</span><br><span class="line">|char |Byte|b|1|</span><br><span class="line">|short | Word  | w  |  2 |</span><br><span class="line">|int   | Double Word  |l   | 4  |</span><br><span class="line">|long int |Double Word   | l  |4|</span><br><span class="line">|char* |Double word|l |4|</span><br><span class="line">|float |Single Precision| s| 4|</span><br><span class="line">|double |Double Precision | l |8|</span><br><span class="line"></span><br><span class="line">2. Accessing info in ISA, CPU stores 8 32bit registers, with first six free to use.</span><br><span class="line">    3. %eax, %ecx, %edx, %ebx, %esi, %edi</span><br><span class="line">    4. size of IA32 registers, eXx:32, Xx:16, Xh:4, Xl:4</span><br><span class="line">    5. movsbw(b2w)/ movesbl(b2l)/ moveswl(w2l) signed move</span><br><span class="line">    6. movzbw/movzbl/movzwl zero signed </span><br><span class="line">3. Operands in ISA:</span><br><span class="line"></span><br><span class="line">|Type | Form | Operand Value |Name|</span><br><span class="line">|---|:---|:---|:---|</span><br><span class="line">|Immediate| $Imm| Imm| Immediate(Itself)|</span><br><span class="line">|Register| E_a| R[E_a]| Register address|</span><br><span class="line">|Memory| Imm(E_b, E_a, s)| M[ Imm+R[E_b] +R[E_a] * s ]| Mem ops|</span><br><span class="line"></span><br><span class="line">4. ```popl```, ```pushl``` ops involve </span><br><span class="line">5. pointers in C are simply address, dereference involved saving in register and using in memory reference</span><br><span class="line">6. Integer arithmatic operation</span><br><span class="line">    7. General format: ops : Src, Dest</span><br><span class="line">    8. Shift: SHL SHR SAL SAR</span><br><span class="line">    9. imul, also provides no truncation version, </span><br><span class="line">        10. ```movl 8(%ebp), %eax; imul 12(%ebp);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="Week-2-2-Machine-Prog-——-Controls"><a href="#Week-2-2-Machine-Prog-——-Controls" class="headerlink" title="Week 2.2 Machine Prog —— Controls"></a>Week 2.2 Machine Prog —— Controls</h4><h4 id="1-Condition-codes"><a href="#1-Condition-codes" class="headerlink" title="1.Condition codes"></a>1.Condition codes</h4><ol>
+<li>Condition codes, 8 bit register(%al),<figure class="highlight plain"><figcaption><span>%al, %eax```.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">2. set(equals to ) ops have both signed, unsigned versions.</span><br><span class="line">3. Condition code:</span><br><span class="line">    4. CF,overflow of unsigned bit, detect carry out of most sig bit</span><br><span class="line">    5. ZF, the most recent ops yielded zero.</span><br><span class="line">    6. SF, MRO yielded a negative value/</span><br><span class="line">    7. OF, MRO yielded signed overflow</span><br><span class="line">#### 2.Jump</span><br><span class="line">1. Indirect jump, jmp * %eax</span><br><span class="line">2. How to address the jump labels?</span><br><span class="line">    3. PC relative, easy to shift</span><br><span class="line">    4. Direct</span><br><span class="line">3. Comparison and test instructions:</span><br><span class="line"></span><br><span class="line">|cmp S1 S2| S2-S1|</span><br><span class="line">|---|---|</span><br><span class="line">|test S1 S2 |S1&amp;S2|</span><br><span class="line"></span><br><span class="line">4. xor S, D D&lt;-D^S</span><br><span class="line"></span><br><span class="line">#### 3. Procedure</span><br><span class="line">1. call, ret, leave</span><br><span class="line">2. Registers are shared by all procedures, yet make when one prod calls another, no overlap</span><br><span class="line">3. caller-save, callee-save register(save the value before using)</span><br><span class="line">4. Before finishing a prod, use leave of pop to deallocate </span><br><span class="line">5. Two ways to store at esp, push or move %eax, (%esp)</span><br><span class="line"></span><br><span class="line">#### 4. Data</span><br><span class="line">1.Struct, Union(can be accessed through different types and only cost the maximum space)</span><br><span class="line">2.Unions also allows for bit access</span><br><span class="line">```C</span><br><span class="line">1 unsigned float2bit(float f)</span><br><span class="line">2 &#123;</span><br><span class="line">    3 union &#123;</span><br><span class="line">    4 float f;</span><br><span class="line">    5 unsigned u;</span><br><span class="line">    6 &#125; temp;</span><br><span class="line">    7 temp.f = f;</span><br><span class="line">    8 return temp.u;</span><br><span class="line">9 &#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="function"><span class="keyword">double</span> <span class="title">bit2double</span><span class="params">(<span class="keyword">unsigned</span> word0, <span class="keyword">unsigned</span> word1)</span></span></span><br><span class="line"><span class="function">2 </span>&#123;</span><br><span class="line">    <span class="number">3</span> <span class="keyword">union</span> &#123;</span><br><span class="line">    <span class="number">4</span> <span class="keyword">double</span> d;</span><br><span class="line">    <span class="number">5</span> <span class="keyword">unsigned</span> u[<span class="number">2</span>];</span><br><span class="line">    <span class="number">6</span> &#125; temp;</span><br><span class="line">    <span class="number">7</span></span><br><span class="line">    <span class="number">8</span> temp.u[<span class="number">0</span>] = word0;</span><br><span class="line">    <span class="number">9</span> temp.u[<span class="number">1</span>] = word1;</span><br><span class="line">    <span class="number">10</span> <span class="keyword">return</span> temp.d;</span><br><span class="line"><span class="number">11</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Week-X-Exceptional-Control-Flow"><a href="#Week-X-Exceptional-Control-Flow" class="headerlink" title="Week X  Exceptional Control Flow"></a>Week X  Exceptional Control Flow</h3><ol>
+<li>Prelude:<ol start="0">
+<li>Start from this chapter, we’re diving into system level.</li>
+<li>Program counter expects a sequence of values: a_0… a_n, a_i is the address of instruction(Right! Just like what assembly code does). Each transition between a_i and a_i+1 is called <em>control transfer</em>, a sequence of transfer is called <em>flow of control</em>.</li>
+<li>Most simple tranfer : <em>Smooth transfer</em> where adjacent sequence is transfered. Abrupt changes(ret, jump, call).</li>
+<li><em>Exceptional control flow</em>(abrupts changes caused by factors other than internal program variables)</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-Exceptions"><a href="#1-Exceptions" class="headerlink" title="1.Exceptions"></a>1.Exceptions</h3><ol>
+<li><p>Exceptions are a form of exceptional control flow that are implemented partly by the <em>hardware</em> and partly by the <em>operating system</em>.</p>
+</li>
+<li><p><img src="https://wdxtub.com/images/14613541138958.jpg" alt="Anatomy of exception"></p>
+</li>
+<li><p>When <strong>Event</strong> happens, indirect procedure call made, through jump table (<strong>called exception table</strong>), to an OS subroutine(<strong>the exception handler</strong>).</p>
+</li>
+<li><p>Each type of possible exception in a system is assigned a unique nonnegative integer exception number(Code). Figure 8.3 shows how the processor uses the exception table to form the address of the appropriate exception handler. The exception number is an index into the exception table, whose starting address is contained in a special CPU register called the exception table base register.</p>
+</li>
+</ol>
+<h4 id="Classes-of-exception"><a href="#Classes-of-exception" class="headerlink" title="Classes of exception"></a>Classes of exception</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>原因</th>
+<th>行为</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>陷阱</td>
+<td>有意的异常</td>
+<td>返回到下一条指令</td>
+<td>系统调用，断点</td>
+</tr>
+<tr>
+<td>故障</td>
+<td>潜在可恢复的错误</td>
+<td>返回到当前指令</td>
+<td>页故障(page faults)</td>
+</tr>
+<tr>
+<td>终止</td>
+<td>不可恢复的错误</td>
+<td>终止当前程序</td>
+<td>非法指令</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><em>Interrupts</em> occur <em>asynchronously</em> as a result of signals from I/O device.</li>
+<li><em>Traps and sys call</em> provide a procedure like interface between user program and the kernel, known as a system call.<ol>
+<li>One major diff bet sys call and normal procedure: in different mode, <em>User mode</em> and <em>Kernal mode</em>, with difference access and stacks.</li>
+</ol>
+</li>
+<li><em>Faulting</em>, might lead to abort</li>
+<li><em>Abort</em> never return control<h4 id="System-calls"><a href="#System-calls" class="headerlink" title="System calls"></a>System calls</h4></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Name</th>
+<th>Description</th>
+<th>Number</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>exit</td>
+<td>Terminate process</td>
+<td>27</td>
+<td>alarm</td>
+<td>Set signal delivery alarm clock</td>
+</tr>
+<tr>
+<td>2</td>
+<td>fork</td>
+<td>Create new process</td>
+<td>29</td>
+<td>pause</td>
+<td>Suspend  process until signal arrives</td>
+</tr>
+<tr>
+<td>3</td>
+<td>read</td>
+<td>Read file</td>
+<td>37</td>
+<td>kill</td>
+<td>Send signal to another process</td>
+</tr>
+<tr>
+<td>4</td>
+<td>write</td>
+<td>Write file</td>
+<td>48</td>
+<td>signal</td>
+<td>Install signal handler</td>
+</tr>
+<tr>
+<td>5</td>
+<td>open</td>
+<td>Open file</td>
+<td>63</td>
+<td>dup2</td>
+<td>Copy file descriptor</td>
+</tr>
+<tr>
+<td>6</td>
+<td>close</td>
+<td>Close file</td>
+<td>64</td>
+<td>getppid</td>
+<td>Get parent’s process ID</td>
+</tr>
+<tr>
+<td>7</td>
+<td>waitpid</td>
+<td>Wait for child to terminate</td>
+<td>65</td>
+<td>getpgrp</td>
+<td>Get process group</td>
+</tr>
+<tr>
+<td>11</td>
+<td>execve</td>
+<td>Load and run program</td>
+<td>67</td>
+<td>sigaction</td>
+<td>Install portable signal handler</td>
+</tr>
+<tr>
+<td>19</td>
+<td>lseek</td>
+<td>Go to file offset</td>
+<td>90</td>
+<td>mmap</td>
+<td>Map memory page to file</td>
+</tr>
+<tr>
+<td>20</td>
+<td>getpid</td>
+<td>Get process ID</td>
+<td>106</td>
+<td>stat</td>
+<td>Get information about file</td>
+</tr>
+</tbody>
+</table>
+<p>(Linux provides hundreds of system calls. Source: /usr/include/sys/syscall.h.)</p>
+<ol>
+<li>Each system call has a unique integer number that corresponds to an offset in a jump table in the kernel.</li>
+</ol>
+<h3 id="2-Processes"><a href="#2-Processes" class="headerlink" title="2.Processes"></a>2.Processes</h3><ol>
+<li>Def: a process is an instance of a program in execution.<ol>
+<li>In the context of the process,  includes the program’s code and data stored in memory, its stack, the contents of its generalpurpose registers, its program counter, environment variables, and the set of open<br>file descriptors.</li>
+</ol>
+</li>
+</ol>
+<h4 id="Logical-control-flow"><a href="#Logical-control-flow" class="headerlink" title="Logical control flow"></a>Logical control flow</h4><ol>
+<li>a series of program counter (PC) values that corresponded exclusively to instructions contained in our program’s executable object file or in shared objects linked into our program dynamically at run time.</li>
+<li>Concurrency : multiple flow working together (distinct from parallel flows, on diff core)</li>
+<li>Multitask : a process taking turns with other processes.</li>
+<li>Time slicing : run a portion of its flow</li>
+</ol>
+<h4 id="Private-address-space"><a href="#Private-address-space" class="headerlink" title="Private address space"></a>Private address space</h4><ol>
+<li>User mode and kernel mode, a mode bit is set to distinct.</li>
+<li>the only way to switch user mode to kernel mode is via <strong>exceptions</strong>  (such as interrupt, fault and trapping sys call)</li>
+</ol>
+<h4 id="Context-switches"><a href="#Context-switches" class="headerlink" title="Context switches"></a>Context switches</h4><ol>
+<li>Multitask is implemented using <strong><em>Context Switch</em></strong>. Kernal maintains a context for each process. <ol>
+<li>saves the context of the current process</li>
+<li>restore saved context</li>
+<li>pass control to this restored process</li>
+</ol>
+</li>
+<li>Scheduler in Kernel decides to preempt current process and resume previously preempted process.</li>
+</ol>
+<h3 id="3-Process-Control"><a href="#3-Process-Control" class="headerlink" title="3 Process Control"></a>3 Process Control</h3><ol>
+<li>Obtain process ID with getpid and getppid.</li>
+<li>For programmer: process can have three stages:<ol>
+<li>Running, process is either executing or waiting.</li>
+<li>Stopped, execution suspended and will not be scheduled. Proc stops receiving a SIGSTOP, SIGTSTP, SIGTTIN or SIGTTOU signal. Remains stopped until it receives a SIGCONT signal (<strong><em>A signal is software interrupt</em></strong>). </li>
+<li>Terminated, </li>
+</ol>
+</li>
+<li><p>Create new process with <strong><em>fork</em></strong> function</p>
+<ol>
+<li>child process has copy of parent private address space.</li>
+<li><p>Reap child process. return exit status to parents.</p>
+<ol>
+<li>waitpid(pid_t pid, int status, int options);</li>
+<li>options:<ol>
+<li>waitpid() system call suspends execution of the calling process until a child specified by pid argument has changed  state(Use WUNTRACE).</li>
+<li>WNOHANG, return immediately even if none of the child process terminated.<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ***Using the waitpid function to reap zombie children in no particular order***.</span></span><br><span class="line"><span class="number">1</span> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"csapp.h"</span></span></span><br><span class="line"><span class="number">2</span> <span class="meta">#<span class="meta-keyword">define</span> N 2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">5 </span>&#123;</span><br><span class="line"><span class="number">6</span> <span class="keyword">int</span> status, i;</span><br><span class="line"><span class="number">7</span> <span class="keyword">pid_t</span> pid;</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span> <span class="comment">/* Parent creates N children */</span></span><br><span class="line"><span class="number">10</span> <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line"><span class="number">11</span> <span class="keyword">if</span> ((pid = Fork()) == <span class="number">0</span>) <span class="comment">/* Child */</span></span><br><span class="line"><span class="number">12</span> <span class="built_in">exit</span>(<span class="number">100</span>+i);</span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="number">14</span> <span class="comment">/* Parent reaps N children in no particular order */</span></span><br><span class="line"><span class="number">15</span> <span class="keyword">while</span> ((pid = waitpid(<span class="number">-1</span>, &amp;status, <span class="number">0</span>)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line"><span class="number">16</span> <span class="keyword">if</span> (WIFEXITED(status))</span><br><span class="line"><span class="number">17</span> <span class="built_in">printf</span>(<span class="string">"child %d terminated normally with exit status=%d\n"</span>,</span><br><span class="line"><span class="number">18</span> pid, WEXITSTATUS(status));</span><br><span class="line"><span class="number">19</span> <span class="keyword">else</span></span><br><span class="line"><span class="number">20</span> <span class="built_in">printf</span>(<span class="string">"child %d terminated abnormally\n"</span>, pid);</span><br><span class="line"><span class="number">21</span> &#125;</span><br><span class="line"><span class="number">22</span></span><br><span class="line"><span class="number">23</span> <span class="comment">/* The only normal termination is if there are no more children */</span></span><br><span class="line"><span class="number">24</span> <span class="keyword">if</span> (errno != ECHILD) <span class="comment">//errno returns error number</span></span><br><span class="line"><span class="number">25</span> unix_error(<span class="string">"waitpid error"</span>);</span><br><span class="line"><span class="number">26</span></span><br><span class="line"><span class="number">27</span> <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"><span class="number">28</span> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<p>c. Check exit status of reaped Child:</p>
+<pre><code><figure class="highlight plain"><figcaption><span>true only if exited normally```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```WEXITSTATUS:returns exit status</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>true only if exited normally```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```WIFSIGNALED:returns true only if terminated by signal not caught</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<pre><code>d. Order of reap is unique in each system. To make sure the order of reap:
+</code></pre><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"csapp.h"</span></span></span><br><span class="line"><span class="number">2</span> <span class="meta">#<span class="meta-keyword">define</span> N 2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">5 </span>&#123;</span><br><span class="line"><span class="number">6</span> <span class="keyword">int</span> status, i;</span><br><span class="line"><span class="number">7</span> <span class="keyword">pid_t</span> pid[N], retpid;</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span> <span class="comment">/* Parent creates N children */</span></span><br><span class="line"><span class="number">10</span> <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line"><span class="number">11</span> <span class="keyword">if</span> ((pid[i] = Fork()) == <span class="number">0</span>) <span class="comment">/* Child */</span></span><br><span class="line"><span class="number">12</span> <span class="built_in">exit</span>(<span class="number">100</span>+i);</span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="number">14</span> <span class="comment">/* Parent reaps N children in order */</span></span><br><span class="line"><span class="number">15</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="number">16</span> <span class="keyword">while</span> ((retpid = waitpid(pid[i++], &amp;status, <span class="number">0</span>)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line"><span class="number">17</span> <span class="keyword">if</span> (WIFEXITED(status))</span><br><span class="line"><span class="number">18</span> <span class="built_in">printf</span>(<span class="string">"child %d terminated normally with exit status=%d\n"</span>,</span><br><span class="line"><span class="number">19</span> retpid, WEXITSTATUS(status));</span><br><span class="line"><span class="number">20</span> <span class="keyword">else</span></span><br><span class="line"><span class="number">21</span> <span class="built_in">printf</span>(<span class="string">"child %d terminated abnormally\n"</span>, retpid);</span><br><span class="line"><span class="number">22</span> &#125;</span><br><span class="line"><span class="number">23</span></span><br><span class="line"><span class="number">24</span> <span class="comment">/* The only normal termination is if there are no more children */</span></span><br><span class="line"><span class="number">25</span> <span class="keyword">if</span> (errno != ECHILD)</span><br><span class="line"><span class="number">26</span> unix_error(<span class="string">"waitpid error"</span>);</span><br><span class="line"><span class="number">27</span></span><br><span class="line"><span class="number">28</span> <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"><span class="number">29</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>​              </p>
+<ol start="4">
+<li>Sleep function </li>
+<li>Loading and running program, </li>
+</ol>
+<h3 id="4-Signal"><a href="#4-Signal" class="headerlink" title="4.Signal"></a>4.Signal</h3><ol>
+<li>Signal is a message that notify a process that an event of some type happened in the system.(<em>man 7 signal</em> to check signals list)<ol>
+<li>Upon receiving a signal, the process can either ignore, terminate or <strong><em>catch</em></strong>  the signal in user-level application, known as a signal handler.</li>
+<li>Signal sent but not yet received is called a pending signal.</li>
+<li>/bin/kill program function actually sends a signal to certain process.</li>
+</ol>
+</li>
+<li>Process group(One process has only one group):<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="keyword">pid_t</span> getpgrp(<span class="keyword">void</span>);</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpgid</span><span class="params">(<span class="keyword">pid_t</span> pid, <span class="keyword">pid_t</span> pgid)</span></span>; <span class="comment">//Change a process PID to process group pgid</span></span><br><span class="line"><span class="comment">/*Returns: process group ID of calling process*/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>To switch group id:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpgid</span><span class="params">(<span class="keyword">pid_t</span> pid, <span class="keyword">pid_t</span> pgid)</span></span>;</span><br><span class="line"><span class="comment">/*Returns: 0 on success, −1 on error*/</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Unix&gt; /bin/kill <span class="number">-9</span> <span class="number">15213</span> <span class="comment">// kills all process in group 15213</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>Unix shells use <strong><em>job</em></strong> to represent the <strong><em>processes</em></strong> that are created as a result of eval a command line.</li>
+<li>Use kill func to send signal to other process<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kill</span><span class="params">(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> sig)</span></span>;</span><br><span class="line">Returns: <span class="number">0</span> <span class="keyword">if</span> OK, −<span class="number">1</span> on error</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Applies Signal handler <strong><em>Signal</em></strong>, otherwise handle the signal in default way, check man 7 signal<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"csapp.h"</span></span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="function"><span class="keyword">void</span> <span class="title">handler</span><span class="params">(<span class="keyword">int</span> sig)</span></span></span><br><span class="line"><span class="function">4 </span>&#123;</span><br><span class="line"><span class="number">5</span> <span class="keyword">static</span> <span class="keyword">int</span> beeps = <span class="number">0</span>;</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span> <span class="built_in">printf</span>(<span class="string">"BEEP\n"</span>);</span><br><span class="line"><span class="number">8</span> <span class="keyword">if</span> (++beeps &lt; <span class="number">5</span>)</span><br><span class="line"><span class="number">9</span> Alarm(<span class="number">1</span>); <span class="comment">/* Next SIGALRM will be delivered in 1 second */</span></span><br><span class="line"><span class="number">10</span> <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="number">11</span> <span class="built_in">printf</span>(<span class="string">"BOOM!\n"</span>);</span><br><span class="line"><span class="number">12</span> <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"><span class="number">13</span> &#125;</span><br><span class="line"><span class="number">14</span> &#125;</span><br><span class="line"><span class="number">15</span></span><br><span class="line"><span class="number">16</span> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">17 </span>&#123;</span><br><span class="line"><span class="number">18</span> Signal(SIGALRM, handler); <span class="comment">/* Install SIGALRM handler */</span></span><br><span class="line"><span class="number">19</span> Alarm(<span class="number">1</span>); <span class="comment">/* Next SIGALRM will be delivered in 1s */</span></span><br><span class="line"><span class="number">20</span></span><br><span class="line"><span class="number">21</span> <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line"><span class="number">22</span> ; <span class="comment">/* Signal handler returns control here each time */</span></span><br><span class="line"><span class="number">23</span> &#125;</span><br><span class="line"><span class="number">24</span> <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"><span class="number">25</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sighandler_t</span> signal(<span class="keyword">int</span> signum, <span class="keyword">sighandler_t</span> handler);</span><br></pre></td></tr></table></figure>
+<p>Unless specified, handler could be in following three forms:<br>1.SIG_IGN<br>2.SIG_DFL<br>3.User defined signal handler</p>
+<ol start="3">
+<li>For multiple signals receipt:<ol>
+<li>Pendings signals are not queued.</li>
+</ol>
+</li>
+<li><p>Posix:</p>
+<ol>
+<li>Only signals of the type currently being processed by the handler are blocked.</li>
+<li>As with all signal implementations, signals are not queued.</li>
+<li>Interrupted system calls are automatically restarted whenever possible.</li>
+</ol>
+</li>
+<li>Process is forced to execute hander for pending signal.(Therefore rise the need to block certain signals)</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="function"><span class="keyword">void</span> <span class="title">handler</span><span class="params">(<span class="keyword">int</span> sig)</span></span></span><br><span class="line"><span class="function">2 </span>&#123;</span><br><span class="line"><span class="number">3</span> <span class="keyword">pid_t</span> pid;</span><br><span class="line"><span class="number">4</span> <span class="keyword">while</span> ((pid = waitpid(<span class="number">-1</span>, <span class="literal">NULL</span>, <span class="number">0</span>)) &gt; <span class="number">0</span>) <span class="comment">/* Reap a zombie child */</span></span><br><span class="line"><span class="number">5</span> deletejob(pid); <span class="comment">/* Delete the child from the job list */</span></span><br><span class="line"><span class="number">6</span> <span class="keyword">if</span> (errno != ECHILD)</span><br><span class="line"><span class="number">7</span> unix_error(<span class="string">"waitpid error"</span>);</span><br><span class="line"><span class="number">8</span> &#125;</span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">10</span> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function">11 </span>&#123;</span><br><span class="line"><span class="number">12</span> <span class="keyword">int</span> pid;</span><br><span class="line"><span class="number">13</span> <span class="keyword">sigset_t</span> mask;</span><br><span class="line"><span class="number">14</span></span><br><span class="line"><span class="number">15</span> Signal(SIGCHLD, handler);</span><br><span class="line"><span class="number">16</span> initjobs(); <span class="comment">/* Initialize the job list */</span></span><br><span class="line"><span class="number">17</span></span><br><span class="line"><span class="number">18</span> <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line"><span class="number">19</span> Sigemptyset(&amp;mask);</span><br><span class="line"><span class="number">20</span> Sigaddset(&amp;mask, SIGCHLD);</span><br><span class="line"><span class="number">21</span> Sigprocmask(SIG_BLOCK, &amp;mask, <span class="literal">NULL</span>); <span class="comment">/* Block SIGCHLD */</span></span><br><span class="line"><span class="number">22</span></span><br><span class="line"><span class="number">23</span> <span class="comment">/* Child process */</span></span><br><span class="line"><span class="number">24</span> <span class="keyword">if</span> ((pid = Fork()) == <span class="number">0</span>) &#123;</span><br><span class="line"><span class="number">25</span> Sigprocmask(SIG_UNBLOCK, &amp;mask, <span class="literal">NULL</span>); <span class="comment">/* Unblock SIGCHLD */</span></span><br><span class="line"><span class="number">26</span> Execve(<span class="string">"/bin/date"</span>, argv, <span class="literal">NULL</span>);</span><br><span class="line"><span class="number">27</span> &#125;</span><br><span class="line"><span class="number">28</span></span><br><span class="line"><span class="number">29</span> <span class="comment">/* Parent process */</span></span><br><span class="line"><span class="number">30</span> addjob(pid); <span class="comment">/* Add the child to the job list */</span></span><br><span class="line"><span class="number">31</span> Sigprocmask(SIG_UNBLOCK, &amp;mask, <span class="literal">NULL</span>); <span class="comment">/* Unblock SIGCHLD */</span></span><br><span class="line"><span class="number">32</span> &#125;</span><br><span class="line"><span class="number">33</span> <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"><span class="number">34</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-Non-local-jumps"><a href="#5-Non-local-jumps" class="headerlink" title="5.Non local jumps"></a>5.Non local jumps</h3><ol>
+<li>Def : a jump of function to another currently executing function without having to go through the normal call-and-return function.</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;setjmp.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setjmp</span><span class="params">(jmp_buf env)</span></span>; <span class="comment">//save current env, including program counter, stack pointer, and genera l registers.</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sigsetjmp</span><span class="params">(sigjmp_buf env, <span class="keyword">int</span> savesigs)</span></span>; <span class="comment">// </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">longjmp</span><span class="params">(jmp_buf env, <span class="keyword">int</span> retval)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">siglongjmp</span><span class="params">(sigjmp_buf env, <span class="keyword">int</span> retval)</span></span>;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Goto statement is very useful but limited for cross function jump. setjump and longjump solves such a issue.<ol>
+<li>setjump is called once, but return multiple times.</li>
+<li>when a <strong><em>longjump</em></strong> is called, it returns to <strong><em>setjump</em></strong> and restore the condition of <strong><em>setjump</em></strong>, except <strong><em>setjump</em></strong> value being set to <strong><em>retval</em></strong></li>
+</ol>
+</li>
+</ol>
+<h3 id="Week-X-1-Memory"><a href="#Week-X-1-Memory" class="headerlink" title="Week X+1 Memory"></a>Week X+1 Memory</h3><h4 id="1-Physical-and-Virtual-Addressing"><a href="#1-Physical-and-Virtual-Addressing" class="headerlink" title="1. Physical and Virtual Addressing"></a>1. Physical and Virtual Addressing</h4><p><strong><em>Physical addressing</em></strong> : when CPU executes a <strong><em>load instruction</em></strong> , it maps a physical address directly, passing it to main memory with <em>memory bus</em>.  </p>
+<p><img src="/2019/02/25/csapp/Physical Addressing.png" alt="Physical Addressing"></p>
+<p><strong><em>Virtual Addressing</em></strong> : CPU accesses main memory by generating a <em>virtual address</em>( <strong>VA</strong> ), which is converted to the appropriate physical address through <em>Memory Management Unit</em> (MMU). Such a task is referred to as <em>address translation</em>. </p>
+<p>Notes : Like Exception handling in previous chapter, address translation requires close collaboration between CPU hardware and OS.</p>
+<p>MMU uses a  <strong><em>look-up table</em></strong> stored in main memory whose contents are managed by OS.</p>
+<p><img src="/2019/02/25/csapp/Virtual Addressing.png" alt="Physical Addressing"></p>
+<p># </p>
+<h4 id="2-Address-space"><a href="#2-Address-space" class="headerlink" title="2 Address space"></a>2 Address space</h4><ol>
+<li><p>Virtual address space</p>
+</li>
+<li><p>Physical address space</p>
+</li>
+</ol>
+<p><code>Basic idea of virtual memory : Each byte of main memory has a VA from virtual address space, a PA from physical address space.</code></p>
+<h4 id="3-VM-as-a-tool-for-caching"><a href="#3-VM-as-a-tool-for-caching" class="headerlink" title="3. VM as a tool for caching"></a>3. VM as a tool for caching</h4><p><img src="/2019/02/25/csapp/VM.png" alt="How a VM system uses main memory as a cache"></p>
+<ol>
+<li><p>VM sys partition virtual memory into fixed size blocks, called <strong><em>pages</em></strong>. Each page is 2^p bytes in size. Physical pages called <strong><em>page frame</em></strong>.</p>
+</li>
+<li><p>At any time, a page is partitioned into three disjoint parts:</p>
+<ol>
+<li>Unallocated, VM hasn’t assigned any memory, therefore no data associated with.</li>
+<li>Cached, i.e pages 1 4 6</li>
+<li>Uncached, i.e pages 2 5 7</li>
+</ol>
+</li>
+<li><p><strong><em>Page Tables</em></strong> :  an array of <strong><em>page table entries</em></strong> (PTE). locate and update cached memory</p>
+<ol>
+<li>Valid bit : for cache status</li>
+<li>If valid bit not set, then a NULL address indicates that the virtual pages has not yet been allocated. Otherwise, the address points to the <strong><em>start of the virtual page</em></strong> on disk.</li>
+<li><img src="/2019/02/25/csapp/Page Table.png" alt="Page Table"></li>
+</ol>
+</li>
+<li><p>VM page hit</p>
+<ol>
+<li></li>
+<li><img src="/2019/02/25/csapp/VM Page Hit.png" alt="VM page hit"></li>
+</ol>
+</li>
+<li><p>DRAM cache miss is known as a page fault:</p>
+<ol>
+<li><p><img src="/2019/02/25/csapp/VM page fault.png" alt="VM page fault"></p>
+</li>
+<li><p>Invokes a page fault handler,  which selects a victim page and copy back to disk.</p>
+<p> <img src="/2019/02/25/csapp/VM page fault after.png" alt="VM page fault after"></p>
+</li>
+</ol>
+</li>
+<li><p>VM parlance:</p>
+<ol>
+<li>Blocks : Pages</li>
+<li>Swapping/paging : transfer between main memory and disk</li>
+<li>Write back : demand paging</li>
+</ol>
+</li>
+<li><p>Locality to save again</p>
+<ol>
+<li>Tend to work on a smaller set of <strong><em>active pages</em></strong>, known as the working set or resident set.</li>
+<li><strong><em>Thrashing</em></strong>:  working set size exceeds that of physical memory.</li>
+</ol>
+</li>
+</ol>
+<h4 id="4-VM-as-a-tool-of-memory-managment"><a href="#4-VM-as-a-tool-of-memory-managment" class="headerlink" title="4. VM as a tool of memory managment"></a>4. VM as a tool of memory managment</h4><ol>
+<li>OS provides separate page table and virtual space for <strong><em>each process</em></strong>.</li>
+<li><img src="/2019/02/25/csapp/Multi-table.png" alt="Multi-page mapping"></li>
+</ol>
+<h4 id="5-VM-as-a-tool-for-memory-protection"><a href="#5-VM-as-a-tool-for-memory-protection" class="headerlink" title="5. VM as a tool for memory protection"></a>5. VM as a tool for memory protection</h4><p>1.<img src="/2019/02/25/csapp/VM memory protection.png" alt="VM memory protection"></p>
+<h4 id="6-Address-translation"><a href="#6-Address-translation" class="headerlink" title="6.  Address translation"></a>6.  Address translation</h4><p><img src="/2019/02/25/csapp/Address Translation.png" alt="Address Translation"></p>
+<ol>
+<li><p>A control register in CPU, points to page table</p>
+</li>
+<li><p>VPA = VPN + VPO</p>
+</li>
+<li><p>PPA = PPN + PPO( = VPO)</p>
+<p>​                                                            </p>
+</li>
+</ol>
+<p><img src="/2019/02/25/csapp/Page hit and fault.png" alt="Page hit and fault"></p>
+<ol start="4">
+<li><strong><em>Translation Lookaside Buffer(TLB)</em></strong></li>
+<li>TLB hit and miss:<ol>
+<li>Step 1: The CPU generates a virtual address.</li>
+<li>Steps 2 and 3: The MMU fetches the appropriate PTE from the TLB.</li>
+<li>Step 4: The MMU translates the virtual address to a physical address and ends it to the cache/main memory.</li>
+<li>Step 5: The cache/main memory returns the requested data word to the CPU</li>
+<li><img src="/2019/02/25/csapp/TLB hit and miss.png" alt="TLB hit and miss"></li>
+</ol>
+</li>
+</ol>
+<h5 id="6-1-Multi-level-page"><a href="#6-1-Multi-level-page" class="headerlink" title="6.1 Multi-level page"></a>6.1 Multi-level page</h5>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1126,7 +1741,7 @@
 <h4 id="接口示例"><a href="#接口示例" class="headerlink" title="接口示例"></a>接口示例</h4><blockquote>
 <p>地址：<a href="47.101.167.9:5050/search?word=distribute" target="_blank" rel="noopener">47.101.167.9:5050/search?word=distribute</a></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;status&quot;: 1,</span><br><span class="line">    &quot;data&quot;:</span><br><span class="line">           &#123;&quot;etym_breakdown&quot;:</span><br><span class="line">                       [&#123;</span><br><span class="line">                        &quot;depth&quot;:1,</span><br><span class="line">                        &quot;etym&quot;:&quot;XXX&quot;,</span><br><span class="line">                        &quot;meaning&quot;:&quot;xxx&quot;,</span><br><span class="line">                        &quot;lang&quot;:&quot;Latin&quot;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        &#123;&apos;depth&apos;: 2,</span><br><span class="line">                        &apos;etym&apos;: &apos;distribut-&apos;,</span><br><span class="line">                        &apos;meaning&apos;: &apos;divided up&apos;,</span><br><span class="line">                        &apos;lang&apos;: &apos;Latin&apos;</span><br><span class="line">                        &#125;</span><br><span class="line">                        ...</span><br><span class="line">                        ]</span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;&quot;related_words&quot;:</span><br><span class="line">                       [</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，                       </span><br><span class="line">                       ]</span><br><span class="line">           </span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;&quot;etym_meaning&quot;:</span><br><span class="line">                      &#123;&quot;Oxford_Dictionary&quot;:&quot;XXXX&quot;&#125;, </span><br><span class="line">                      &#123;&quot;Etymology_Online&quot;:&quot;XXXX&quot;&#125;,</span><br><span class="line">           &#125;,</span><br><span class="line">           &#123;&quot;word_meaning&quot;:&quot;XXXXXX&quot;&#125;,</span><br><span class="line">           &#123;&quot;word_pic&quot;:b&quot;0xFF AC 6C....&quot;&#125;,           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;status&quot;: 1,</span><br><span class="line">    &quot;data&quot;:</span><br><span class="line">           &#123;&quot;etym_breakdown&quot;:</span><br><span class="line">                       [&#123;</span><br><span class="line">                        &quot;depth&quot;:1,</span><br><span class="line">                        &quot;etym&quot;:&quot;XXX&quot;,</span><br><span class="line">                        &quot;meaning&quot;:&quot;xxx&quot;,</span><br><span class="line">                        &quot;lang&quot;:&quot;Latin&quot;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        &#123;&apos;depth&apos;: 2,</span><br><span class="line">                        &apos;etym&apos;: &apos;distribut-&apos;,</span><br><span class="line">                        &apos;meaning&apos;: &apos;divided up&apos;,</span><br><span class="line">                        &apos;lang&apos;: &apos;Latin&apos;</span><br><span class="line">                        &#125;</span><br><span class="line">                        ...</span><br><span class="line">                        ]</span><br><span class="line">           ,</span><br><span class="line">           &quot;related_words&quot;:</span><br><span class="line">                       [</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，</span><br><span class="line">                            &#123;&quot;word&quot;:&quot;XXX&quot;&#125;，                       </span><br><span class="line">                       ]</span><br><span class="line">           </span><br><span class="line">           ,</span><br><span class="line">           &quot;etym_meaning&quot;:</span><br><span class="line">                      [</span><br><span class="line">                      &#123;&quot;Oxford_Dictionary&quot;:&quot;XXXX&quot;&#125;, </span><br><span class="line">                      &#123;&quot;Etymology_Online&quot;:&quot;XXXX&quot;&#125;</span><br><span class="line">                      ]</span><br><span class="line">           ,</span><br><span class="line">           &quot;word_meaning&quot;:&quot;XXXXXX&quot;,</span><br><span class="line">           &quot;word_pic&quot;:b&quot;0xFF AC 6C....&quot;</span><br><span class="line">           &#125;           </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="2-模糊查询指定单词"><a href="#2-模糊查询指定单词" class="headerlink" title="2. 模糊查询指定单词"></a>2. 模糊查询指定单词</h3><h4 id="接口功能-1"><a href="#接口功能-1" class="headerlink" title="接口功能"></a>接口功能</h4><blockquote>
 <p>给定单词，返回其相关词根至多十个</p>
@@ -1238,12 +1853,12 @@
 <td style="text-align:left">返回结果状态。1：精准匹配；-1 ： 错误</td>
 </tr>
 <tr>
-<td style="text-align:left">word_pronunciation</td>
+<td style="text-align:left">word_audio</td>
 <td style="text-align:left">string</td>
 <td style="text-align:left">单词发音</td>
 </tr>
 <tr>
-<td style="text-align:left">sentence_pronunciation</td>
+<td style="text-align:left">sentence_audio</td>
 <td style="text-align:left">string</td>
 <td style="text-align:left">例句发音</td>
 </tr>
@@ -1459,262 +2074,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/csapp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tjianke">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="My personal website">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/29/csapp/" itemprop="url">csapp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T23:05:17+08:00">
-                2018-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Short-intro-to-C"><a href="#Short-intro-to-C" class="headerlink" title="Short intro to C:"></a>Short intro to C:</h3><h4 id="Warm-up"><a href="#Warm-up" class="headerlink" title="Warm up"></a>Warm up</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt; studio.h&gt;                // C way of importing</span></span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">unsigned</span> <span class="title">sizeof</span><span class="params">(a)</span>             <span class="comment">//returns the num of byte</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span>     <span class="comment">// argc for num of param, argv is the array(0:function name)</span></span></span><br><span class="line">int* ptr_a, ptr_b;                  // bzzt! Fails</span><br></pre></td></tr></table></figure>
-<p>The smallest unit in computer world is bit, two status (0 or 1)</p>
-<p>8 bits = 1 byte </p>
-<p>Hexadecimals begin with 0x</p>
-<p>delimiter : \n \t</p>
-<p><strong>Directives :</strong><br>|Symbol |Meaning      |   |<br>|——-|————-|—|<br>|d      |digital      |   |<br>|lu     |long unsiged |   |<br>|p      |pointer      |   |<br>|%c| char |single character.|<br>|%d| (%i) |int signed integer.|<br>|%e |(%E) |float or double exponential format.|<br>|%f |float| or double signed decimal.|<br>|%g |(%G) |float or double use %f or %e as required.|<br>|%o |int |unsigned octal value.|<br>|%p| pointer |address stored in pointer.|</p>
-<p>8 C numeric type</p>
-<table>
-<thead>
-<tr>
-<th>C declaration</th>
-<th>32-bit</th>
-<th>64-bit</th>
-<th>range</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>char</td>
-<td>1</td>
-<td>1</td>
-<td>2^8</td>
-</tr>
-<tr>
-<td>short int</td>
-<td>2</td>
-<td>2</td>
-<td>2^16</td>
-</tr>
-<tr>
-<td>int</td>
-<td>4</td>
-<td>4</td>
-<td>2^32</td>
-</tr>
-<tr>
-<td>long int</td>
-<td>4</td>
-<td>8</td>
-<td>2^64</td>
-</tr>
-<tr>
-<td>long long int</td>
-<td>8</td>
-<td>8</td>
-<td>2^64</td>
-</tr>
-<tr>
-<td>char*(regardless of type)</td>
-<td>4</td>
-<td>8</td>
-<td>2^64</td>
-</tr>
-<tr>
-<td>float</td>
-<td>4</td>
-<td>8</td>
-<td>2^64</td>
-</tr>
-<tr>
-<td>double</td>
-<td>8</td>
-<td>8</td>
-<td>2^64</td>
-</tr>
-</tbody>
-</table>
-<p>Big endian vs Small endian argurs the order in which bit arranged</p>
-<p>Typedef helps to define certain type for brevity</p>
-<h4 id="Noisy-pointer"><a href="#Noisy-pointer" class="headerlink" title="Noisy pointer"></a>Noisy pointer</h4><p><a href="https://boredzo.org/pointers/" target="_blank" rel="noopener">An article i highly recommend to read about pointer</a></p>
-<p>Pointer points to the address of certain variable.</p>
-<p><strong>Addition in pointer</strong> : </p>
-<p><strong>Dereference </strong> : pointer with * on, assigns value</p>
-<p><strong>Pointing </strong> : pointer without *, points and only accepts an adress</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *array_ptr = <span class="built_in">array</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">" first element: %i\n"</span>, *(array_ptr++));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"second element: %i\n"</span>, *(array_ptr++));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">" third element: %i\n"</span>, *array_ptr);</span><br></pre></td></tr></table></figure>
-<p>Hex to bin : XXXX - HH</p>
-<h4 id="String-representation"><a href="#String-representation" class="headerlink" title="String representation"></a>String representation</h4><p>Each string in C is ended with 00s, and the most famous ones are ASCII character code.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show_bytes(<span class="string">"12345"</span>, <span class="number">6</span>);         <span class="comment">//output: 31 32 33 34 35 00(terminal)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *s = <span class="string">"abcdef"</span>;</span><br><span class="line">show_bytes((byte_pointer) s, <span class="built_in">strlen</span>(s));  <span class="comment">// output :61 62 63 64 65 66</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man ASCII // for ascii character code</span><br></pre></td></tr></table></figure>
-<caption text-align="center"> Operations of Boolean algebra</caption>
-
-<table>
-<thead>
-<tr>
-<th>~</th>
-<th>^</th>
-<th>&amp;</th>
-<th>slash</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>NOT</td>
-<td>XOR</td>
-<td>AND</td>
-<td>OR</td>
-</tr>
-</tbody>
-</table>
-<p>Fancy stuff here: swap two values without useing the third extra variable</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123; <span class="comment">// a = 12 10010 b = 32 = 110010</span></span><br><span class="line">    a = a ^ b;                 <span class="comment">// a^b = 10000</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The output is %d \n"</span>,a);</span><br><span class="line">    b = a ^ b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The output is %d \n"</span>,b);</span><br><span class="line">    a = a ^ b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The output is %d \n"</span>,a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Follow up:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse_array</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> cnt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> first, last;</span><br><span class="line">    <span class="keyword">for</span> (first = <span class="number">0</span>, last = cnt<span class="number">-1</span>;</span><br><span class="line">    first &lt;= last;</span><br><span class="line">    first++,last--)</span><br><span class="line">    inplace_swap(&amp;a[first], &amp;a[last]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong> Masking operation </strong>: </p>
-<h4 id="Shift-operation-in-C"><a href="#Shift-operation-in-C" class="headerlink" title="Shift operation in C:"></a>Shift operation in C:</h4><p>Logic : unsigned<br>Algorithmetic : signed one</p>
-<p>Casting is actually based on bit level operation</p>
-<p>explicit casting is possible as well:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">int</span> tx, ty;</span><br><span class="line"><span class="number">2</span> <span class="keyword">unsigned</span> ux, uy;</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span> tx = ux; <span class="comment">/* Cast to signed */</span></span><br><span class="line"><span class="number">5</span> uy = ty; <span class="comment">/* Cast to unsigned */</span></span><br></pre></td></tr></table></figure></p>
-<p>Operand tend perform implicit casting to unsigned.</p>
-<p>Extension</p>
-<p>Truncating</p>
-<p>Division in bit-level : first increment then right shift</p>
-<p>A quick way to negate a number : 1.complement 2.increment</p>
-<p>Common mistake with unsigned: sizeof() actually returns unsigned words</p>
-<p>C retro time :</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span></span></span><br><span class="line"><span class="keyword">typedef</span></span><br></pre></td></tr></table></figure>
-<p>word size: 32 bit / 64 bit</p>
-<p>Floating point:</p>
-<p>Discard the fractional binary representation.</p>
-<p>IEEE 744 standard :</p>
-<p>(-1)^s <em> 2^e </em> M<br>E = exp - bias</p>
-<p>1.Denoramlized<br>2.Normalized</p>
-<p>Default rounding : find the closest one</p>
-<h1 id="Bit-Bytes-and-Integers"><a href="#Bit-Bytes-and-Integers" class="headerlink" title="Bit ,Bytes and Integers"></a>Bit ,Bytes and Integers</h1><ol>
-<li>1 Byte = 8 bits = 2 hex digits</li>
-<li>Common data type presentation</li>
-<li>Boolean Algebra: And Or XOR Not</li>
-<li>Contrast Logical ops (with Termination) (p&amp;&amp;*p avoids null pointer access)</li>
-<li>shift ops,(logical &amp; algo)(Undefined for illegal shift)</li>
-<li>#include&lt;limits.h&gt; : ULONG_MAX,LONG_MAX</li>
-<li>Default:signed, Append U for Unsigned</li>
-<li>If there be mix of U and S, S is casted implicitly to U</li>
-<li>Little endian : refers to byte ordering </li>
-</ol>
-<h1 id="Floating-points"><a href="#Floating-points" class="headerlink" title="Floating points"></a>Floating points</h1><h2 id="1-Fractional-Binary-numbers"><a href="#1-Fractional-Binary-numbers" class="headerlink" title="1.Fractional Binary numbers:"></a>1.Fractional Binary numbers:</h2><p>limit: Only lists number that are very large or extremely samll</p>
-<h2 id="2-IEEE-Floating-Point"><a href="#2-IEEE-Floating-Point" class="headerlink" title="2. IEEE Floating Point"></a>2. IEEE Floating Point</h2><p>1.Chem way of rounding, when exact half round to even, no bias theoretically<br>2.Bias = 2^(k - 1) - 1 , k is the exp bit<br>3.Single precison, sign : 1, E : 8, frac : 23<br>4.Noramalized Number<br>5.Denormalized<br>6.Special cases:  exp = 111…1, frac = 000..0 represents infinity(overflow<br>NaN exp = 111…11, frac != 000.000<br>7.FP multiplication, (-1)^(s1)<em> M1</em> 2^(E1)</p>
-<pre><code>shift M to right, if more than 2, till overflow
-</code></pre><p>8.Casting</p>
-<pre><code>Float/double -&gt; int: truncate frac
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/15123 System programming in C & Unix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1841,6 +2200,10 @@ char * fgets(char *s, int size, FILE *stream)
 </li>
 </ul>
 <p>fgets uses at most size -1 </p>
+<h1 id="Lecture-05-Pointer-ctd"><a href="#Lecture-05-Pointer-ctd" class="headerlink" title="Lecture 05 Pointer ctd"></a>Lecture 05 Pointer ctd</h1><ol>
+<li>Two ways to swap strings:</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stringswap</span><span class="params">(<span class="keyword">char</span>** x, <span class="keyword">char</span>** y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *temp = *x;</span><br><span class="line">    *x = *y;</span><br><span class="line">    *y = temp;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">q4</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> *A=<span class="string">"guna\0"</span>, *B=<span class="string">"me\0"</span>;</span><br><span class="line">    stringswap(&amp;A,&amp;B); </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"A is %s, B is %s"</span>, A, B);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Lecture-06-07-Debugging-problems-with-GDB-and-memory-leaks"><a href="#Lecture-06-07-Debugging-problems-with-GDB-and-memory-leaks" class="headerlink" title="Lecture 06-07 Debugging problems with GDB and memory leaks"></a>Lecture 06-07 Debugging problems with GDB and memory leaks</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -ansi -Wall -pedantic main.c -o exec</span><br><span class="line">gcc -c -Wall -pedantic main.c </span><br><span class="line">gcc main.o -o exec</span><br></pre></td></tr></table></figure>
 <p>1.Common mistakes using pointers:</p>
 <ul>
@@ -1852,11 +2215,7 @@ char * fgets(char *s, int size, FILE *stream)
 <ol start="2">
 <li><em>/<strong>/</strong></em> what’s the difference?</li>
 </ol>
-<h1 id="Lecture-08-Dynamic-Memory-Managment"><a href="#Lecture-08-Dynamic-Memory-Managment" class="headerlink" title="Lecture 08 Dynamic Memory Managment"></a>Lecture 08 Dynamic Memory Managment</h1><p>1.Inclued by &lt;stdlib.h&gt; (malloc free realloc calloc)</p>
-<ul>
-<li>void* malloc(size_t size) always remember to check <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span>* p;</span><br><span class="line"><span class="keyword">if</span>((p = <span class="built_in">malloc</span>(n)) == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;<span class="comment">// memory is allocated&#125;;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<p>3.To start gdb, <figure class="highlight plain"><figcaption><span>-o test test.c -ggdb```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Lecture 08 Dynamic Memory Managment</span><br><span class="line">1.Inclued by &lt;stdlib.h&gt; (malloc free realloc calloc)</span><br><span class="line"></span><br><span class="line">- void* malloc(size_t size) always remember to check </span><br><span class="line">```C</span><br><span class="line">void* p;</span><br><span class="line">if((p = malloc(n)) == NULL) return 1;</span><br><span class="line">else</span><br><span class="line">&#123;// memory is allocated&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>2.frees any memo allocated by previous malloc call<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">free</span>(A);</span><br></pre></td></tr></table></figure></p>
 <p>3.calloc(n,sizeof(int)) equals to malloc(n*sizeof(int))</p>
 <p>4.realloc(void *ptr, size_t size)</p>
@@ -1865,12 +2224,16 @@ char * fgets(char *s, int size, FILE *stream)
 <li>Memory leak Example:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> A[n],i=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line"> A[i] = random();</span><br><span class="line"><span class="keyword">int</span>* B = <span class="built_in">malloc</span>(<span class="number">2</span>*n);</span><br><span class="line">B = A; <span class="comment">//A=B, illegal</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>6.Automatic VS Dynamic variables</p>
+<p>6.Automatic VS Dynamic variables(assigned through malloc and calloc)</p>
 <ul>
-<li>int x, x is assigned by stack and pop when out of stack</li>
-<li>int *A = malloc(100); provided in heap</li>
+<li>int x, x is assigned by stack and pop when out of stack </li>
+<li>int *A = malloc(100); provided in heap, high memory </li>
 </ul>
-<h1 id="lecture-09"><a href="#lecture-09" class="headerlink" title="lecture 09"></a>lecture 09</h1><h1 id="Supplement-Lecture-Socket"><a href="#Supplement-Lecture-Socket" class="headerlink" title="Supplement Lecture Socket"></a>Supplement Lecture Socket</h1><p>1.IP address, 32 bit address divided into 5 types</p>
+<p>7 Memcpy and Memmove<br><figure class="highlight plain"><figcaption><span>dest, void* src, size_t n)```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># lecture 09 C Structs</span><br><span class="line">1. Basic info</span><br><span class="line"></span><br><span class="line">``` C</span><br><span class="line">typedef struct&#123;</span><br><span class="line">    char* name;</span><br><span class="line">    int size;</span><br><span class="line">&#125; node;</span><br><span class="line"></span><br><span class="line">node* ptr;</span><br><span class="line">ptr-&gt;name = &quot;Test&quot;;</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>BMP header extraction, use fread(void * ptr, size_t size, size_t nitems, FILEwe  stream)</li>
+</ol>
+<h1 id="Supplement-Lecture-Socket"><a href="#Supplement-Lecture-Socket" class="headerlink" title="Supplement Lecture Socket"></a>Supplement Lecture Socket</h1><p>1.IP address, 32 bit address divided into 5 types</p>
 <ul>
 <li>In Unix, each I/O is related with file descriptors. An integer associated with an open file and it can be network connection etc</li>
 </ul>
