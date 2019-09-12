@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="It&apos;s my personal blog.">
+<meta name="description" content="Two ways to implement Comparator in Java:  1234567// Traditionalclass comparator implements Comparator&amp;lt;T&amp;gt;&amp;#123;    @overrides    public int compare(T item1, T item2)&amp;#123;        return XXX; //">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java">
 <meta property="og:url" content="http://yoursite.com/2018/11/29/Java/index.html">
 <meta property="og:site_name" content="My personal website">
-<meta property="og:description" content="It&apos;s my personal blog.">
+<meta property="og:description" content="Two ways to implement Comparator in Java:  1234567// Traditionalclass comparator implements Comparator&amp;lt;T&amp;gt;&amp;#123;    @overrides    public int compare(T item1, T item2)&amp;#123;        return XXX; //">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T15:24:34.779Z">
+<meta property="og:updated_time" content="2019-06-03T11:26:43.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java">
-<meta name="twitter:description" content="It&apos;s my personal blog.">
+<meta name="twitter:description" content="Two ways to implement Comparator in Java:  1234567// Traditionalclass comparator implements Comparator&amp;lt;T&amp;gt;&amp;#123;    @overrides    public int compare(T item1, T item2)&amp;#123;        return XXX; //">
 
 
 
@@ -299,7 +299,100 @@
       
 
       
-        
+        <ol>
+<li><p>Two ways to implement Comparator in Java:</p>
+<ol>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Traditional</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">comparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="meta">@overrides</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(T item1, T item2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> XXX; <span class="comment">// comparsion here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Lambda way:</span></span><br><span class="line">Comparator&lt;T&gt; cmp = <span class="keyword">new</span> Comparator&lt;T&gt;((item1, item2)-&gt; item1.getNum() - item2.getNum());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Difference between Lambda and Anonymous functions</p>
+</li>
+</ol>
+</li>
+<li><p>Deep copy and shallow copy:</p>
+<ol>
+<li><p>Object function,  <strong>equals</strong>  </p>
+<blockquote>
+<p>The <code>equals</code> method for class <code>Object</code> implements the most discriminating possible equivalence relation on objects; that is, for any non-null reference values <code>x</code> and <code>y</code>, this method returns <code>true</code> if and only if <code>x</code> and <code>y</code> refer to the same object (<code>x == y</code> has the value <code>true</code>).</p>
+</blockquote>
+<p>However, in general, <strong>equals</strong> compares contents.</p>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li>shallow copy, <strong>== </strong> compares object address.</li>
+</ol>
+<ol start="3">
+<li><p>Every Java must declare a class or interfaces.</p>
+</li>
+<li><p>Java character : Statically checked before execution</p>
+</li>
+<li><p>Java <strong>Pass by value</strong> </p>
+</li>
+<li><p>Method overloading : Java recognizes types needed </p>
+</li>
+<li><p>Java Inheritence :</p>
+<ol>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">student</span> <span class="keyword">implements</span> <span class="title">people</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>supports multi-generational</p>
+</li>
+<li><p><strong><em>Interface Inheritance</em></strong> (extends) only inherits signatures, not CODE!!!</p>
+<ol>
+<li>Adding <strong><em>default</em></strong> in interfaces allows you to let inherit implementation</li>
+</ol>
+</li>
+<li><p>Static and Dynamic typing, Dynamic method selection:</p>
+<ol>
+<li><p>Static type : won’t change, as declared</p>
+</li>
+<li><p>dynamic type : determined with instantiation </p>
+</li>
+<li><p>dynamic method selection : </p>
+<ol>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">   List61B&lt;String&gt; s1= <span class="keyword">new</span> SLList&lt;String&gt;();</span><br><span class="line">   someList.addLast(<span class="string">"elk"</span>);</span><br><span class="line">   someList.addLast(<span class="string">"are"</span>);</span><br><span class="line">   someList.addLast(<span class="string">"watching"</span>);</span><br><span class="line">   someList.print(); <span class="comment">// uses SLList's print</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>As for class - to - class( <strong><em>Implementation Inheritance</em></strong> ), use key word “Extends”:</p>
+<ol>
+<li><p>All constructors must start with a call to super class( super( ) )(<strong>Java automatically does for you</strong>)</p>
+<ol>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">VengefulSLList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">super</span>();</span><br><span class="line">   deletedItems = <span class="keyword">new</span> SLList&lt;Item&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. Casting simply skips type check
+
+   1. For overridden non-static methods the actual method invoked is based on **dynamic** type of invoking expression;
+   2. For everything else, base on static type
+</code></pre><ol start="6">
+<li>Polymorphism : providing a single interface to different types of entities</li>
+</ol>
+<ol start="8">
+<li><p>Diff between HashTable and HashMap:</p>
+<ol>
+<li>table is <strong><em>synchronized</em></strong>, while map is not.</li>
+<li>map allows null value and supports linkedhashmap(ordered iteration)</li>
+</ol>
+</li>
+<li><p><strong><em>Iterator</em></strong> and <strong><em>Iterable</em></strong>  difference:</p>
+<ol>
+<li><strong><em>Iterable</em></strong> allows for-each operation by calling <code>iterator()</code> </li>
+<li><strong><em>Iterator</em></strong> provides <code>hasNext()</code> and <code>next()</code> to iterate, room for DIY iteration;</li>
+</ol>
+</li>
+</ol>
+
       
     </div>
     
@@ -323,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/29/Backend/" rel="next" title="Backend">
-                <i class="fa fa-chevron-left"></i> Backend
+              <a href="/2018/11/29/API doc/" rel="next" title="API Doc">
+                <i class="fa fa-chevron-left"></i> API Doc
               </a>
             
           </div>
